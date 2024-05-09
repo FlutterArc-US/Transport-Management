@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "865789548290",
+    "project_id": "transport-management-ec276",
+    "storage_bucket": "transport-management-ec276.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865789548290:android:935c8f1aeb20a0ec7c141b",
+        "android_client_info": {
+          "package_name": "com.wolfiz.transport_management"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiMCMUryemVYGLzNBa-tb5CkzzsGFmiqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
