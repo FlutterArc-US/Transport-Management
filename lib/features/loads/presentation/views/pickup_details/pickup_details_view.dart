@@ -1,14 +1,14 @@
-import 'package:avcons/common/extensions/app_localization.dart';
-import 'package:avcons/common/extensions/num.dart';
-import 'package:avcons/common/widgets/app_text.dart';
-import 'package:avcons/common/widgets/back_button_widget.dart';
-import 'package:avcons/features/loads/presentation/views/load_details/widgets/all_reviews_widget.dart';
-import 'package:avcons/features/loads/presentation/views/pickup_details/widgets/additional_details_widget.dart';
-import 'package:avcons/features/loads/presentation/views/pickup_details/widgets/commodity_widget.dart';
-import 'package:avcons/features/loads/presentation/views/pickup_details/widgets/reference_number_widget.dart';
-import 'package:avcons/features/loads/presentation/views/pickup_details/widgets/shipper_notes_widget.dart';
-import 'package:avcons/gen/assets.gen.dart';
-import 'package:avcons/util/resources/r.dart';
+import 'package:transport_management/common/extensions/app_localization.dart';
+import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_text.dart';
+import 'package:transport_management/common/widgets/back_button_widget.dart';
+import 'package:transport_management/features/loads/presentation/views/load_details/widgets/all_reviews_widget.dart';
+import 'package:transport_management/features/loads/presentation/views/pickup_details/widgets/additional_details_widget.dart';
+import 'package:transport_management/features/loads/presentation/views/pickup_details/widgets/commodity_widget.dart';
+import 'package:transport_management/features/loads/presentation/views/pickup_details/widgets/reference_number_widget.dart';
+import 'package:transport_management/features/loads/presentation/views/pickup_details/widgets/shipper_notes_widget.dart';
+import 'package:transport_management/gen/assets.gen.dart';
+import 'package:transport_management/util/resources/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

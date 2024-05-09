@@ -1,4 +1,4 @@
-import 'package:avcons/features/loads/domain/enums/shipment_type/shipment_type.dart';
+import 'package:transport_management/features/loads/domain/enums/shipment_type/shipment_type.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'shipment_type_provider.g.dart';

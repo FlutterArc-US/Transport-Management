@@ -1,4 +1,4 @@
-import 'package:avcons/features/loads/domain/enums/travelling_type/travelling_type.dart';
+import 'package:transport_management/features/loads/domain/enums/travelling_type/travelling_type.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'travelling_type_provider.g.dart';

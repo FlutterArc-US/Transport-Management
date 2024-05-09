@@ -1,14 +1,14 @@
-import 'package:avcons/common/extensions/num.dart';
-import 'package:avcons/common/widgets/app_exit_dialog.dart';
-import 'package:avcons/features/home/domain/enums/bottom_nav_item.dart';
-import 'package:avcons/features/home/presentation/providers/selected_nav_item_provider/selected_nav_item_provider.dart';
-import 'package:avcons/features/home/presentation/views/widgets/bottom_nav_bar.dart';
-import 'package:avcons/features/home/presentation/views/widgets/drawer_widget.dart';
-import 'package:avcons/features/home/presentation/views/widgets/menu_notification_header.dart';
-import 'package:avcons/features/loads/presentation/views/my_loads/my_loads_view.dart';
-import 'package:avcons/features/loads/presentation/views/post_truck/post_truck_view.dart';
-import 'package:avcons/features/loads/presentation/views/requests/requests_view.dart';
-import 'package:avcons/util/resources/r.dart';
+import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_exit_dialog.dart';
+import 'package:transport_management/features/home/domain/enums/bottom_nav_item.dart';
+import 'package:transport_management/features/home/presentation/providers/selected_nav_item_provider/selected_nav_item_provider.dart';
+import 'package:transport_management/features/home/presentation/views/widgets/bottom_nav_bar.dart';
+import 'package:transport_management/features/home/presentation/views/widgets/drawer_widget.dart';
+import 'package:transport_management/features/home/presentation/views/widgets/menu_notification_header.dart';
+import 'package:transport_management/features/loads/presentation/views/my_loads/my_loads_view.dart';
+import 'package:transport_management/features/loads/presentation/views/post_truck/post_truck_view.dart';
+import 'package:transport_management/features/loads/presentation/views/requests/requests_view.dart';
+import 'package:transport_management/util/resources/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

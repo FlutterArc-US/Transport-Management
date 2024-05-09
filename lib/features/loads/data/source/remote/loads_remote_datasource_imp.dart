@@ -1,12 +1,12 @@
 ////********** START IMPORTS **********////
-import 'package:avcons/features/loads/data/entities/load/rest_load.dart';
-import 'package:avcons/features/loads/data/source/remote/loads_remote_datasource.dart';
-import 'package:avcons/features/loads/domain/usecases/book_load.dart';
-import 'package:avcons/features/loads/domain/usecases/get_booked_loads.dart';
-import 'package:avcons/features/loads/domain/usecases/get_loads.dart';
-import 'package:avcons/helpers/network_call_helper/network_call_helper.dart';
-import 'package:avcons/util/consts/api.dart';
-import 'package:avcons/util/exceptions/message_exception.dart';
+import 'package:transport_management/features/loads/data/entities/load/rest_load.dart';
+import 'package:transport_management/features/loads/data/source/remote/loads_remote_datasource.dart';
+import 'package:transport_management/features/loads/domain/usecases/book_load.dart';
+import 'package:transport_management/features/loads/domain/usecases/get_booked_loads.dart';
+import 'package:transport_management/features/loads/domain/usecases/get_loads.dart';
+import 'package:transport_management/helpers/network_call_helper/network_call_helper.dart';
+import 'package:transport_management/util/consts/api.dart';
+import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 ////********** END IMPORTS **********////

@@ -1,7 +1,7 @@
 ////********** START IMPORTS **********////
-import 'package:avcons/features/onboarding/domain/usecases/is_onboard_seen.dart';
-import 'package:avcons/features/onboarding/domain/usecases/set_onboard_seen.dart';
-import 'package:avcons/infrastructure/datasource.dart';
+import 'package:transport_management/features/onboarding/domain/usecases/is_onboard_seen.dart';
+import 'package:transport_management/features/onboarding/domain/usecases/set_onboard_seen.dart';
+import 'package:transport_management/infrastructure/datasource.dart';
 ////********** END IMPORTS **********////
 
 abstract class OnboardingLocalDataSource extends DataSource {

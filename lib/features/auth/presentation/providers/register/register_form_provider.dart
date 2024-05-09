@@ -1,4 +1,4 @@
-import 'package:avcons/features/auth/domain/models/register_form/register_form_model.dart';
+import 'package:transport_management/features/auth/domain/models/register_form/register_form_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'register_form_provider.g.dart';

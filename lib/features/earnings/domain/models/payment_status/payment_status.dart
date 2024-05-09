@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:avcons/util/resources/r.dart';
+import 'package:transport_management/util/resources/r.dart';
 
 enum PaymentStatus {
   paid,

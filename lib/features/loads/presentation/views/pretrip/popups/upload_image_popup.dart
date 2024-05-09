@@ -1,10 +1,10 @@
-import 'package:avcons/common/extensions/app_localization.dart';
-import 'package:avcons/common/extensions/num.dart';
-import 'package:avcons/features/auth/presentation/providers/update_profile_provider/update_profile_form_provider.dart';
-import 'package:avcons/util/loading/loading.dart';
-import 'package:avcons/util/pick_image/pick_image.dart';
-import 'package:avcons/util/resources/r.dart';
-import 'package:avcons/util/toast/toast.dart';
+import 'package:transport_management/common/extensions/app_localization.dart';
+import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_form_provider.dart';
+import 'package:transport_management/util/loading/loading.dart';
+import 'package:transport_management/util/pick_image/pick_image.dart';
+import 'package:transport_management/util/resources/r.dart';
+import 'package:transport_management/util/toast/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

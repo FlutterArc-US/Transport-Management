@@ -1,5 +1,5 @@
-import 'package:avcons/features/onboarding/domain/models/onboard_page_model.dart';
-import 'package:avcons/gen/assets.gen.dart';
+import 'package:transport_management/features/onboarding/domain/models/onboard_page_model.dart';
+import 'package:transport_management/gen/assets.gen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'onboard_page_data_provider.g.dart';

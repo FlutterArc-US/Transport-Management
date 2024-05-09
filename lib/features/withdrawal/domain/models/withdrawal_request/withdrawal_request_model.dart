@@ -1,4 +1,4 @@
-import 'package:avcons/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_entity.dart';
+import 'package:transport_management/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_entity.dart';
 
 class WithdrawalRequestModel {
   final String amount;

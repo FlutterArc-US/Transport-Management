@@ -1,6 +1,6 @@
-import 'package:avcons/features/auth/data/entities/vehicle_model/rest_vehicle_model.dart';
-import 'package:avcons/features/loads/data/entities/delivery/rest_location.dart';
-import 'package:avcons/features/loads/domain/models/load/load_entity.dart';
+import 'package:transport_management/features/auth/data/entities/vehicle_model/rest_vehicle_model.dart';
+import 'package:transport_management/features/loads/data/entities/delivery/rest_location.dart';
+import 'package:transport_management/features/loads/domain/models/load/load_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'rest_load.freezed.dart';

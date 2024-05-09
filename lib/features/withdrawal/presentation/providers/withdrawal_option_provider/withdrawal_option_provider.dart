@@ -1,4 +1,4 @@
-import 'package:avcons/features/withdrawal/domain/enums/withdrawal_option.dart';
+import 'package:transport_management/features/withdrawal/domain/enums/withdrawal_option.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'withdrawal_option_provider.g.dart';

@@ -1,5 +1,5 @@
-import 'package:avcons/features/auth/domain/models/vehicle/vehicle_entity.dart';
-import 'package:avcons/features/auth/domain/models/vehicle_model/vehicle_model_model.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle/vehicle_entity.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle_model/vehicle_model_model.dart';
 
 class VehicleModel {
   final int id;

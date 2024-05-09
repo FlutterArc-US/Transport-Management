@@ -1,4 +1,4 @@
-import 'package:avcons/features/loads/domain/enums/sorting_preference/sorting_preference.dart';
+import 'package:transport_management/features/loads/domain/enums/sorting_preference/sorting_preference.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'sort_preference_provider.g.dart';

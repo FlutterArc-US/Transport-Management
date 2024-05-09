@@ -1,5 +1,5 @@
-import 'package:avcons/common/widgets/custom_text_form_field.dart';
-import 'package:avcons/util/resources/r.dart';
+import 'package:transport_management/common/widgets/custom_text_form_field.dart';
+import 'package:transport_management/util/resources/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

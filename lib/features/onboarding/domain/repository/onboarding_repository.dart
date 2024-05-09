@@ -1,7 +1,7 @@
 ////********** START IMPORTS **********////
-import 'package:avcons/features/onboarding/domain/usecases/is_onboard_seen.dart';
-import 'package:avcons/features/onboarding/domain/usecases/set_onboard_seen.dart';
-import 'package:avcons/infrastructure/repository.dart';
+import 'package:transport_management/features/onboarding/domain/usecases/is_onboard_seen.dart';
+import 'package:transport_management/features/onboarding/domain/usecases/set_onboard_seen.dart';
+import 'package:transport_management/infrastructure/repository.dart';
 ////********** END IMPORTS **********////
 
 abstract class OnboardingRepository extends Repository {

@@ -1,6 +1,6 @@
-import 'package:avcons/common/extensions/app_localization.dart';
-import 'package:avcons/common/extensions/num.dart';
-import 'package:avcons/common/widgets/app_text.dart';
+import 'package:transport_management/common/extensions/app_localization.dart';
+import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

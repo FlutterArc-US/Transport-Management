@@ -1,7 +1,7 @@
-import 'package:avcons/features/auth/presentation/providers/bearer_provider/bearer_provider.dart';
-import 'package:avcons/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_model.dart';
-import 'package:avcons/features/withdrawal/domain/usecases/get_withdrawal_requests.dart';
-import 'package:avcons/util/di/di.dart';
+import 'package:transport_management/features/auth/presentation/providers/bearer_provider/bearer_provider.dart';
+import 'package:transport_management/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_model.dart';
+import 'package:transport_management/features/withdrawal/domain/usecases/get_withdrawal_requests.dart';
+import 'package:transport_management/util/di/di.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'withdrawal_requests_provider.g.dart';

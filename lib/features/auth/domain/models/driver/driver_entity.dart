@@ -1,4 +1,4 @@
-import 'package:avcons/features/auth/domain/models/vehicle/vehicle_entity.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle/vehicle_entity.dart';
 
 abstract class DriverEntity {
   final int id;

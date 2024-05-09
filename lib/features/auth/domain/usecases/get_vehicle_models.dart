@@ -1,9 +1,9 @@
-import 'package:avcons/features/auth/domain/models/vehicle_model/vehicle_model_entity.dart';
-import 'package:avcons/features/auth/domain/models/vehicle_model/vehicle_model_model.dart';
-import 'package:avcons/features/auth/domain/repository/auth_repository.dart';
-import 'package:avcons/infrastructure/usecase.dart';
-import 'package:avcons/infrastructure/usecase_input.dart';
-import 'package:avcons/infrastructure/usecase_output.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle_model/vehicle_model_entity.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle_model/vehicle_model_model.dart';
+import 'package:transport_management/features/auth/domain/repository/auth_repository.dart';
+import 'package:transport_management/infrastructure/usecase.dart';
+import 'package:transport_management/infrastructure/usecase_input.dart';
+import 'package:transport_management/infrastructure/usecase_output.dart';
 import 'package:injectable/injectable.dart';
 
 class GetVehicleModelsUsecaseInput extends Input {

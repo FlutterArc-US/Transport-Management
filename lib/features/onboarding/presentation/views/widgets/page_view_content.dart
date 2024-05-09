@@ -1,5 +1,5 @@
-import 'package:avcons/common/extensions/num.dart';
-import 'package:avcons/features/onboarding/presentation/views/widgets/intro_headline_and_description_widget.dart';
+import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/features/onboarding/presentation/views/widgets/intro_headline_and_description_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

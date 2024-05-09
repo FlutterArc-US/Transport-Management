@@ -1,4 +1,4 @@
-import 'package:avcons/gen/assets.gen.dart';
+import 'package:transport_management/gen/assets.gen.dart';
 
 enum ShipmentTypeModel {
   pickup,

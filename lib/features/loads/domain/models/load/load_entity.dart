@@ -1,5 +1,5 @@
-import 'package:avcons/features/auth/domain/models/vehicle_model/vehicle_model_entity.dart';
-import 'package:avcons/features/loads/domain/models/delivery/location_entity.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle_model/vehicle_model_entity.dart';
+import 'package:transport_management/features/loads/domain/models/delivery/location_entity.dart';
 
 abstract class LoadEntity {
   final int id;

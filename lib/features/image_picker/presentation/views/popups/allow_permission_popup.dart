@@ -1,9 +1,9 @@
-import 'package:avcons/common/extensions/app_localization.dart';
-import 'package:avcons/common/extensions/num.dart';
-import 'package:avcons/common/widgets/app_filled_button.dart';
-import 'package:avcons/common/widgets/app_outlined_text_button.dart';
-import 'package:avcons/common/widgets/dialog_box.dart';
-import 'package:avcons/util/resources/r.dart';
+import 'package:transport_management/common/extensions/app_localization.dart';
+import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_filled_button.dart';
+import 'package:transport_management/common/widgets/app_outlined_text_button.dart';
+import 'package:transport_management/common/widgets/dialog_box.dart';
+import 'package:transport_management/util/resources/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';

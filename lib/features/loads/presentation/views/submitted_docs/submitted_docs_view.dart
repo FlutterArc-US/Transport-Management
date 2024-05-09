@@ -1,15 +1,15 @@
 import 'dart:io';
 
-import 'package:avcons/common/extensions/app_localization.dart';
-import 'package:avcons/common/extensions/num.dart';
-import 'package:avcons/common/widgets/app_filled_button.dart';
-import 'package:avcons/common/widgets/app_text.dart';
-import 'package:avcons/common/widgets/back_button_widget.dart';
-import 'package:avcons/features/loads/presentation/providers/submitted_docs_provider/selected_submitted_docs_provider.dart';
-import 'package:avcons/features/loads/presentation/providers/submitted_docs_provider/submitted_docs_provider.dart';
-import 'package:avcons/features/loads/presentation/views/pretrip/popups/upload_image_popup.dart';
-import 'package:avcons/features/loads/presentation/views/submitted_docs/popups/docs_submitted_popup.dart';
-import 'package:avcons/util/resources/r.dart';
+import 'package:transport_management/common/extensions/app_localization.dart';
+import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_filled_button.dart';
+import 'package:transport_management/common/widgets/app_text.dart';
+import 'package:transport_management/common/widgets/back_button_widget.dart';
+import 'package:transport_management/features/loads/presentation/providers/submitted_docs_provider/selected_submitted_docs_provider.dart';
+import 'package:transport_management/features/loads/presentation/providers/submitted_docs_provider/submitted_docs_provider.dart';
+import 'package:transport_management/features/loads/presentation/views/pretrip/popups/upload_image_popup.dart';
+import 'package:transport_management/features/loads/presentation/views/submitted_docs/popups/docs_submitted_popup.dart';
+import 'package:transport_management/util/resources/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,4 +1,4 @@
-import 'package:avcons/features/loads/domain/models/delivery/location_entity.dart';
+import 'package:transport_management/features/loads/domain/models/delivery/location_entity.dart';
 
 class LocationModel {
   final int id;

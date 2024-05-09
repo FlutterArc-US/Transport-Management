@@ -1,5 +1,5 @@
-import 'package:avcons/features/onboarding/domain/usecases/is_onboard_seen.dart';
-import 'package:avcons/util/di/di.dart';
+import 'package:transport_management/features/onboarding/domain/usecases/is_onboard_seen.dart';
+import 'package:transport_management/util/di/di.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

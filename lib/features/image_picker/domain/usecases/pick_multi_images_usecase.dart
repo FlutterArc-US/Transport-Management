@@ -1,6 +1,6 @@
-import 'package:avcons/helpers/image_picker/image_picker.dart';
-import 'package:avcons/infrastructure/usecase.dart';
-import 'package:avcons/infrastructure/usecase_input.dart';
+import 'package:transport_management/helpers/image_picker/image_picker.dart';
+import 'package:transport_management/infrastructure/usecase.dart';
+import 'package:transport_management/infrastructure/usecase_input.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton

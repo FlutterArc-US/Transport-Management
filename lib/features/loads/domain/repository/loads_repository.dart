@@ -1,8 +1,8 @@
 ////********** START IMPORTS **********////
-import 'package:avcons/features/loads/domain/usecases/book_load.dart';
-import 'package:avcons/features/loads/domain/usecases/get_booked_loads.dart';
-import 'package:avcons/features/loads/domain/usecases/get_loads.dart';
-import 'package:avcons/infrastructure/repository.dart';
+import 'package:transport_management/features/loads/domain/usecases/book_load.dart';
+import 'package:transport_management/features/loads/domain/usecases/get_booked_loads.dart';
+import 'package:transport_management/features/loads/domain/usecases/get_loads.dart';
+import 'package:transport_management/infrastructure/repository.dart';
 ////********** END IMPORTS **********////
 
 abstract class LoadsRepository extends Repository {

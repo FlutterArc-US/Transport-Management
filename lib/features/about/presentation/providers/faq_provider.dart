@@ -1,5 +1,5 @@
-import 'package:avcons/features/about/domain/models/faq_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:transport_management/features/about/domain/models/faq_model.dart';
 
 part 'faq_provider.g.dart';
 

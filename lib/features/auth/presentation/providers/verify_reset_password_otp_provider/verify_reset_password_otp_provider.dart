@@ -1,7 +1,7 @@
-import 'package:avcons/features/auth/domain/usecases/verify_otp.dart';
-import 'package:avcons/features/auth/presentation/providers/otp_form_provider/otp_form_provider.dart';
-import 'package:avcons/features/auth/presentation/providers/reset_password/reset_password_form_provider.dart';
-import 'package:avcons/util/di/di.dart';
+import 'package:transport_management/features/auth/domain/usecases/verify_otp.dart';
+import 'package:transport_management/features/auth/presentation/providers/otp_form_provider/otp_form_provider.dart';
+import 'package:transport_management/features/auth/presentation/providers/reset_password/reset_password_form_provider.dart';
+import 'package:transport_management/util/di/di.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'verify_reset_password_otp_provider.g.dart';

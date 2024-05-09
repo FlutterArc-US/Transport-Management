@@ -1,8 +1,8 @@
 ////********** START IMPORTS **********////
-import 'package:avcons/features/onboarding/data/source/local/onboarding_local_datasource.dart';
-import 'package:avcons/features/onboarding/domain/repository/onboarding_repository.dart';
-import 'package:avcons/features/onboarding/domain/usecases/is_onboard_seen.dart';
-import 'package:avcons/features/onboarding/domain/usecases/set_onboard_seen.dart';
+import 'package:transport_management/features/onboarding/data/source/local/onboarding_local_datasource.dart';
+import 'package:transport_management/features/onboarding/domain/repository/onboarding_repository.dart';
+import 'package:transport_management/features/onboarding/domain/usecases/is_onboard_seen.dart';
+import 'package:transport_management/features/onboarding/domain/usecases/set_onboard_seen.dart';
 import 'package:injectable/injectable.dart';
 ////********** END IMPORTS **********////
 

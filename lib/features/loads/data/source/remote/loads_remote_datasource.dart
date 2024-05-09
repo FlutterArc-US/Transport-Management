@@ -1,8 +1,8 @@
 ////********** START IMPORTS **********////
-import 'package:avcons/features/loads/domain/usecases/book_load.dart';
-import 'package:avcons/features/loads/domain/usecases/get_booked_loads.dart';
-import 'package:avcons/features/loads/domain/usecases/get_loads.dart';
-import 'package:avcons/infrastructure/datasource.dart';
+import 'package:transport_management/features/loads/domain/usecases/book_load.dart';
+import 'package:transport_management/features/loads/domain/usecases/get_booked_loads.dart';
+import 'package:transport_management/features/loads/domain/usecases/get_loads.dart';
+import 'package:transport_management/infrastructure/datasource.dart';
 ////********** END IMPORTS **********////
 
 abstract class LoadsRemoteDataSource extends DataSource {

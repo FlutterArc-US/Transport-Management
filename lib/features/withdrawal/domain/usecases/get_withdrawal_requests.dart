@@ -1,9 +1,9 @@
-import 'package:avcons/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_entity.dart';
-import 'package:avcons/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_model.dart';
-import 'package:avcons/features/withdrawal/domain/repository/withdrawal_repository.dart';
-import 'package:avcons/infrastructure/usecase.dart';
-import 'package:avcons/infrastructure/usecase_input.dart';
-import 'package:avcons/infrastructure/usecase_output.dart';
+import 'package:transport_management/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_entity.dart';
+import 'package:transport_management/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_model.dart';
+import 'package:transport_management/features/withdrawal/domain/repository/withdrawal_repository.dart';
+import 'package:transport_management/infrastructure/usecase.dart';
+import 'package:transport_management/infrastructure/usecase_input.dart';
+import 'package:transport_management/infrastructure/usecase_output.dart';
 import 'package:injectable/injectable.dart';
 
 class GetWithdrawalRequestsUsecaseInput extends Input {

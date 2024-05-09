@@ -1,7 +1,7 @@
-import 'package:avcons/common/extensions/app_localization.dart';
-import 'package:avcons/features/loads/domain/enums/my_loads_tab/my_loads_tab.dart';
-import 'package:avcons/features/loads/presentation/providers/my_loads_tab_bar_provider/my_loads_tab_bar_provider.dart';
-import 'package:avcons/util/resources/r.dart';
+import 'package:transport_management/common/extensions/app_localization.dart';
+import 'package:transport_management/features/loads/domain/enums/my_loads_tab/my_loads_tab.dart';
+import 'package:transport_management/features/loads/presentation/providers/my_loads_tab_bar_provider/my_loads_tab_bar_provider.dart';
+import 'package:transport_management/util/resources/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

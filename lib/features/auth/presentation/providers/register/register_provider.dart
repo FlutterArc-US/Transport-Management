@@ -1,7 +1,7 @@
-import 'package:avcons/features/auth/domain/usecases/register_driver.dart';
-import 'package:avcons/features/auth/domain/usecases/save_auth.dart';
-import 'package:avcons/features/auth/presentation/providers/register/register_form_provider.dart';
-import 'package:avcons/util/di/di.dart';
+import 'package:transport_management/features/auth/domain/usecases/register_driver.dart';
+import 'package:transport_management/features/auth/domain/usecases/save_auth.dart';
+import 'package:transport_management/features/auth/presentation/providers/register/register_form_provider.dart';
+import 'package:transport_management/util/di/di.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

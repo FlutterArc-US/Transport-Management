@@ -1,5 +1,5 @@
-import 'package:avcons/features/auth/domain/models/driver/driver_entity.dart';
-import 'package:avcons/features/auth/domain/models/vehicle/vehicle_model.dart';
+import 'package:transport_management/features/auth/domain/models/driver/driver_entity.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle/vehicle_model.dart';
 
 class DriverModel {
   final int id;
