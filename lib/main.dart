@@ -5,11 +5,17 @@ import './common/extensions/num.dart';
 import './util/router/router.dart';
 import './helpers/persistence/persistence_helper.dart';
 import './util/di/di.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await sl<PersistenceHelper>().init();
   runApp(const MyApp());
 }
