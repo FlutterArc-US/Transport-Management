@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +19,9 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await sl<PersistenceHelper>().init();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const MyApp());
 }
 
@@ -25,10 +29,13 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
+
+  static MyAppState? of(BuildContext context) =>
+      context.findAncestorStateOfType<MyAppState>();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   Locale? _locale;
 
   void setLocale(Locale value) {
@@ -52,10 +59,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class ProviderApp extends StatefulWidget {
-  const ProviderApp({
-    required this.locale,
-    Key? key,
-  }) : super(key: key);
+  const ProviderApp({required this.locale, Key? key}) : super(key: key);
 
   final Locale? locale;
 
@@ -74,11 +78,12 @@ class _ProviderAppState extends State<ProviderApp> {
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp.router(
+        key: navigatorKey,
         debugShowCheckedModeBanner: false,
-        // You can use the library anywhere in the app even in theme
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          fontFamily: "Inter",
+          fontFamily: 'Urbanist',
+          useMaterial3: false,
         ),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
