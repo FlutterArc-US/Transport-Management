@@ -1,10 +1,10 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
-import 'persistence_helper.dart';
+import 'package:transport_management/helpers/persistence/persistence_helper.dart';
 
 @Singleton(as: PersistenceHelper)
 class PersistenceHelperImpl implements PersistenceHelper {
-  late final Box _settingsBox;
+  late final Box<dynamic> _settingsBox;
 
   final _settingBoxName = 'settings';
 
@@ -52,4 +52,3 @@ class PersistenceHelperImpl implements PersistenceHelper {
     await _settingsBox.delete(key);
   }
 }
-

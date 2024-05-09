@@ -1,8 +1,9 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
-import 'network_call_helper.dart';
+import 'package:transport_management/helpers/network_call_helper/network_call_helper.dart';
 
 @LazySingleton(as: NetworkCallHelper)
 class HttpNetworkCallHelperImpl implements NetworkCallHelper {
