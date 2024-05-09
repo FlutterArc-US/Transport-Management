@@ -1,7 +1,7 @@
-import 'di.config.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
+import 'package:transport_management/util/di/di.config.dart';
 
 ///[Global Sl]
 final sl = GetIt.instance;
