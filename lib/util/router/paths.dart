@@ -1,0 +1,4 @@
+class RoutePaths {
+  RoutePaths._();
+}
+  
