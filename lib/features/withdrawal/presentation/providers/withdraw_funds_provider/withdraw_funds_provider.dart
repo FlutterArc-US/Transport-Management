@@ -1,8 +1,8 @@
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:transport_management/features/auth/presentation/providers/bearer_provider/bearer_provider.dart';
 import 'package:transport_management/features/withdrawal/domain/usecases/create_withdrawal_request.dart';
 import 'package:transport_management/features/withdrawal/presentation/providers/withdrawal_form_provider/withdrawal_form_provider.dart';
 import 'package:transport_management/util/di/di.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'withdraw_funds_provider.g.dart';
 
