@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
@@ -8,8 +10,6 @@ import 'package:transport_management/features/loads/presentation/views/load_deta
 import 'package:transport_management/features/loads/presentation/views/pickup_details/widgets/commodity_widget.dart';
 import 'package:transport_management/features/loads/presentation/views/pretrip/popups/load_delivery_confirmation_popup.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PreTripView extends StatelessWidget {
   const PreTripView({super.key});
