@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
-import 'package:transport_management/common/extensions/large_file_checker.dart';
+import 'package:transport_management/features/image_picker/utils/large_file_checker.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 
 abstract class ImagePickerHelper {

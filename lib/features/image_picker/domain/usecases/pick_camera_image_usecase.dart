@@ -1,4 +1,4 @@
-import 'package:transport_management/helpers/image_picker/image_picker.dart';
+import 'package:transport_management/features/image_picker/domain/data/image_picker_data_source.dart';
 import 'package:transport_management/infrastructure/usecase.dart';
 import 'package:transport_management/infrastructure/usecase_input.dart';
 import 'package:injectable/injectable.dart';
