@@ -1,5 +1,5 @@
-import 'package:transport_management/features/withdrawal/domain/models/withdrawal_form/withdrawal_form_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:transport_management/features/withdrawal/domain/models/withdrawal_form/withdrawal_form_model.dart';
 
 part 'withdrawal_form_provider.g.dart';
 

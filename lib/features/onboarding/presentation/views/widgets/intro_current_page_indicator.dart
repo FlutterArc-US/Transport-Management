@@ -1,8 +1,8 @@
-import 'package:transport_management/features/onboarding/presentation/providers/onboard_page_provider.dart';
-import 'package:transport_management/util/resources/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:transport_management/features/onboarding/presentation/providers/onboard_page_provider.dart';
+import 'package:transport_management/util/resources/r.dart';
 
 class IntroCurrentPageIndicator extends ConsumerWidget {
   const IntroCurrentPageIndicator({super.key});

@@ -1,5 +1,5 @@
-import 'package:transport_management/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:transport_management/features/withdrawal/domain/models/withdrawal_request/withdrawal_request_entity.dart';
 
 part 'rest_withdrawal_request.freezed.dart';
 part 'rest_withdrawal_request.g.dart';

@@ -1,17 +1,9 @@
 import 'dart:io';
-
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
+import 'package:transport_management/features/image_picker/domain/data/image_picker_data_source.dart';
 import 'package:transport_management/features/image_picker/utils/large_file_checker.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
-
-abstract class ImagePickerHelper {
-  Future<String> cameraImage();
-
-  Future<String> galleryImage();
-
-  Future<List<String>> multiGalleryImages();
-}
 
 @LazySingleton(as: ImagePickerHelper)
 class ImagePickerImagePickerHelper implements ImagePickerHelper {

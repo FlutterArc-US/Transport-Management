@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
@@ -10,10 +14,6 @@ import 'package:transport_management/features/loads/presentation/providers/submi
 import 'package:transport_management/features/loads/presentation/views/pretrip/popups/upload_image_popup.dart';
 import 'package:transport_management/features/loads/presentation/views/submitted_docs/popups/docs_submitted_popup.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class SubmittedDocsView extends ConsumerStatefulWidget {
   const SubmittedDocsView({
