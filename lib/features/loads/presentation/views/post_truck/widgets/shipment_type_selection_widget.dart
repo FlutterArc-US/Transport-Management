@@ -1,13 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/features/loads/domain/enums/shipment_type/shipment_type.dart';
 import 'package:transport_management/features/loads/presentation/providers/shipment_type_provider/shipment_type_provider.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ShipmentTypeSelectionWidget extends ConsumerWidget {
   const ShipmentTypeSelectionWidget({super.key});

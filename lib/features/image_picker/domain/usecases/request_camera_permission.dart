@@ -1,9 +1,9 @@
+import 'package:injectable/injectable.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:transport_management/infrastructure/usecase.dart';
 import 'package:transport_management/infrastructure/usecase_input.dart';
 import 'package:transport_management/infrastructure/usecase_output.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
-import 'package:injectable/injectable.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class RequestCameraPermissionUsecaseInput extends Input {
   RequestCameraPermissionUsecaseInput();

@@ -1,11 +1,6 @@
-// Dart imports:
 import 'dart:io';
-
-// Package imports:
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
-
-// Project imports:
 import 'package:transport_management/features/image_picker/domain/data/image_picker_data_source.dart';
 import 'package:transport_management/features/image_picker/utils/large_file_checker.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
