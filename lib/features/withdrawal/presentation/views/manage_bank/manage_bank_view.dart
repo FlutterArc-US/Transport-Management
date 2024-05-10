@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
@@ -7,10 +11,6 @@ import 'package:transport_management/common/widgets/name_input_field.dart';
 import 'package:transport_management/common/widgets/number_input_field.dart';
 import 'package:transport_management/features/withdrawal/presentation/providers/withdrawal_form_provider/withdrawal_form_provider.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/manage_bank/popups/bank_updated_popup.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ManageBankView extends ConsumerStatefulWidget {
   const ManageBankView({super.key});
