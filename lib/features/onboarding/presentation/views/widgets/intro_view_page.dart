@@ -1,9 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transport_management/features/onboarding/presentation/providers/onboard_page_data_provider.dart';
 import 'package:transport_management/features/onboarding/presentation/providers/onboard_page_provider.dart';
 import 'package:transport_management/features/onboarding/presentation/views/widgets/page_view_content.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class IntroViewPage extends ConsumerStatefulWidget {
   const IntroViewPage({super.key});
