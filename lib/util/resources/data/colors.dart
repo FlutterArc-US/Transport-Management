@@ -41,9 +41,11 @@ class _Colors {
   final Color orange_FE4B10 = const Color(0xFFFE4B10);
 
   /// [green]
-  final Color green_4CD964 = const Color(0xFF4CD964);
-  final Color green_0DD168 = const Color(0xFF0DD168);
-  final Color green_076B35 = const Color(0xFF076B35);
+  final Color green_337A34 = const Color(0xFF337A34);
+  final Color green_074834 = const Color(0xFF074834);
+  final Color green_85C933 = const Color(0xFF85C933);
+  final Color green_CFF07B = const Color(0xFFCFF07B);
+
 
   /// [red]
   final Color red_DE2323 = const Color(0xFFDE2323);

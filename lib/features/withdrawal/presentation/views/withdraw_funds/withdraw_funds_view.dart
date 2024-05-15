@@ -134,8 +134,8 @@ class _WithdrawFundsViewState extends ConsumerState<WithdrawFundsView> {
                                                 R.colors.blue_001020,
                                               ]
                                             : [
-                                                R.colors.green_0DD168,
-                                                R.colors.green_076B35,
+                                                R.colors.green_074834,
+                                                R.colors.green_85C933,
                                               ],
                                       ),
                                     ),
@@ -158,7 +158,7 @@ class _WithdrawFundsViewState extends ConsumerState<WithdrawFundsView> {
                                                                   .earlyWithdrawal
                                                           ? R.colors.blue_305477
                                                           : R.colors
-                                                              .green_0DD168,
+                                                              .green_074834,
                                                     )
                                                   : const SizedBox()),
                                         ),

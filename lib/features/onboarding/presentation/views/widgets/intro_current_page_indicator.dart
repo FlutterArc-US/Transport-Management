@@ -13,14 +13,14 @@ class IntroCurrentPageIndicator extends ConsumerWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        for (final index in [1, 2, 3, 4])
+        for (final index in [1, 2, 3])
           AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             width: index == count ? 16.r : 8.r,
             height: index == count ? 16.r : 8.r,
             margin: EdgeInsets.symmetric(horizontal: 4.5.w),
             decoration: BoxDecoration(
-              color: R.colors.white_FFFFFF,
+              color: R.colors.green_85C933,
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: index == count
@@ -30,7 +30,7 @@ class IntroCurrentPageIndicator extends ConsumerWidget {
                       width: 8.w,
                       height: 8.r,
                       decoration: BoxDecoration(
-                        color: R.colors.blue_305477,
+                        color: R.colors.green_337A34,
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: Padding(
@@ -39,7 +39,7 @@ class IntroCurrentPageIndicator extends ConsumerWidget {
                           width: 8.w,
                           height: 8.r,
                           decoration: BoxDecoration(
-                            color: R.colors.white_FFFFFF,
+                            color: R.colors.green_85C933,
                             borderRadius: BorderRadius.circular(12.r),
                           ),
                         ),

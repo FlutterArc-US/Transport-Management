@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/num.dart';
@@ -10,6 +9,7 @@ import 'package:transport_management/helpers/persistence/persistence_helper.dart
 import 'package:transport_management/util/di/di.dart';
 import 'package:transport_management/util/router/router.dart';
 
+import 'l10n/app_localizations.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -83,7 +83,7 @@ class _ProviderAppState extends State<ProviderApp> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          fontFamily: 'Urbanist',
+          fontFamily: 'Poppins',
           useMaterial3: false,
         ),
         localizationsDelegates: AppLocalizations.localizationsDelegates,

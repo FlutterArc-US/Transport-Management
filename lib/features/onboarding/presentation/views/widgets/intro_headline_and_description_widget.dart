@@ -21,13 +21,13 @@ class IntroHeadlineAndDescriptionWidget extends StatelessWidget {
         children: [
           /// [Title]
           SizedBox(
-            width: 248.w,
+            width: 300.w,
             child: Text(
               title,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24.sp,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.bold,
                 color: R.colors.white_FFFFFF,
               ),
             ),

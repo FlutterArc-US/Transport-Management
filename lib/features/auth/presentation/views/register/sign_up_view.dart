@@ -83,7 +83,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
       canPop: step == 1 ? true : false,
       onPopInvoked: (v) async {
         if (step == totalSteps) {
-          GoRouter.of(context).go(RoutePaths.welcome);
+          GoRouter.of(context).go(RoutePaths.login);
 
           return;
         }

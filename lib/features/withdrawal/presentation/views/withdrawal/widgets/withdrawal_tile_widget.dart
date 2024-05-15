@@ -62,7 +62,7 @@ class WithdrawalTileWidget extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 color:
-                    status.isPaid ? R.colors.green_0DD168 : R.colors.red_DE2323,
+                    status.isPaid ? R.colors.green_074834 : R.colors.red_DE2323,
                 borderRadius: BorderRadius.circular(80.r),
                 // radius
               ),

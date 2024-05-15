@@ -13,7 +13,6 @@ import 'package:transport_management/features/auth/presentation/views/otp_verifi
 import 'package:transport_management/features/auth/presentation/views/profile_update/profile_update_view.dart';
 import 'package:transport_management/features/auth/presentation/views/register/sign_up_view.dart';
 import 'package:transport_management/features/auth/presentation/views/reset_password/reset_password.dart';
-import 'package:transport_management/features/auth/presentation/views/welcome/welcome_view.dart';
 import 'package:transport_management/features/earnings/presentation/views/earnings/earnings_view.dart';
 import 'package:transport_management/features/home/presentation/views/home_view.dart';
 import 'package:transport_management/features/loads/domain/models/load/load_model.dart';
@@ -80,12 +79,6 @@ final router = GoRouter(
       path: RoutePaths.home,
       builder: (context, state) {
         return const HomeView();
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.welcome,
-      builder: (context, state) {
-        return const WelcomeView();
       },
     ),
     GoRoute(

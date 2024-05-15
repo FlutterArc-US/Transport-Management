@@ -10,27 +10,21 @@ class OnboardPageData extends _$OnboardPageData {
   List<OnboardPageModel> build() {
     final introDataList = [
       OnboardPageModel(
-        title: 'Register your Truck Or Be Part Of Fleet',
-        description: 'You can own your vehicle and become a solo driver',
+        title: 'View Assigned Loads',
+        description: 'Use powerful map to reach your pickup point and deliver assigned load.',
         image: Assets.pngs.ob1image.path,
       ),
       OnboardPageModel(
-        title: 'Book Your Load',
+        title: 'See Upcoming Bookings',
         description:
-            "Learn, grow, and succeed with our app's diverse educational resources, interactive lessons, and personalized learning experiences.",
+            "Keep track of upcoming routine and loads assigned to you.",
         image: Assets.pngs.ob2image.path,
       ),
       OnboardPageModel(
-        title: 'Use AI To Boost Match',
+        title: 'Record Expenses',
         description:
-            'Unlock your potential with interactive courses and expert instructors at your fingertips.',
+            'Record Faults, Expenses and Odometer readings so your transport company knows all.',
         image: Assets.pngs.ob3image.path,
-      ),
-      OnboardPageModel(
-        title: 'Earn & See Reports',
-        description:
-            'Learn anytime, anywhere, with a vast library of educational content and personalized study plans.',
-        image: Assets.pngs.ob4image.path,
       ),
     ];
 

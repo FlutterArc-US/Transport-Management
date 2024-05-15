@@ -18,3 +18,4 @@ output-class: AppLocalizations
 ## class named `output-class`. The file will appear in `arb-dir`
 ## and the application must import it.
 output-localization-file: app_localizations.dart
+synthetic-package: false

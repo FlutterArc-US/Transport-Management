@@ -109,33 +109,35 @@ class _LoginViewState extends ConsumerState<LoginView> {
     final loginForm = ref.watch(loginFormProvider);
 
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            width: 1.sw,
-            height: 1.sh,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(Assets.pngs.authBg.path),
-                fit: BoxFit.cover,
+      backgroundColor: R.colors.green_337A34,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: 1.sw,
+              height: 1.sh * 0.5,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    R.colors.green_074834,
+                    R.colors.green_85C933,
+                  ],
+                ),
+              ),
+              child: Column(
+                children: [
+                  184.hb,
+                  Assets.pngs.whiteLogo.image(
+                    width: 109.w,
+                    height: 89.h,
+                  ),
+                ],
               ),
             ),
-            child: Column(
-              children: [
-                184.hb,
-                Assets.svgs.appLogo.svg(
-                  width: 165.w,
-                  height: 50.h,
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: 46.h,
-            left: 22.h,
-            right: 22.h,
-            child: Container(
-              width: 343.w,
+            Container(
+              width: 1.sw,
               height: 418.h,
               decoration: BoxDecoration(
                 color: R.colors.white_FFFFFF,
@@ -203,9 +205,9 @@ class _LoginViewState extends ConsumerState<LoginView> {
                           15.hb,
                           Center(
                               child: AppFilledButton(
-                            text: context.appLocale.login,
-                            onTap: _login,
-                          )),
+                                text: context.appLocale.login,
+                                onTap: _login,
+                              )),
                           19.hb,
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -246,8 +248,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
