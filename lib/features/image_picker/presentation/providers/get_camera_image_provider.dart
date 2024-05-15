@@ -1,7 +1,7 @@
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:transport_management/features/image_picker/domain/usecases/pick_camera_image_usecase.dart';
 import 'package:transport_management/infrastructure/usecase_input.dart';
 import 'package:transport_management/util/di/di.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'get_camera_image_provider.g.dart';
 

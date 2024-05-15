@@ -1,6 +1,6 @@
-import 'package:transport_management/features/earnings/domain/models/date_range/date_range_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:transport_management/features/earnings/domain/models/date_range/date_range_model.dart';
 
 part 'selected_date_range_provider.g.dart';
 

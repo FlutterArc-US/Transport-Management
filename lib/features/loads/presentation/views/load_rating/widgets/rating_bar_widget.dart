@@ -1,7 +1,7 @@
-import 'package:transport_management/util/resources/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:transport_management/util/resources/r.dart';
 
 class RatingBarWidget extends StatelessWidget {
   const RatingBarWidget({

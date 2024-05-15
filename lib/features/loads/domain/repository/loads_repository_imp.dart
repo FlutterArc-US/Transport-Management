@@ -1,10 +1,10 @@
 ////********** START IMPORTS **********////
+import 'package:injectable/injectable.dart';
 import 'package:transport_management/features/loads/data/source/remote/loads_remote_datasource.dart';
 import 'package:transport_management/features/loads/domain/repository/loads_repository.dart';
 import 'package:transport_management/features/loads/domain/usecases/book_load.dart';
 import 'package:transport_management/features/loads/domain/usecases/get_booked_loads.dart';
 import 'package:transport_management/features/loads/domain/usecases/get_loads.dart';
-import 'package:injectable/injectable.dart';
 ////********** END IMPORTS **********////
 
 @LazySingleton(as: LoadsRepository)

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
@@ -5,8 +7,6 @@ import 'package:transport_management/features/loads/presentation/providers/my_lo
 import 'package:transport_management/features/loads/presentation/views/my_loads/widgets/booked_loads_widget.dart';
 import 'package:transport_management/features/loads/presentation/views/my_loads/widgets/my_loads_tab_bar_widget.dart';
 import 'package:transport_management/features/loads/presentation/views/my_loads/widgets/past_loads_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MyLoadsView extends ConsumerWidget {
   const MyLoadsView({super.key});

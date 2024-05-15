@@ -1,5 +1,5 @@
-import 'package:transport_management/features/auth/domain/models/auth_step/auth_step_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:transport_management/features/auth/domain/models/auth_step/auth_step_model.dart';
 
 part 'auth_step_provider.g.dart';
 

@@ -1,5 +1,5 @@
-import 'package:transport_management/features/auth/domain/models/vehicle_model/vehicle_model_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle_model/vehicle_model_model.dart';
 
 part 'vehicle_type_provider.g.dart';
 

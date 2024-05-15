@@ -1,4 +1,6 @@
 ////********** START IMPORTS **********////
+import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:transport_management/features/loads/data/entities/load/rest_load.dart';
 import 'package:transport_management/features/loads/data/source/remote/loads_remote_datasource.dart';
 import 'package:transport_management/features/loads/domain/usecases/book_load.dart';
@@ -7,8 +9,6 @@ import 'package:transport_management/features/loads/domain/usecases/get_loads.da
 import 'package:transport_management/helpers/network_call_helper/network_call_helper.dart';
 import 'package:transport_management/util/consts/api.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
-import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 ////********** END IMPORTS **********////
 
 @LazySingleton(as: LoadsRemoteDataSource)

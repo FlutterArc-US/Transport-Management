@@ -1,11 +1,6 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
-// Project imports:
 import 'package:transport_management/features/image_picker/presentation/providers/get_camera_image_provider.dart';
 import 'package:transport_management/features/image_picker/presentation/providers/get_gallery_image_provider.dart';
 import 'package:transport_management/features/image_picker/presentation/providers/get_multiple_gallery_images_provider.dart';

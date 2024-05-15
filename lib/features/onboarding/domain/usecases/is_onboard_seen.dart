@@ -1,8 +1,8 @@
+import 'package:injectable/injectable.dart';
 import 'package:transport_management/features/onboarding/domain/repository/onboarding_repository.dart';
 import 'package:transport_management/infrastructure/usecase.dart';
 import 'package:transport_management/infrastructure/usecase_input.dart';
 import 'package:transport_management/infrastructure/usecase_output.dart';
-import 'package:injectable/injectable.dart';
 
 class IsOnboardSeenUsecaseInput extends Input {
   IsOnboardSeenUsecaseInput();

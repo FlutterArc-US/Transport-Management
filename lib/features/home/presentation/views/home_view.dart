@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_exit_dialog.dart';
 import 'package:transport_management/features/home/domain/enums/bottom_nav_item.dart';
@@ -9,8 +11,6 @@ import 'package:transport_management/features/loads/presentation/views/my_loads/
 import 'package:transport_management/features/loads/presentation/views/post_truck/post_truck_view.dart';
 import 'package:transport_management/features/loads/presentation/views/requests/requests_view.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});

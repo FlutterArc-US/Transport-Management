@@ -1,3 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
@@ -6,12 +12,6 @@ import 'package:transport_management/features/earnings/presentation/providers/se
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/datetime_formatter/datetime_formatter.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class DateRangeFilterWidget extends ConsumerStatefulWidget {
   const DateRangeFilterWidget({super.key});
@@ -112,13 +112,13 @@ class _EarningsViewState extends ConsumerState<DateRangeFilterWidget> {
             child: OutlinedButton(
               onPressed: () => showDateRangePicker(context),
               style: ButtonStyle(
-                padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
                   EdgeInsets.symmetric(
                     vertical: 4.h,
                     horizontal: 5.5.w,
                   ),
                 ),
-                side: MaterialStateProperty.all(
+                side: WidgetStateProperty.all(
                   BorderSide(
                     color: R.colors.black_FF000000,
                     width: 0.5.w,
