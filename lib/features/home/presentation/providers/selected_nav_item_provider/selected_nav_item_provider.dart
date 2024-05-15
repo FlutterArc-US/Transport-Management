@@ -1,5 +1,5 @@
-import 'package:transport_management/features/home/domain/enums/bottom_nav_item.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:transport_management/features/home/domain/enums/bottom_nav_item.dart';
 
 part 'selected_nav_item_provider.g.dart';
 

@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
 
 class AboutTextWidget extends StatelessWidget {
   const AboutTextWidget({super.key});

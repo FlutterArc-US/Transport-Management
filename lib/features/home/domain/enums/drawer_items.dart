@@ -1,6 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/router/paths.dart';
-import 'package:flutter/cupertino.dart';
 
 enum DrawerItem {
   manageVehicle,

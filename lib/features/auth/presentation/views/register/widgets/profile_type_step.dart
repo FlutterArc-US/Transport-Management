@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
@@ -7,10 +11,6 @@ import 'package:transport_management/features/auth/presentation/providers/regist
 import 'package:transport_management/features/auth/presentation/providers/register_step_provider/register_step_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/total_steps_provider/total_steps_provider.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ProfileTypeStepWidget extends ConsumerWidget {
   const ProfileTypeStepWidget({required this.onTap, super.key});

@@ -1,5 +1,5 @@
-import 'package:transport_management/features/auth/domain/models/login_form/login_form_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:transport_management/features/auth/domain/models/login_form/login_form_model.dart';
 
 part 'login_form_provider.g.dart';
 

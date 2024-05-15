@@ -1,5 +1,5 @@
-import 'package:transport_management/features/loads/domain/models/delivery/location_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:transport_management/features/loads/domain/models/delivery/location_entity.dart';
 
 part 'rest_location.freezed.dart';
 part 'rest_location.g.dart';

@@ -1,7 +1,7 @@
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:transport_management/features/auth/domain/usecases/delete_user.dart';
 import 'package:transport_management/features/auth/presentation/providers/bearer_provider/bearer_provider.dart';
 import 'package:transport_management/util/di/di.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'delete_user_provider.g.dart';
 

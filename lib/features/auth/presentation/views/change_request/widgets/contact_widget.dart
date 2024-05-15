@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ContactWigdet extends StatelessWidget {
   const ContactWigdet({

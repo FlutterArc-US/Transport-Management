@@ -10,17 +10,19 @@ import 'package:transport_management/helpers/persistence/persistence_helper.dart
 import 'package:transport_management/util/di/di.dart';
 import 'package:transport_management/util/router/router.dart';
 
+
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  configureDependencies();
   await sl<PersistenceHelper>().init();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
   ]);
   runApp(const MyApp());
 }
@@ -47,8 +49,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      //iPhone 15 Pro Max, iPhone 15 Plus, iPhone 14 Pro Max
-      designSize: const Size(430, 932),
+      designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {

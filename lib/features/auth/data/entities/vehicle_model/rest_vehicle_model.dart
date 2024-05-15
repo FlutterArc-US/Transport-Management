@@ -1,5 +1,5 @@
-import 'package:transport_management/features/auth/domain/models/vehicle_model/vehicle_model_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:transport_management/features/auth/domain/models/vehicle_model/vehicle_model_entity.dart';
 
 part 'rest_vehicle_model.freezed.dart';
 part 'rest_vehicle_model.g.dart';

@@ -1,6 +1,6 @@
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:transport_management/features/auth/domain/usecases/get_auth.dart';
 import 'package:transport_management/util/di/di.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'bearer_provider.g.dart';
 

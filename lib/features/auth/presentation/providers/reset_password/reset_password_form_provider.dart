@@ -1,5 +1,5 @@
-import 'package:transport_management/features/auth/domain/models/reset_password_form/reset_password_form.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:transport_management/features/auth/domain/models/reset_password_form/reset_password_form.dart';
 
 part 'reset_password_form_provider.g.dart';
 

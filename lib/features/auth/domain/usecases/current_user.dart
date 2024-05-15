@@ -1,10 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:transport_management/features/auth/domain/models/driver/driver_entity.dart';
 import 'package:transport_management/features/auth/domain/models/driver/driver_model.dart';
 import 'package:transport_management/features/auth/domain/repository/auth_repository.dart';
 import 'package:transport_management/infrastructure/usecase.dart';
 import 'package:transport_management/infrastructure/usecase_input.dart';
 import 'package:transport_management/infrastructure/usecase_output.dart';
-import 'package:injectable/injectable.dart';
 
 class CurrentUserUsecaseInput extends Input {
   CurrentUserUsecaseInput({required this.bearer});

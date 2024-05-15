@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/compact_number_formatter.dart';
 import 'package:transport_management/common/extensions/num.dart';
@@ -7,9 +10,6 @@ import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/datetime_formatter/datetime_formatter.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/router/paths.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class LoadPickupDeliveryCardWidget extends StatelessWidget {
   const LoadPickupDeliveryCardWidget({

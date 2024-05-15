@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/loads/presentation/views/post_truck/popups/post_truck_popup.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NoMatchingLoadsWidget extends StatelessWidget {
   const NoMatchingLoadsWidget({super.key});
