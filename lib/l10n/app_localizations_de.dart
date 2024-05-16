@@ -865,4 +865,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get startTheRide => 'Start the Ride';
+
+  @override
+  String get chat => 'Chat';
+
+  @override
+  String get home => 'Home';
 }

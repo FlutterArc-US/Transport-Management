@@ -28,10 +28,9 @@ class _AppBottomNavBarState extends ConsumerState<AppBottomNavBar> {
   }
 
   String navItemName(BottomNavItem item) => switch (item) {
-        BottomNavItem.myLoads => context.appLocale.myLoads,
-        BottomNavItem.postLoad => context.appLocale.pastLoads,
-        BottomNavItem.book => context.appLocale.book,
-        BottomNavItem.request => context.appLocale.request,
+        BottomNavItem.routeToday => context.appLocale.routeToday,
+        BottomNavItem.chat => context.appLocale.chat,
+        BottomNavItem.home => context.appLocale.home,
       };
 
   @override
@@ -43,11 +42,7 @@ class _AppBottomNavBarState extends ConsumerState<AppBottomNavBar> {
         BottomNavItem.values.length,
         (index) {
           return SvgPicture.asset(
-            BottomNavItem.values[index].iconPath,
-            colorFilter: ColorFilter.mode(
-              R.colors.blue_20B4E3,
-              BlendMode.srcIn,
-            ),
+            BottomNavItem.values[index].activeIconPath,
           );
         },
       ),
@@ -58,11 +53,7 @@ class _AppBottomNavBarState extends ConsumerState<AppBottomNavBar> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                BottomNavItem.values[index].iconPath,
-                colorFilter: ColorFilter.mode(
-                  R.colors.white_FFFFFF,
-                  BlendMode.srcIn,
-                ),
+                BottomNavItem.values[index].inactiveIconPath,
               ),
               3.hb,
               AppText(
@@ -93,8 +84,6 @@ class _AppBottomNavBarState extends ConsumerState<AppBottomNavBar> {
       cornerRadius: BorderRadius.only(
         topLeft: Radius.circular(12.r),
         topRight: Radius.circular(12.r),
-        bottomRight: Radius.circular(32.r),
-        bottomLeft: Radius.circular(32.r),
       ),
       shadowColor: Colors.transparent,
       elevation: 10,

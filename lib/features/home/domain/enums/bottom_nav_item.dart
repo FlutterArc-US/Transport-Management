@@ -1,31 +1,27 @@
 import 'package:transport_management/gen/assets.gen.dart';
 
 enum BottomNavItem {
-  myLoads,
-  book,
-  postLoad,
-  request;
+  routeToday,
+  home,
+  chat;
 
-  String get name {
+  String get activeIconPath {
     return switch (this) {
-      myLoads => "My Loads",
-      book => "Book",
-      postLoad => "Post Load",
-      request => "Request",
+      routeToday => Assets.svgs.routeTodayActive.path,
+      home => Assets.svgs.homeActive.path,
+      chat => Assets.svgs.chatActive.path,
     };
   }
 
-  String get iconPath {
+  String get inactiveIconPath {
     return switch (this) {
-      myLoads => Assets.svgs.navMyLoadsIcon.path,
-      book => Assets.svgs.navBookIcon.path,
-      postLoad => Assets.svgs.navPostLoadIcon.path,
-      request => Assets.svgs.navRequestIcon.path,
+      routeToday => Assets.svgs.routeTodayInactive.path,
+      home => Assets.svgs.homeInactive.path,
+      chat => Assets.svgs.chatInactive.path,
     };
   }
 
-  bool get isMyLoads => this == BottomNavItem.myLoads;
-  bool get isBook => this == BottomNavItem.book;
-  bool get isPostLoad => this == BottomNavItem.postLoad;
-  bool get isRequest => this == BottomNavItem.request;
+  bool get isMyRouteToday => this == BottomNavItem.routeToday;
+  bool get isHome => this == BottomNavItem.home;
+  bool get isChat => this == BottomNavItem.chat;
 }

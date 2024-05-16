@@ -5,11 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/auth/presentation/providers/bearer_provider/bearer_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/logout_provider/logout_provider.dart';
 import 'package:transport_management/features/onboarding/presentation/providers/is_onboarding_seen_provider.dart';
 import 'package:transport_management/gen/assets.gen.dart';
-import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/router/paths.dart';
 
@@ -38,35 +35,10 @@ class _SplashViewState extends ConsumerState<SplashView> {
       return;
     }
 
-    await loadUser();
-
     if (!mounted) return;
 
-    if (bearer == null) {
-      GoRouter.of(context).pushReplacement(RoutePaths.login);
-    }
-  }
-
-  Future<void> loadUser() async {
-    try {
-      final driver = await ref.read(driverProvider.future);
-
-      if (!mounted) return;
-
-      if (driver != null && driver.status != 'pending') {
-        GoRouter.of(context).pushReplacement(RoutePaths.home);
-        return;
-      } else {
-        GoRouter.of(context).pushReplacement(RoutePaths.signUp);
-      }
-    } on MessageException catch (e) {
-      await ref.read(logoutProvider.future);
-      if (!mounted) return;
-      GoRouter.of(context).pushReplacement(RoutePaths.login);
-      debugPrint(e.message);
-    } catch (e) {
-      debugPrint('Something went wrong $e');
-    }
+    GoRouter.of(context)
+        .pushReplacement(bearer == null ? RoutePaths.login : RoutePaths.home);
   }
 
   @override

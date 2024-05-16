@@ -1766,6 +1766,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start the Ride'**
   String get startTheRide;
+
+  /// No description provided for @chat.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get chat;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

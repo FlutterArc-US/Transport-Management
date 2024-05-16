@@ -70,10 +70,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
     if (_formKey.currentState!.validate()) {
       try {
         loading(context);
-        await ref.read(loginProvider.future);
+        // await ref.read(loginProvider.future);
         if (!mounted) return;
-
-        await loadUser();
       } on MessageException catch (e) {
         showToast(msg: e.message);
       } catch (e) {

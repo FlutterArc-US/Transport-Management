@@ -336,6 +336,7 @@
   "confirmStartRide": "Are you sure you want to start this ride?",
   "rideStarted": "Ride Started. Have a safe Journey!",
   "thanks": "Thanks!",
-  "startTheRide": "Start the Ride"
-
+  "startTheRide": "Start the Ride",
+  "chat": "Chat",
+  "home": "Home"
 }

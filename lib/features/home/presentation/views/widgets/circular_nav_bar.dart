@@ -101,7 +101,6 @@ class _CircleNavBarState extends State<CircleNavBar>
         (widget.badgeNumber ?? 0) > 10 ? '10+' : '${widget.badgeNumber}';
 
     return Container(
-      margin: widget.padding,
       width: double.infinity,
       height: widget.height,
       child: Column(
