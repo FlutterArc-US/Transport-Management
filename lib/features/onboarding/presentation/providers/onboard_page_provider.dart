@@ -10,7 +10,7 @@ class OnboardPageNumber extends _$OnboardPageNumber {
   }
 
   void next() {
-    if (state < 4) {
+    if (state < 3) {
       state = state + 1;
     }
   }

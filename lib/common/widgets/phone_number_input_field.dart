@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/countries.dart';
+import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
@@ -43,6 +47,17 @@ class PhoneNumberInputField extends StatelessWidget {
         ),
         4.95.hb,
         IntlPhoneField(
+          keyboardType: Platform.isIOS
+              ? const TextInputType.numberWithOptions(
+                  signed: true,
+                )
+              : TextInputType.phone,
+          inputFormatters: (Platform.isIOS)
+              ? [
+                  FilteringTextInputFormatter.digitsOnly,
+                ]
+              : null,
+          textInputAction: TextInputAction.next,
           onSubmitted: onEditingComplete,
           controller: controller,
           focusNode: focusNode,

@@ -11,7 +11,7 @@ enum PaymentStatus {
 
   Color get color {
     return switch (this) {
-      paid => R.colors.green_0DD168,
+      paid => R.colors.green_074834,
       pendingForApproval => R.colors.yellow_F4BF37,
       pendingForPayment => R.colors.yellow_F4BF37,
       podNotUploaded => R.colors.orange_FE4B10,

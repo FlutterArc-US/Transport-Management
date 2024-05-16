@@ -49,8 +49,8 @@ class WithdrawalView extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(20.r),
                       gradient: LinearGradient(
                         colors: [
-                          R.colors.green_0DD168,
-                          R.colors.green_076B35,
+                          R.colors.green_074834,
+                          R.colors.green_85C933,
                         ],
                       ),
                     ),

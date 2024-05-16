@@ -22,25 +22,36 @@ class OnboardingView extends ConsumerWidget {
     final pageNo = ref.watch(onboardPageNumberProvider);
 
     return Scaffold(
-      backgroundColor: R.colors.navyBlue_263C51,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Assets.pngs.onboardingBg.path),
-            fit: BoxFit.cover,
-          ),
-        ),
+      backgroundColor: R.colors.green_337A34,
+      body: SizedBox(
+        width: 1.sw,
+        height: 1.sh,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            81.hb,
+            93.hb,
+            SizedBox(
+              width: 266.w,
+              height: 74.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Assets.pngs.whiteLogo.image(
+                    width: 91.w,
+                    height: 74.h,
+                  ),
 
-            Assets.svgs.appLogo.svg(
-              height: 57.h,
-              width: 223.w,
+                  AppText(
+                    text: 'Transport\nManagement',
+                    fontSize: 24,
+                    color: R.colors.white_FFFFFF,
+                    fontWeight: FontWeight.bold,
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
             ),
-
-            124.hb,
+            106.hb,
 
             /// [Page view]
             const IntroViewPage(),
@@ -61,11 +72,11 @@ class OnboardingView extends ConsumerWidget {
                     onTap: () async {
                       ref.read(onboardPageNumberProvider.notifier).next();
 
-                      if (pageNo > 3) {
+                      if (pageNo > 2) {
                         await ref.read(setOnboardingSeenProvider.future);
                         if (context.mounted) {
                           GoRouter.of(context)
-                              .pushReplacement(RoutePaths.welcome);
+                              .pushReplacement(RoutePaths.login);
                         }
                       }
                     },
@@ -75,7 +86,7 @@ class OnboardingView extends ConsumerWidget {
                   13.hb,
                   SizedBox(
                     height: 24.h,
-                    child: pageNo == 4
+                    child: pageNo == 3
                         ? const SizedBox.shrink()
                         : Align(
                             alignment: Alignment.topRight,

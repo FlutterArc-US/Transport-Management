@@ -90,7 +90,7 @@ class AccountUnderVerificationStepWidget extends ConsumerWidget {
               onTap: () async {
                 await ref.read(logoutProvider.future);
                 if (!context.mounted) return;
-                GoRouter.of(context).go(RoutePaths.welcome);
+                GoRouter.of(context).go(RoutePaths.login);
               },
             ),
           ),
