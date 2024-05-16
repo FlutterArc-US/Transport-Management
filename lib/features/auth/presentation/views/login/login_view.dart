@@ -108,147 +108,171 @@ class _LoginViewState extends ConsumerState<LoginView> {
   Widget build(BuildContext context) {
     final loginForm = ref.watch(loginFormProvider);
 
-    return Scaffold(
-      backgroundColor: R.colors.green_337A34,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: 1.sw,
-              height: 1.sh * 0.5,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    R.colors.green_074834,
-                    R.colors.green_85C933,
+    return KeyboardDismissOnTap(
+      child: Scaffold(
+        backgroundColor: R.colors.green_85C933,
+        body: SizedBox(
+          width: 1.sw,
+          height: 1.sh,
+          child: Stack(
+            children: [
+              Container(
+                width: 1.sw,
+                height: 430.h,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      R.colors.green_074834,
+                      R.colors.green_85C933,
+                    ],
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    164.hb,
+                    Assets.pngs.whiteLogo.image(
+                      width: 109.w,
+                      height: 89.h,
+                    ),
+                    12.hb,
+                    AppText(
+                      text: 'TRANSPORT',
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600,
+                      color: R.colors.white_FFFFFF,
+                      textAlign: TextAlign.center,
+                    ),
+                    AppText(
+                      text: 'MANAGEMENT',
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600,
+                      color: R.colors.white_FFFFFF,
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 ),
               ),
-              child: Column(
-                children: [
-                  184.hb,
-                  Assets.pngs.whiteLogo.image(
-                    width: 109.w,
-                    height: 89.h,
+              Positioned(
+                bottom: 0.h,
+                child: Container(
+                  width: 1.sw,
+                  height: 502.h,
+                  decoration: BoxDecoration(
+                    color: R.colors.white_FFFFFF,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.r),
+                      topRight: Radius.circular(20.r),
+                    ),
                   ),
-                ],
-              ),
-            ),
-            Container(
-              width: 1.sw,
-              height: 418.h,
-              decoration: BoxDecoration(
-                color: R.colors.white_FFFFFF,
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: KeyboardDismissOnTap(
-                child: Form(
-                  key: _formKey,
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25.w),
-                      child: Column(
-                        children: [
-                          29.hb,
-                          AppText(
-                            text: context.appLocale.login,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                            color: R.colors.black_FF000000,
-                          ),
-                          15.05.hb,
-                          PhoneNumberInputField(
-                            isNotEmpty: loginForm.phone?.isNotEmpty ?? false,
-                            focusNode: phoneFocusNode,
-                            onEditingComplete: (v) {
-                              passwordFocusNode.requestFocus();
-                            },
-                            onChanged: (v) {
-                              ref
-                                  .read(loginFormProvider.notifier)
-                                  .setPhone(v.completeNumber);
-                            },
-                          ),
-                          16.hb,
-                          PasswordInputField(
-                            focusNode: passwordFocusNode,
-                            controller: _passwordInput,
-                            onChanged: (v) {
-                              ref
-                                  .read(loginFormProvider.notifier)
-                                  .setPassword(v!);
-                            },
-                            labelText: context.appLocale.password,
-                            hintText: context.appLocale.password,
-                          ),
-                          7.hb,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  GoRouter.of(context)
-                                      .push(RoutePaths.forgetPassword);
-                                },
-                                child: AppText(
-                                  text: context.appLocale.forgotPassword,
-                                  fontSize: 12,
-                                  color: R.colors.navyBlue_263C51,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
-                          15.hb,
-                          Center(
-                              child: AppFilledButton(
-                                text: context.appLocale.login,
-                                onTap: _login,
-                              )),
-                          19.hb,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              AppText(
-                                text: context.appLocale.doNotHaveAnAccount,
-                                fontSize: 12,
-                                color: R.colors.grey_97A2B0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              5.wb,
-                              InkWell(
-                                onTap: () {
-                                  GoRouter.of(context).push(RoutePaths.signUp);
-                                },
-                                child: GradientText(
-                                  context.appLocale.signUp,
-                                  style: TextStyle(
-                                    fontSize: 15.sp,
+                  child: Form(
+                    key: _formKey,
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 25.w),
+                        child: Column(
+                          children: [
+                            29.hb,
+                            AppText(
+                              text: context.appLocale.login,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600,
+                              color: R.colors.black_FF000000,
+                            ),
+                            15.05.hb,
+                            PhoneNumberInputField(
+                              isNotEmpty: loginForm.phone?.isNotEmpty ?? false,
+                              focusNode: phoneFocusNode,
+                              onEditingComplete: (v) {
+                                passwordFocusNode.requestFocus();
+                              },
+                              onChanged: (v) {
+                                ref
+                                    .read(loginFormProvider.notifier)
+                                    .setPhone(v.completeNumber);
+                              },
+                            ),
+                            16.hb,
+                            PasswordInputField(
+                              focusNode: passwordFocusNode,
+                              controller: _passwordInput,
+                              onChanged: (v) {
+                                ref
+                                    .read(loginFormProvider.notifier)
+                                    .setPassword(v!);
+                              },
+                              labelText: context.appLocale.password,
+                              hintText: context.appLocale.password,
+                            ),
+                            7.hb,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    GoRouter.of(context)
+                                        .push(RoutePaths.forgetPassword);
+                                  },
+                                  child: AppText(
+                                    text: context.appLocale.forgotPassword,
+                                    fontSize: 12,
+                                    color: R.colors.navyBlue_263C51,
                                     fontWeight: FontWeight.w600,
-                                    letterSpacing: -0.5.sp,
-                                  ),
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      R.colors.blue_305477,
-                                      R.colors.blue_001020,
-                                    ],
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          12.hb,
-                        ],
+                              ],
+                            ),
+                            15.hb,
+                            Center(
+                                child: AppFilledButton(
+                              text: context.appLocale.login,
+                              onTap: _login,
+                            )),
+                            19.hb,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                AppText(
+                                  text: context.appLocale.doNotHaveAnAccount,
+                                  fontSize: 12,
+                                  color: R.colors.grey_97A2B0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                5.wb,
+                                InkWell(
+                                  onTap: () {
+                                    GoRouter.of(context)
+                                        .push(RoutePaths.signUp);
+                                  },
+                                  child: GradientText(
+                                    context.appLocale.signUp,
+                                    style: TextStyle(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: -0.5.sp,
+                                    ),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        R.colors.blue_305477,
+                                        R.colors.blue_001020,
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            12.hb,
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

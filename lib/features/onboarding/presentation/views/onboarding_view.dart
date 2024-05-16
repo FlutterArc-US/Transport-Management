@@ -34,13 +34,13 @@ class OnboardingView extends ConsumerWidget {
               width: 266.w,
               height: 74.h,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Assets.pngs.whiteLogo.image(
                     width: 91.w,
                     height: 74.h,
                   ),
-                  15.wb,
+
                   AppText(
                     text: 'Transport\nManagement',
                     fontSize: 24,
