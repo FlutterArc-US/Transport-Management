@@ -1,7 +1,10 @@
 {
   "@@locale": "de",
   "welcome": "Willkommen",
+  "loginToYourAccount": "Melden Sie sich bei Ihrem Konto an",
   "login": "Anmelden",
+  "viaPhone": "über Telefon",
+  "viaDrivingLicense": "über Führerschein",
   "createAnAccount": "Konto erstellen",
   "phoneNumber": "Telefonnummer",
   "email": "E-Mail",

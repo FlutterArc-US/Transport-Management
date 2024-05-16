@@ -7,7 +7,6 @@ import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
-import 'package:transport_management/common/widgets/gradient_text_widget.dart';
 import 'package:transport_management/common/widgets/password_input_field.dart';
 import 'package:transport_management/common/widgets/phone_number_input_field.dart';
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
@@ -35,6 +34,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
 
   late FocusNode phoneFocusNode;
   late FocusNode passwordFocusNode;
+  bool viaPhone = true;
 
   void initializeNodes() {
     phoneFocusNode = FocusNode();
@@ -174,14 +174,99 @@ class _LoginViewState extends ConsumerState<LoginView> {
                         padding: EdgeInsets.symmetric(horizontal: 25.w),
                         child: Column(
                           children: [
-                            29.hb,
+                            15.hb,
+                            Container(
+                              width: 62.w,
+                              height: 5.h,
+                              decoration: BoxDecoration(
+                                color: R.colors.green_85C933,
+                                borderRadius: BorderRadius.circular(12.r),
+                              ),
+                            ),
+                            50.hb,
                             AppText(
                               text: context.appLocale.login,
                               fontSize: 24,
                               fontWeight: FontWeight.w600,
                               color: R.colors.black_FF000000,
                             ),
+                            5.hb,
+                            AppText(
+                              text: context.appLocale.loginToYourAccount,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: R.colors.grey_7B7B7B,
+                            ),
                             15.05.hb,
+                            Container(
+                              width: 340.w,
+                              height: 44.h,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 5.w, vertical: 3.h),
+                              decoration: BoxDecoration(
+                                color: R.colors.grey_767680.withOpacity(0.12),
+                                borderRadius: BorderRadius.circular(12.r),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        viaPhone = true;
+                                      });
+                                    },
+                                    child: Container(
+                                      width: 165.w,
+                                      height: 38.h,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: viaPhone
+                                            ? R.colors.white_FFFFFF
+                                            : Colors.transparent,
+                                        borderRadius:
+                                            BorderRadius.circular(12.r),
+                                      ),
+                                      child: AppText(
+                                        text: context.appLocale.viaPhone,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: R.colors.grey_767680,
+                                        textAlign: TextAlign.center,
+                                        height: 1.sp,
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        viaPhone = false;
+                                      });
+                                    },
+                                    child: Container(
+                                      width: 165.w,
+                                      height: 38.h,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: !viaPhone
+                                            ? R.colors.white_FFFFFF
+                                            : Colors.transparent,
+                                        borderRadius:
+                                            BorderRadius.circular(12.r),
+                                      ),
+                                      child: AppText(
+                                        text:
+                                            context.appLocale.viaDrivingLicense,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: R.colors.grey_767680,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                             PhoneNumberInputField(
                               isNotEmpty: loginForm.phone?.isNotEmpty ?? false,
                               focusNode: phoneFocusNode,
@@ -218,8 +303,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                   child: AppText(
                                     text: context.appLocale.forgotPassword,
                                     fontSize: 12,
-                                    color: R.colors.navyBlue_263C51,
                                     fontWeight: FontWeight.w600,
+                                    color: R.colors.black_1E1E1E,
                                   ),
                                 ),
                               ],
@@ -230,40 +315,6 @@ class _LoginViewState extends ConsumerState<LoginView> {
                               text: context.appLocale.login,
                               onTap: _login,
                             )),
-                            19.hb,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AppText(
-                                  text: context.appLocale.doNotHaveAnAccount,
-                                  fontSize: 12,
-                                  color: R.colors.grey_97A2B0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                5.wb,
-                                InkWell(
-                                  onTap: () {
-                                    GoRouter.of(context)
-                                        .push(RoutePaths.signUp);
-                                  },
-                                  child: GradientText(
-                                    context.appLocale.signUp,
-                                    style: TextStyle(
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: -0.5.sp,
-                                    ),
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        R.colors.blue_305477,
-                                        R.colors.blue_001020,
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            12.hb,
                           ],
                         ),
                       ),

@@ -34,13 +34,8 @@ class AppFilledButton extends StatelessWidget {
       width: width?.w ?? 293.w,
       height: height?.h ?? 45.h,
       decoration: BoxDecoration(
-        color: color,
-        gradient: LinearGradient(
-          colors: [
-            color ?? R.colors.blue_305477,
-            color ?? R.colors.blue_001020,
-          ],
-        ),
+        color: color??R.colors.green_85C933,
+
         borderRadius: BorderRadius.circular(radius ?? 12.r),
       ),
       child: ElevatedButton(

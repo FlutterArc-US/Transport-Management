@@ -73,7 +73,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
                 : Icons.visibility_outlined,
             size: 24.r,
             color:
-                obscureText ? R.colors.grey_AEAEAE : R.colors.navyBlue_263C51,
+                obscureText ? R.colors.grey_AEAEAE : R.colors.green_85C933,
           ),
         ),
       ),
