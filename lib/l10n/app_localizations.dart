@@ -1730,6 +1730,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You will receive a confirmation email once your account is verified by Avcons admin.'**
   String get confirmationEmailUponVerificationByAdmin;
+
+  /// No description provided for @details.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get details;
+
+  /// No description provided for @routeToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Route Today'**
+  String get routeToday;
+
+  /// No description provided for @confirmStartRide.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to start this ride?'**
+  String get confirmStartRide;
+
+  /// No description provided for @rideStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Ride Started. Have a safe Journey!'**
+  String get rideStarted;
+
+  /// No description provided for @thanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thanks!'**
+  String get thanks;
+
+  /// No description provided for @startTheRide.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the Ride'**
+  String get startTheRide;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

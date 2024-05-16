@@ -330,5 +330,12 @@
   "enterAValidOTP": "Please enter a valid OTP",
   "accountDeletedSuccessfully": "Account has been deleted successfully",
   "requests": "Requests",
-  "confirmationEmailUponVerificationByAdmin": "You will receive a confirmation email once your account is verified by Avcons admin."
+  "confirmationEmailUponVerificationByAdmin": "You will receive a confirmation email once your account is verified by Avcons admin.",
+  "details": "Details",
+  "routeToday": "Route Today",
+  "confirmStartRide": "Are you sure you want to start this ride?",
+  "rideStarted": "Ride Started. Have a safe Journey!",
+  "thanks": "Thanks!",
+  "startTheRide": "Start the Ride"
+
 }

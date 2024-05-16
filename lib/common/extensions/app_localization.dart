@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
+import 'package:transport_management/l10n/app_localizations.dart';
 
 extension BuildContextHelper on BuildContext {
   AppLocalizations get appLocale {
