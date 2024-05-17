@@ -13,7 +13,7 @@ class RoutePaths {
   static const String otpVerification = '/otp-verification';
   static const String resetPassword = '/reset-password';
   static const String notifications = '/notifications';
-  static const String loadDetails = '/load-details';
+  static const String rideDetails = '/ride-details';
   static const String pickupDetails = '/pickup-details';
   static const String deliveryDetails = '/delivery-details';
   static const String earnings = '/earnings';

@@ -871,4 +871,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home => 'Home';
+
+  @override
+  String get tripDetails => 'Trip Details';
 }

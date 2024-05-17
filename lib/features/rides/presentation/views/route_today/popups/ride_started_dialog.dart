@@ -7,13 +7,8 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_outlined_text_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
-import 'package:transport_management/features/rides/presentation/providers/book_load_provider/book_load_provider.dart';
-import 'package:transport_management/features/rides/presentation/views/load_details/popups/load_booked_success_popup.dart';
 import 'package:transport_management/gen/assets.gen.dart';
-import 'package:transport_management/util/exceptions/message_exception.dart';
-import 'package:transport_management/util/loading/loading.dart';
 import 'package:transport_management/util/resources/r.dart';
-import 'package:transport_management/util/toast/toast.dart';
 
 class RideStartedDialog extends ConsumerWidget {
   const RideStartedDialog({super.key});

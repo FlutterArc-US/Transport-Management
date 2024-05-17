@@ -4,7 +4,6 @@ import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
-import 'package:transport_management/features/rides/presentation/views/load_details/widgets/all_reviews_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/widgets/additional_details_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/widgets/commodity_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/widgets/reference_number_widget.dart';
@@ -119,8 +118,6 @@ class PickupDetailsView extends StatelessWidget {
                     ),
                     15.hb,
                     const Divider(),
-                    5.hb,
-                    const AllReviewsWidget(),
                     5.hb,
                     const Divider(),
                     15.hb,

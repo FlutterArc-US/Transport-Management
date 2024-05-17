@@ -31,7 +31,7 @@ class RideCardWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.r),
         onTap: () {
           GoRouter.of(context).push(
-            RoutePaths.loadDetails,
+            RoutePaths.rideDetails,
             extra: load,
           );
         },

@@ -1778,6 +1778,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Home'**
   String get home;
+
+  /// No description provided for @tripDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip Details'**
+  String get tripDetails;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

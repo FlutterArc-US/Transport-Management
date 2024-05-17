@@ -18,9 +18,8 @@ import 'package:transport_management/features/home/presentation/views/home_view.
 import 'package:transport_management/features/notifications/presentation/views/notifications/notifications_view.dart';
 import 'package:transport_management/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
-import 'package:transport_management/features/rides/presentation/views/delivery_details/delivery_details_view.dart';
-import 'package:transport_management/features/rides/presentation/views/load_details/load_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/pickup_details_view.dart';
+import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
 import 'package:transport_management/features/splash/presentation/splash_view.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/manage_bank/manage_bank_view.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/withdraw_funds/withdraw_funds_view.dart';
@@ -81,19 +80,6 @@ final router = GoRouter(
       path: RoutePaths.notifications,
       builder: (context, state) {
         return const NotificationsView();
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.loadDetails,
-      builder: (context, state) {
-        final data = state.extra as LoadModel?;
-        return LoadDetailsView(load: data);
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.deliveryDetails,
-      builder: (context, state) {
-        return const DeliveryDetailsView();
       },
     ),
     GoRoute(
@@ -173,6 +159,13 @@ final router = GoRouter(
       builder: (context, state) {
         final data = state.extra as FaqModel;
         return SingleFaqView(faqModel: data);
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.rideDetails,
+      builder: (context, state) {
+        final data = state.extra as LoadModel?;
+        return RideDetailsView(load: data);
       },
     ),
   ],

@@ -7,7 +7,7 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_outlined_text_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
-import 'package:transport_management/features/rides/presentation/views/load_details/popups/ride_started_dialog.dart';
+import 'package:transport_management/features/rides/presentation/views/route_today/popups/ride_started_dialog.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 
