@@ -18,18 +18,18 @@ class WeeklyCalendarWidget extends StatelessWidget {
         dateFormatter: const DateFormatter.fullDateDayAsStrMY(),
         monthStyle: TextStyle(
           fontSize: 18.sp,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w500,
           color: R.colors.black_FF000000,
         ),
       ),
       dayProps: EasyDayProps(
         dayStructure: DayStructure.dayStrDayNum,
         height: 95.h,
-        todayHighlightColor: R.colors.navyBlue_263C51,
+        todayHighlightColor: R.colors.green_337A34,
         activeDayStyle: DayStyle(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10.r)),
-            color: R.colors.navyBlue_263C51,
+            color: R.colors.green_337A34,
           ),
         ),
       ),

@@ -8,6 +8,8 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
+import 'package:transport_management/features/rides/presentation/views/rides/widgets/route_point_card_widget.dart';
+import 'package:transport_management/features/rides/presentation/views/rides/widgets/vertical_stepper_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/datetime_formatter/datetime_formatter.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -16,12 +18,10 @@ import 'package:transport_management/util/router/paths.dart';
 class RideCardWidget extends StatelessWidget {
   const RideCardWidget({
     super.key,
-    this.showPodButton = false,
     this.load,
   });
 
   final LoadModel? load;
-  final bool showPodButton;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,6 @@ class RideCardWidget extends StatelessWidget {
         padding: EdgeInsets.only(bottom: 12.h),
         child: Container(
           width: 352.w,
-          height: showPodButton ? 232.h : 200.h,
           decoration: BoxDecoration(
             color: R.colors.white_FFFFFF,
             borderRadius: BorderRadius.circular(20.r),
@@ -50,258 +49,160 @@ class RideCardWidget extends StatelessWidget {
               ),
             ],
           ),
-          child: Stack(
+          child: Column(
             children: [
-              Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 7.h,
-                    horizontal: 15.w,
-                  ),
-                  decoration: BoxDecoration(
-                    color: R.colors.navyBlue_263C51,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20.r),
-                      bottomLeft: Radius.circular(20.r),
+              Row(
+                children: [
+                  Container(
+                    height: 29.h,
+                    width: 132.w,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 22.w,
+                      vertical: 8.h,
+                    ),
+                    decoration: BoxDecoration(
+                      color: R.colors.grey_7C7777,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.r),
+                      ),
+                    ),
+                    child: AppText(
+                      text: 'ECTF 0421',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: R.colors.white_FFFFFF,
                     ),
                   ),
-                  child: AppText(
-                    text: context.appLocale.amountWithCurrency(load?.cost ?? 0),
-                    color: R.colors.white_FFFFFF,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
+                  Expanded(
+                    child: Container(
+                      height: 29.h,
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.symmetric(vertical: 8.h),
+                      decoration: BoxDecoration(
+                        color: R.colors.black_FF000000,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.r),
+                        ),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Spacer(),
+                          Icon(
+                            Icons.fire_truck_outlined,
+                            color: R.colors.white_FFFFFF,
+                            size: 20.r,
+                          ),
+                          4.wb,
+                          AppText(
+                            text: 'Refrigerator Trailer',
+                            fontSize: 10,
+                            color: R.colors.white_FFFFFF,
+                          ),
+                          12.wb,
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              17.hb,
+              Padding(
+                padding: EdgeInsets.only(left: 19.w),
+                child: SizedBox(
+                  width: 340.w,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const VerticalStepperWidget(length: 4),
+                      15.wb,
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: List.generate(
+                          4,
+                          (index) {
+                            return Padding(
+                              padding: EdgeInsets.only(bottom: 9.h),
+                              child: const RoutePointCardWidget(),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Positioned(
-                top: 21.h,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 19.w),
-                      child: SizedBox(
-                        width: 340.w,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Column(
-                              children: [
-                                CircleAvatar(
-                                  radius: 10.r,
-                                  backgroundColor: R.colors.blue_20B4E3,
-                                ),
-                                4.hb,
-                                Container(
-                                  height: 56.h,
-                                  width: 1.w,
-                                  color: R.colors.grey_CBE2EF,
-                                ),
-                                4.hb,
-                                CircleAvatar(
-                                  radius: 10.r,
-                                  backgroundColor: R.colors.grey_CBE2EF,
-                                  child: CircleAvatar(
-                                    radius: 4.r,
-                                    backgroundColor: R.colors.white_FFFFFF,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            15.wb,
-                            SizedBox(
-                              height: 104.h,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        width: 200.w,
-                                        child: AppText(
-                                          text: load?.pickup.address ??
-                                              'Houston, TX',
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w700,
-                                          color: R.colors.black_414143,
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                      2.hb,
-                                      if (load?.pickupTime != null)
-                                        AppText(
-                                          text:
-                                              convertTimestampToFormattedString(
-                                                  load!.pickupTime),
-                                          fontSize: 12,
-                                          color: R.colors.navyBlue_263C51,
-                                        ),
-                                    ],
-                                  ),
-                                  32.hb,
-                                  Row(
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 200.w,
-                                            child: AppText(
-                                              text: load?.delivery.address ??
-                                                  'Houston, TX',
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w700,
-                                              color: R.colors.black_414143,
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 2,
-                                            ),
-                                          ),
-                                          2.hb,
-                                          if (load?.dropTime != null)
-                                            AppText(
-                                              text:
-                                                  convertTimestampToFormattedString(
-                                                      load!.dropTime),
-                                              fontSize: 12,
-                                              color: R.colors.navyBlue_263C51,
-                                            ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Assets.svgs.moveSelectionRightIcon.svg(
-                                  height: 10.h,
-                                  width: 16.w,
-                                ),
-                                3.wb,
-                                AppText(
-                                  text: '${load?.deadHead ?? 0} Deadhead',
-                                  fontSize: 12,
-                                  color: R.colors.navyBlue_263C51,
-                                ),
-                                2.wb,
-                              ],
-                            ),
-                          ],
+              24.hb,
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 29.h,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 22.w,
+                        vertical: 8.h,
+                      ),
+                      decoration: BoxDecoration(
+                        color: R.colors.green_337A34,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(20.r),
                         ),
                       ),
-                    ),
-                    12.hb,
-                    if (showPodButton)
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30.w),
-                        child: Column(
-                          children: [
-                            37.hb,
-                            AppFilledButton(
-                              text: context.appLocale.uploadPod,
-                              onTap: () {},
-                            ),
-                          ],
-                        ),
-                      )
-                    else
-                      Column(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Container(
-                            height: 1.h,
-                            width: 352.w,
-                            color: R.colors.grey_E7E7E7,
-                          ),
-                          14.hb,
-                          SizedBox(
-                            width: 352.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Row(
-                                  children: [
-                                    Assets.svgs.mileIcon.svg(
-                                      height: 16.r,
-                                      width: 16.r,
-                                    ),
-                                    10.wb,
-                                    AppText(
-                                      text:
-                                          '${(load?.distance ?? 0.0).asKNotation()} MI',
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: R.colors.navyBlue_263C51,
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  height: 16.h,
-                                  width: 1.w,
-                                  color: R.colors.grey_E7E7E7,
-                                ),
-                                Row(
-                                  children: [
-                                    Assets.svgs.weightIcon.svg(
-                                      height: 16.r,
-                                      width: 16.r,
-                                    ),
-                                    10.wb,
-                                    AppText(
-                                      text:
-                                          '${(load?.weight ?? 0).asKNotation()} lbs',
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: R.colors.navyBlue_263C51,
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  height: 16.h,
-                                  width: 1.w,
-                                  color: R.colors.grey_E7E7E7,
-                                ),
-                                Row(
-                                  children: [
-                                    load?.vehicleModel.img != null
-                                        ? SizedBox(
-                                            height: 16.r,
-                                            width: 16.r,
-                                            child: SvgPicture.string(
-                                              load!.vehicleModel.img,
-                                              colorFilter: ColorFilter.mode(
-                                                R.colors.blue_20B4E3,
-                                                BlendMode.srcIn,
-                                              ),
-                                            ),
-                                          )
-                                        : Assets.svgs.shippingIcon.svg(
-                                            height: 16.r,
-                                            width: 16.r,
-                                          ),
-                                    10.wb,
-                                    AppText(
-                                      text: load?.vehicleModel.name ?? '',
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: R.colors.navyBlue_263C51,
-                                    ),
-                                  ],
-                                ),
-                              ],
+                          Assets.svgs.mileIcon.svg(
+                            colorFilter: ColorFilter.mode(
+                              R.colors.white_FFFFFF,
+                              BlendMode.srcIn,
                             ),
+                          ),
+                          6.wb,
+                          AppText(
+                            text: '1200 MI',
+                            fontSize: 10,
+                            color: R.colors.white_FFFFFF,
+                          ),
+                          16.wb,
+                          Assets.svgs.timerIcon.svg(
+                            colorFilter: ColorFilter.mode(
+                              R.colors.white_FFFFFF,
+                              BlendMode.srcIn,
+                            ),
+                          ),
+                          6.wb,
+                          AppText(
+                            text: '4 Hrs',
+                            fontSize: 10,
+                            color: R.colors.white_FFFFFF,
                           ),
                         ],
-                      )
-                  ],
-                ),
-              )
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 29.h,
+                    width: 104.w,
+                    alignment: Alignment.centerRight,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 8.h,
+                      horizontal: 30.w,
+                    ),
+                    decoration: BoxDecoration(
+                      color: R.colors.green_074834,
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(20.r),
+                      ),
+                    ),
+                    child: AppText(
+                      text: context.appLocale.details,
+                      fontSize: 10,
+                      color: R.colors.white_FFFFFF,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
