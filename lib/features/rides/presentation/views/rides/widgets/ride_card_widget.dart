@@ -88,10 +88,13 @@ class RideCardWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           const Spacer(),
-                          Icon(
-                            Icons.fire_truck_outlined,
-                            color: R.colors.white_FFFFFF,
-                            size: 20.r,
+                          Assets.svgs.trailorIcon.svg(
+                            width: 24.r,
+                            height: 24.r,
+                            colorFilter: ColorFilter.mode(
+                              R.colors.white_FFFFFF,
+                              BlendMode.srcIn,
+                            ),
                           ),
                           4.wb,
                           AppText(
