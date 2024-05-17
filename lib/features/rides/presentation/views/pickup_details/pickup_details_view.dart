@@ -7,7 +7,7 @@ import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/widgets/additional_details_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/widgets/commodity_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/widgets/reference_number_widget.dart';
-import 'package:transport_management/features/rides/presentation/views/pickup_details/widgets/shipper_notes_widget.dart';
+import 'package:transport_management/features/rides/presentation/views/trip_point_details/widgets/point_notes_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 
@@ -121,7 +121,7 @@ class PickupDetailsView extends StatelessWidget {
                     5.hb,
                     const Divider(),
                     15.hb,
-                    const ShipperNotesWidget(),
+                    const PointNotesWidget(),
                     15.hb,
                     const Divider(),
                     15.hb,

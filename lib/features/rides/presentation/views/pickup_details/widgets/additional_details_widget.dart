@@ -17,9 +17,9 @@ class AdditionalDetailsWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppText(
-            text: context.appLocale.additionalDetails,
+            text: context.appLocale.details,
             fontSize: 16,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
           ),
           10.hb,
           Container(
@@ -52,9 +52,9 @@ class AdditionalDetailsWidget extends StatelessWidget {
                             SizedBox(
                               height: 20.r,
                               width: 20.r,
-                              child: Assets.svgs.appointmentIcon.svg(
+                              child: Assets.svgs.loadIdIcon.svg(
                                 colorFilter: ColorFilter.mode(
-                                  R.colors.blue_20B4E3,
+                                  R.colors.green_337A34,
                                   BlendMode.srcIn,
                                 ),
                               ),
@@ -64,13 +64,13 @@ class AdditionalDetailsWidget extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 AppText(
-                                  text: context.appLocale.appointment,
+                                  text: context.appLocale.loadId,
                                   fontSize: 14,
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                                2.hb,
+                                4.hb,
                                 AppText(
-                                  text: 'Jan 28, 01:30 CST',
+                                  text: '0123456789',
                                   color: R.colors.grey_4D4D4D,
                                   fontSize: 14,
                                 ),
@@ -88,18 +88,23 @@ class AdditionalDetailsWidget extends StatelessWidget {
                           SizedBox(
                             height: 20.r,
                             width: 20.r,
-                            child: Assets.svgs.callIcon.svg(),
+                            child: Assets.svgs.weightIcon.svg(
+                              colorFilter: ColorFilter.mode(
+                                R.colors.green_337A34,
+                                BlendMode.srcIn,
+                              ),
+                            ),
                           ),
                           6.wb,
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AppText(
-                                text: context.appLocale.contact,
+                                text: context.appLocale.weight,
                                 fontSize: 14,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                               ),
-                              2.hb,
+                              4.hb,
                               AppText(
                                 text: '555 123-4567',
                                 color: R.colors.grey_4D4D4D,
@@ -128,18 +133,23 @@ class AdditionalDetailsWidget extends StatelessWidget {
                             SizedBox(
                               height: 20.r,
                               width: 20.r,
-                              child: Assets.svgs.restroomIcon.svg(),
+                              child: Assets.svgs.packageTypeIcon.svg(
+                                colorFilter: ColorFilter.mode(
+                                  R.colors.green_337A34,
+                                  BlendMode.srcIn,
+                                ),
+                              ),
                             ),
                             6.wb,
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 AppText(
-                                  text: context.appLocale.restrooms,
+                                  text: context.appLocale.packageType,
                                   fontSize: 14,
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                                2.hb,
+                                4.hb,
                                 AppText(
                                   text: '4',
                                   color: R.colors.grey_4D4D4D,
@@ -159,18 +169,23 @@ class AdditionalDetailsWidget extends StatelessWidget {
                           SizedBox(
                             height: 20.r,
                             width: 20.r,
-                            child: Assets.svgs.onsiteScaleIcon.svg(),
+                            child: Assets.svgs.commodityIcon.svg(
+                              colorFilter: ColorFilter.mode(
+                                R.colors.green_337A34,
+                                BlendMode.srcIn,
+                              ),
+                            ),
                           ),
                           6.wb,
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AppText(
-                                text: context.appLocale.onsiteScale,
+                                text: context.appLocale.commodity,
                                 fontSize: 14,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                               ),
-                              2.hb,
+                              4.hb,
                               AppText(
                                 text: '4321',
                                 color: R.colors.grey_4D4D4D,

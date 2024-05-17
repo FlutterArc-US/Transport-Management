@@ -1041,11 +1041,11 @@ abstract class AppLocalizations {
   /// **'View On Map'**
   String get viewOnMap;
 
-  /// No description provided for @shipperNotes.
+  /// No description provided for @notes.
   ///
   /// In en, this message translates to:
-  /// **'Shipper Notes'**
-  String get shipperNotes;
+  /// **'Notes'**
+  String get notes;
 
   /// No description provided for @referenceNumber.
   ///

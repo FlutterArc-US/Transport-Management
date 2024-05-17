@@ -31,4 +31,5 @@ class RoutePaths {
   static const String preTrip = '/preTrip';
   static const String submittedDocs = '/submitted-docs';
   static const String forYou = '/for-you';
+  static const String tripPoint = '/trip-point';
 }

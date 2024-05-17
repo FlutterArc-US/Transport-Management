@@ -495,7 +495,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get viewOnMap => 'Auf Karte anzeigen';
 
   @override
-  String get shipperNotes => 'Versandnotizen';
+  String get notes => 'Notes';
 
   @override
   String get referenceNumber => 'Referenznummer';

@@ -17,11 +17,11 @@ class UserProfileAvatar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      height: 72.r,
-      width: 72.r,
+      height: size?.r ?? 72.r,
+      width: size?.r ?? 72.r,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(66.r),
-        border: Border.all(color: R.colors.blue_20B4E3),
+        border: Border.all(color: R.colors.green_337A34),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(66.r),
@@ -32,8 +32,8 @@ class UserProfileAvatar extends ConsumerWidget {
               )
             : Icon(
                 Icons.person,
-                color: R.colors.navyBlue_263C51,
-                size: 36.r,
+                color: R.colors.green_337A34,
+                size: size != null ? size! * 0.6 : 36.r,
               ),
       ),
     );

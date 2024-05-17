@@ -495,7 +495,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get viewOnMap => 'View On Map';
 
   @override
-  String get shipperNotes => 'Shipper Notes';
+  String get notes => 'Notes';
 
   @override
   String get referenceNumber => 'Reference Number';

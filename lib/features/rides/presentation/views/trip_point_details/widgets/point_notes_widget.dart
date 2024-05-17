@@ -4,8 +4,8 @@ import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 
-class ShipperNotesWidget extends StatelessWidget {
-  const ShipperNotesWidget({super.key});
+class PointNotesWidget extends StatelessWidget {
+  const PointNotesWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ShipperNotesWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppText(
-            text: context.appLocale.shipperNotes,
+            text: context.appLocale.notes,
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),

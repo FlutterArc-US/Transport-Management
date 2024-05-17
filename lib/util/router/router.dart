@@ -20,6 +20,7 @@ import 'package:transport_management/features/onboarding/presentation/views/onbo
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/pickup_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
+import 'package:transport_management/features/rides/presentation/views/trip_point_details/trip_point_details.dart';
 import 'package:transport_management/features/splash/presentation/splash_view.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/manage_bank/manage_bank_view.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/withdraw_funds/withdraw_funds_view.dart';
@@ -166,6 +167,12 @@ final router = GoRouter(
       builder: (context, state) {
         final data = state.extra as LoadModel?;
         return RideDetailsView(load: data);
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.tripPoint,
+      builder: (context, state) {
+        return const TripPointDetailsView();
       },
     ),
   ],
