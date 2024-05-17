@@ -10,7 +10,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get welcome => 'Willkommen';
 
   @override
+  String get loginToYourAccount => 'Melden Sie sich bei Ihrem Konto an';
+
+  @override
   String get login => 'Anmelden';
+
+  @override
+  String get viaPhoneNumber => 'über Telefonnummer';
+
+  @override
+  String get viaDrivingLicense => 'über Führerschein';
 
   @override
   String get platformDescription => 'We connect shippers and carriers to haul together. Find and book loads for you and your fleet, easily upload documents, and get paid quickly with the tap of a button.';
