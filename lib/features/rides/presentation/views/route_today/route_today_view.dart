@@ -7,6 +7,7 @@ import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/rides/presentation/providers/selected_ride_provider/selected_ride_provider.dart';
 import 'package:transport_management/features/rides/presentation/views/rides/widgets/ride_card_widget.dart';
+import 'package:transport_management/features/rides/presentation/views/route_today/popups/ride_confirmation_dialog.dart';
 import 'package:transport_management/features/rides/presentation/views/route_today/widgets/tab_bar_widget.dart';
 import 'package:transport_management/util/resources/r.dart';
 
@@ -57,7 +58,21 @@ class RouteTodayView extends ConsumerWidget {
                 24.hb,
                 AppFilledButton(
                   text: context.appLocale.startTheRide,
-                  onTap: () {},
+                  onTap: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      showDragHandle: true,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30.r),
+                          topRight: Radius.circular(30.r),
+                        ),
+                      ),
+                      builder: (context) {
+                        return RideConfirmationDialog(cxt: context);
+                      },
+                    );
+                  },
                 ),
                 120.hb,
               ],

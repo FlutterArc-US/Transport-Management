@@ -11,14 +11,12 @@ import 'package:transport_management/features/rides/presentation/views/load_deta
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 
-class BookLoadConfirmationPopup extends ConsumerWidget {
-  const BookLoadConfirmationPopup({
-    required this.loadId,
+class RideConfirmationDialog extends ConsumerWidget {
+  const RideConfirmationDialog({
     required this.cxt,
     super.key,
   });
 
-  final int loadId;
   final BuildContext cxt;
 
   @override
@@ -38,19 +36,20 @@ class BookLoadConfirmationPopup extends ConsumerWidget {
             ),
           ),
           SizedBox(
-            width: 224.w,
-            height: 168.h,
-            child: Assets.svgs.confirmBooking.svg(),
+            width: 322.w,
+            height: 207.h,
+            child: Assets.pngs.startRideConfirmationImage.image(),
           ),
           30.hb,
           SizedBox(
-            width: 268.w,
+            width: 287.w,
             child: AppText(
-              text: context.appLocale.confirmBooking,
-              fontWeight: FontWeight.w700,
-              fontSize: 24,
-              color: R.colors.navyBlue_263C51,
+              text: context.appLocale.confirmStartRide,
+              fontWeight: FontWeight.w500,
+              fontSize: 25,
+              color: R.colors.black_FF000000,
               textAlign: TextAlign.center,
+              height: 1.2.h,
             ),
           ),
           const Spacer(),
@@ -59,7 +58,6 @@ class BookLoadConfirmationPopup extends ConsumerWidget {
             children: [
               AppOutlinedTextButton(
                 width: 149,
-                color: R.colors.blue_20B4E3,
                 text: context.appLocale.no,
                 onTap: () => GoRouter.of(context).pop(),
               ),
@@ -79,7 +77,7 @@ class BookLoadConfirmationPopup extends ConsumerWidget {
                       ),
                     ),
                     builder: (cxt) {
-                      return RideStartedDialog();
+                      return const RideStartedDialog();
                     },
                   );
                 },

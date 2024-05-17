@@ -8,7 +8,7 @@ import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/common/widgets/user_avatar.dart';
-import 'package:transport_management/features/rides/presentation/views/load_details/popups/view_reloads_popup.dart';
+import 'package:transport_management/features/rides/presentation/views/load_details/popups/ride_started_dialog.dart';
 import 'package:transport_management/features/rides/presentation/views/load_rating/widgets/rating_bar_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -110,7 +110,7 @@ class LoadRatingPopup extends ConsumerWidget {
                 ),
               ),
               builder: (context) {
-                return const ViewReloadsPopup(loadId: 1);
+                return const RideStartedDialog();
               },
             );
           },

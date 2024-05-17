@@ -15,42 +15,8 @@ import 'package:transport_management/util/loading/loading.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/toast/toast.dart';
 
-class ViewReloadsPopup extends ConsumerWidget {
-  const ViewReloadsPopup({required this.loadId, super.key});
-
-  final int loadId;
-
-  Future<void> _bookLoad(BuildContext context, WidgetRef ref) async {
-    try {
-      loading(context);
-      await ref.read(bookLoadProvider(loadId).future);
-
-      if (!context.mounted) return;
-      GoRouter.of(context).pop();
-
-      showModalBottomSheet<void>(
-        context: context,
-        showDragHandle: true,
-        scrollControlDisabledMaxHeightRatio: 0.48,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.r),
-            topRight: Radius.circular(30.r),
-          ),
-        ),
-        builder: (context) {
-          return const LoadBookedSuccessPopup();
-        },
-      );
-    } on MessageException catch (e) {
-      showToast(msg: e.message);
-    } catch (e) {
-      showToast(msg: e.toString());
-      // showToast(msg: AppLocalizations.of(context)!.somethingWentWrong);
-    } finally {
-      dismissLoading();
-    }
-  }
+class RideStartedDialog extends ConsumerWidget {
+  const RideStartedDialog({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -71,13 +37,13 @@ class ViewReloadsPopup extends ConsumerWidget {
           SizedBox(
             width: 224.w,
             height: 168.h,
-            child: Assets.pngs.loadBookingImg.image(),
+            child: Assets.pngs.rideStartedImage.image(),
           ),
           30.hb,
           SizedBox(
             width: 268.w,
             child: AppText(
-              text: context.appLocale.loadBooking,
+              text: context.appLocale.rideStarted,
               fontWeight: FontWeight.w700,
               fontSize: 24,
               color: R.colors.navyBlue_263C51,
@@ -102,7 +68,7 @@ class ViewReloadsPopup extends ConsumerWidget {
                 width: 149,
                 color: R.colors.blue_20B4E3,
                 text: context.appLocale.no,
-                onTap: () => _bookLoad(context, ref),
+                onTap: () {},
               ),
               AppFilledButton(
                 width: 149,
