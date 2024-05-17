@@ -25,16 +25,16 @@ class RideCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(20.r),
-      onTap: () {
-        GoRouter.of(context).push(
-          RoutePaths.loadDetails,
-          extra: load,
-        );
-      },
-      child: Padding(
-        padding: EdgeInsets.only(bottom: 12.h),
+    return Padding(
+      padding: EdgeInsets.only(bottom: 12.h),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20.r),
+        onTap: () {
+          GoRouter.of(context).push(
+            RoutePaths.loadDetails,
+            extra: load,
+          );
+        },
         child: Container(
           width: 352.w,
           decoration: BoxDecoration(

@@ -8,6 +8,7 @@ import 'package:transport_management/features/home/presentation/views/widgets/bo
 import 'package:transport_management/features/home/presentation/views/widgets/drawer_widget.dart';
 import 'package:transport_management/features/home/presentation/views/widgets/menu_notification_header.dart';
 import 'package:transport_management/features/rides/presentation/views/rides/rides_view.dart';
+import 'package:transport_management/features/rides/presentation/views/route_today/route_today_view.dart';
 import 'package:transport_management/util/resources/r.dart';
 
 class HomeView extends ConsumerStatefulWidget {
@@ -23,7 +24,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
   Widget view(BottomNavItem currentView) {
     if (currentView.isChat) return const SizedBox();
     if (currentView.isHome) return const RidesView();
-    if (currentView.isMyRouteToday) return const SizedBox();
+    if (currentView.isMyRouteToday) return const RouteTodayView();
     return const SizedBox();
   }
 
