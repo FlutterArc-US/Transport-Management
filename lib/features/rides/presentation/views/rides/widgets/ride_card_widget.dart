@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
-import 'package:transport_management/common/extensions/compact_number_formatter.dart';
 import 'package:transport_management/common/extensions/num.dart';
-import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
 import 'package:transport_management/features/rides/presentation/views/rides/widgets/route_point_card_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/rides/widgets/vertical_stepper_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
-import 'package:transport_management/util/datetime_formatter/datetime_formatter.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/router/paths.dart';
 

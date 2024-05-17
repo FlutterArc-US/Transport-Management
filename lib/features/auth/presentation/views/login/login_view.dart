@@ -12,7 +12,6 @@ import 'package:transport_management/common/widgets/password_input_field.dart';
 import 'package:transport_management/common/widgets/phone_number_input_field.dart';
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login/login_form_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/login/login_provider.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
