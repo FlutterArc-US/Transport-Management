@@ -339,6 +339,17 @@
   "startTheRide": "Start the Ride",
   "chat": "Chat",
   "home": "Home",
-  "tripDetails": "Trip Details"
+  "tripDetails": "Trip Details",
+  "trackYourJourney": "Track your Journey",
+  "upcomingSchedule": "Upcoming Schedule",
+  "pastTrips": "Past Trips",
+  "recordYourMatters": "Record your Matters",
+  "recordFaultExpense": "Record Fault / Expense",
+  "leaves": "Leaves",
+  "reviewAndWiki": "Review & Wiki",
+  "courses": "Courses",
+  "reviews": "Reviews",
+  "extras": "Extras"
+
 
 }

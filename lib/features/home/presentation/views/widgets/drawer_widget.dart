@@ -20,15 +20,17 @@ class DrawerWidget extends ConsumerWidget {
 
   String itemName(DrawerItem item, BuildContext context) {
     return switch (item) {
-      DrawerItem.manageVehicle => context.appLocale.manageVehicle,
-      DrawerItem.earnings => context.appLocale.earnings,
-      DrawerItem.withdrawals => context.appLocale.withdrawals,
-      DrawerItem.reports => context.appLocale.reports,
+      DrawerItem.routeToday => context.appLocale.routeToday,
+      DrawerItem.upcomingSchedule => context.appLocale.upcomingSchedule,
+      DrawerItem.pastTrips => context.appLocale.pastTrips,
+      DrawerItem.chat => context.appLocale.chat,
+      DrawerItem.recordFault => context.appLocale.recordFaultExpense,
+      DrawerItem.leaves => context.appLocale.leaves,
+      DrawerItem.courses => context.appLocale.courses,
+      DrawerItem.reviews => context.appLocale.reviews,
+      DrawerItem.settings => context.appLocale.settings,
       DrawerItem.about => context.appLocale.about,
       DrawerItem.terms => context.appLocale.terms,
-      DrawerItem.support => context.appLocale.support,
-      DrawerItem.faqs => context.appLocale.faqs,
-      DrawerItem.settings => context.appLocale.settings,
     };
   }
 
@@ -117,9 +119,9 @@ class DrawerWidget extends ConsumerWidget {
                     List<DrawerItem> drawerItems = [];
                     if (userType != 'own') {
                       drawerItems = [
-                        DrawerItem.about,
-                        DrawerItem.faqs,
-                        DrawerItem.terms,
+                        DrawerItem.recordFault,
+                        DrawerItem.reviews,
+                        DrawerItem.leaves,
                         DrawerItem.settings,
                       ];
                     } else {

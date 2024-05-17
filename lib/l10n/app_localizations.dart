@@ -1784,6 +1784,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Trip Details'**
   String get tripDetails;
+
+  /// No description provided for @trackYourJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Track your Journey'**
+  String get trackYourJourney;
+
+  /// No description provided for @upcomingSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Schedule'**
+  String get upcomingSchedule;
+
+  /// No description provided for @pastTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'Past Trips'**
+  String get pastTrips;
+
+  /// No description provided for @recordYourMatters.
+  ///
+  /// In en, this message translates to:
+  /// **'Record your Matters'**
+  String get recordYourMatters;
+
+  /// No description provided for @recordFaultExpense.
+  ///
+  /// In en, this message translates to:
+  /// **'Record Fault / Expense'**
+  String get recordFaultExpense;
+
+  /// No description provided for @leaves.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaves'**
+  String get leaves;
+
+  /// No description provided for @reviewAndWiki.
+  ///
+  /// In en, this message translates to:
+  /// **'Review & Wiki'**
+  String get reviewAndWiki;
+
+  /// No description provided for @courses.
+  ///
+  /// In en, this message translates to:
+  /// **'Courses'**
+  String get courses;
+
+  /// No description provided for @reviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviews'**
+  String get reviews;
+
+  /// No description provided for @extras.
+  ///
+  /// In en, this message translates to:
+  /// **'Extras'**
+  String get extras;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

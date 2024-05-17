@@ -874,4 +874,34 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get tripDetails => 'Trip Details';
+
+  @override
+  String get trackYourJourney => 'Track your Journey';
+
+  @override
+  String get upcomingSchedule => 'Upcoming Schedule';
+
+  @override
+  String get pastTrips => 'Past Trips';
+
+  @override
+  String get recordYourMatters => 'Record your Matters';
+
+  @override
+  String get recordFaultExpense => 'Record Fault / Expense';
+
+  @override
+  String get leaves => 'Leaves';
+
+  @override
+  String get reviewAndWiki => 'Review & Wiki';
+
+  @override
+  String get courses => 'Courses';
+
+  @override
+  String get reviews => 'Reviews';
+
+  @override
+  String get extras => 'Extras';
 }
