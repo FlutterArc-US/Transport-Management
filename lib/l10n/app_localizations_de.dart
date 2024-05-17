@@ -16,7 +16,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get login => 'Anmelden';
 
   @override
-  String get viaPhone => 'über Telefon';
+  String get viaPhoneNumber => 'über Telefonnummer';
 
   @override
   String get viaDrivingLicense => 'über Führerschein';

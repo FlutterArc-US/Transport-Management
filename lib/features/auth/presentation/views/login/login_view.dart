@@ -7,11 +7,16 @@ import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
+import 'package:transport_management/common/widgets/custom_text_form_field.dart';
 import 'package:transport_management/common/widgets/password_input_field.dart';
 import 'package:transport_management/common/widgets/phone_number_input_field.dart';
+import 'package:transport_management/common/widgets/text_input_field.dart';
+import 'package:transport_management/features/auth/domain/models/login_option_model/login_option_model.dart';
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login/login_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login/login_provider.dart';
+import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
+import 'package:transport_management/features/auth/presentation/views/widgets/login_option_tab.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
@@ -107,6 +112,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
   @override
   Widget build(BuildContext context) {
     final loginForm = ref.watch(loginFormProvider);
+    final loginOption = ref.watch(loginOptionProvider);
 
     return KeyboardDismissOnTap(
       child: Scaffold(
@@ -198,87 +204,27 @@ class _LoginViewState extends ConsumerState<LoginView> {
                               color: R.colors.grey_7B7B7B,
                             ),
                             15.05.hb,
-                            Container(
-                              width: 340.w,
-                              height: 44.h,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 5.w, vertical: 3.h),
-                              decoration: BoxDecoration(
-                                color: R.colors.grey_767680.withOpacity(0.12),
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        viaPhone = true;
-                                      });
+                            const LoginOptionTab(),
+                            10.hb,
+                            loginOption.isViaPhoneNumber
+                                ? PhoneNumberInputField(
+                                    isNotEmpty:
+                                        loginForm.phone?.isNotEmpty ?? false,
+                                    focusNode: phoneFocusNode,
+                                    onEditingComplete: (v) {
+                                      passwordFocusNode.requestFocus();
                                     },
-                                    child: Container(
-                                      width: 165.w,
-                                      height: 38.h,
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color: viaPhone
-                                            ? R.colors.white_FFFFFF
-                                            : Colors.transparent,
-                                        borderRadius:
-                                            BorderRadius.circular(12.r),
-                                      ),
-                                      child: AppText(
-                                        text: context.appLocale.viaPhone,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: R.colors.grey_767680,
-                                        textAlign: TextAlign.center,
-                                        height: 1.sp,
-                                      ),
-                                    ),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        viaPhone = false;
-                                      });
+                                    onChanged: (v) {
+                                      ref
+                                          .read(loginFormProvider.notifier)
+                                          .setPhone(v.completeNumber);
                                     },
-                                    child: Container(
-                                      width: 165.w,
-                                      height: 38.h,
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color: !viaPhone
-                                            ? R.colors.white_FFFFFF
-                                            : Colors.transparent,
-                                        borderRadius:
-                                            BorderRadius.circular(12.r),
-                                      ),
-                                      child: AppText(
-                                        text:
-                                            context.appLocale.viaDrivingLicense,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: R.colors.grey_767680,
-                                      ),
-                                    ),
+                                  )
+                                : TextInputField(
+                                    onChanged: (v) {},
+                                    hintText: 'Driving License',
+                                    labelText: 'Driving License',
                                   ),
-                                ],
-                              ),
-                            ),
-                            PhoneNumberInputField(
-                              isNotEmpty: loginForm.phone?.isNotEmpty ?? false,
-                              focusNode: phoneFocusNode,
-                              onEditingComplete: (v) {
-                                passwordFocusNode.requestFocus();
-                              },
-                              onChanged: (v) {
-                                ref
-                                    .read(loginFormProvider.notifier)
-                                    .setPhone(v.completeNumber);
-                              },
-                            ),
                             16.hb,
                             PasswordInputField(
                               focusNode: passwordFocusNode,

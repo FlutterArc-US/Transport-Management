@@ -43,43 +43,44 @@ class _OTPVerificationViewState extends ConsumerState<OTPVerificationView> {
   bool resendCode = false;
 
   Future<void> _verifyOtp() async {
-    final otp = ref.read(otpFormNotifierProvider);
-    FocusManager.instance.primaryFocus?.unfocus();
-
-    try {
-      loading(context);
-      if (otp != null && otp.length == 4) {
-        if (widget.profileChangePassword != null &&
-            widget.profileChangePassword!) {
-          await ref.read(verifyUpdateProfileOtpProvider.future);
-
-          if (!mounted) return;
-
-          GoRouter.of(context).pop();
-
-          await ref.read(updateProfileProvider.future);
-          if (!mounted) return;
-
-          showToast(msg: context.appLocale.profileUpdatedSuccessfully);
-        } else {
-          await ref.read(verifyResetPasswordOtpProvider.future);
-          if (!mounted) return;
-
-          showToast(msg: context.appLocale.otpVerifiedSuccessfully);
-          if (!mounted) return;
-
-          GoRouter.of(context).pushReplacement(RoutePaths.resetPassword);
-        }
-      } else {
-        showToast(msg: context.appLocale.enterAValidOTP);
-      }
-    } on MessageException catch (e) {
-      showToast(msg: e.message);
-    } catch (e) {
-      showToast(msg: context.appLocale.somethingWentWrong);
-    } finally {
-      dismissLoading();
-    }
+    GoRouter.of(context).pushReplacement(RoutePaths.resetPassword);
+    // final otp = ref.read(otpFormNotifierProvider);
+    // FocusManager.instance.primaryFocus?.unfocus();
+    //
+    // try {
+    //   loading(context);
+    //   if (otp != null && otp.length == 4) {
+    //     if (widget.profileChangePassword != null &&
+    //         widget.profileChangePassword!) {
+    //       await ref.read(verifyUpdateProfileOtpProvider.future);
+    //
+    //       if (!mounted) return;
+    //
+    //       GoRouter.of(context).pop();
+    //
+    //       await ref.read(updateProfileProvider.future);
+    //       if (!mounted) return;
+    //
+    //       showToast(msg: context.appLocale.profileUpdatedSuccessfully);
+    //     } else {
+    //       await ref.read(verifyResetPasswordOtpProvider.future);
+    //       if (!mounted) return;
+    //
+    //       showToast(msg: context.appLocale.otpVerifiedSuccessfully);
+    //       if (!mounted) return;
+    //
+    //       GoRouter.of(context).pushReplacement(RoutePaths.resetPassword);
+    //     }
+    //   } else {
+    //     showToast(msg: context.appLocale.enterAValidOTP);
+    //   }
+    // } on MessageException catch (e) {
+    //   showToast(msg: e.message);
+    // } catch (e) {
+    //   showToast(msg: context.appLocale.somethingWentWrong);
+    // } finally {
+    //   dismissLoading();
+    // }
   }
 
   Future<void> _resendOtp() async {

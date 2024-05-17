@@ -111,11 +111,11 @@ abstract class AppLocalizations {
   /// **'Log in'**
   String get login;
 
-  /// No description provided for @viaPhone.
+  /// No description provided for @viaPhoneNumber.
   ///
   /// In en, this message translates to:
-  /// **'via Phone'**
-  String get viaPhone;
+  /// **'via Phone Number'**
+  String get viaPhoneNumber;
 
   /// No description provided for @viaDrivingLicense.
   ///

@@ -16,7 +16,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Log in';
 
   @override
-  String get viaPhone => 'via Phone';
+  String get viaPhoneNumber => 'via Phone Number';
 
   @override
   String get viaDrivingLicense => 'via Driving License';
