@@ -1041,11 +1041,11 @@ abstract class AppLocalizations {
   /// **'View On Map'**
   String get viewOnMap;
 
-  /// No description provided for @shipperNotes.
+  /// No description provided for @notes.
   ///
   /// In en, this message translates to:
-  /// **'Shipper Notes'**
-  String get shipperNotes;
+  /// **'Notes'**
+  String get notes;
 
   /// No description provided for @referenceNumber.
   ///
@@ -1730,6 +1730,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You will receive a confirmation email once your account is verified by Avcons admin.'**
   String get confirmationEmailUponVerificationByAdmin;
+
+  /// No description provided for @details.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get details;
+
+  /// No description provided for @routeToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Route Today'**
+  String get routeToday;
+
+  /// No description provided for @confirmStartRide.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to start this ride?'**
+  String get confirmStartRide;
+
+  /// No description provided for @rideStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Ride Started. Have a safe Journey!'**
+  String get rideStarted;
+
+  /// No description provided for @thanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thanks!'**
+  String get thanks;
+
+  /// No description provided for @startTheRide.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the Ride'**
+  String get startTheRide;
+
+  /// No description provided for @chat.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get chat;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @tripDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip Details'**
+  String get tripDetails;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

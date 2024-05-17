@@ -495,7 +495,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get viewOnMap => 'View On Map';
 
   @override
-  String get shipperNotes => 'Shipper Notes';
+  String get notes => 'Notes';
 
   @override
   String get referenceNumber => 'Reference Number';
@@ -847,4 +847,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmationEmailUponVerificationByAdmin => 'You will receive a confirmation email once your account is verified by Avcons admin.';
+
+  @override
+  String get details => 'Details';
+
+  @override
+  String get routeToday => 'Route Today';
+
+  @override
+  String get confirmStartRide => 'Are you sure you want to start this ride?';
+
+  @override
+  String get rideStarted => 'Ride Started. Have a safe Journey!';
+
+  @override
+  String get thanks => 'Thanks!';
+
+  @override
+  String get startTheRide => 'Start the Ride';
+
+  @override
+  String get chat => 'Chat';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get tripDetails => 'Trip Details';
 }

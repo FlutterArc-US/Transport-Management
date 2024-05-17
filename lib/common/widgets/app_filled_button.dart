@@ -37,8 +37,8 @@ class AppFilledButton extends StatelessWidget {
         color: color,
         gradient: LinearGradient(
           colors: [
-            color ?? R.colors.blue_305477,
-            color ?? R.colors.blue_001020,
+            color ?? R.colors.green_85C933,
+            color ?? R.colors.green_85C933,
           ],
         ),
         borderRadius: BorderRadius.circular(radius ?? 12.r),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/router/paths.dart';
 
@@ -40,14 +39,6 @@ class MenuNotificationHeader extends StatelessWidget {
               GoRouter.of(context).push(RoutePaths.notifications);
             },
             child: Assets.svgs.bell.svg(),
-          ),
-          7.2.wb,
-          InkWell(
-            borderRadius: BorderRadius.circular(20.r),
-            onTap: () {
-              GoRouter.of(context).push(RoutePaths.forYou);
-            },
-            child: Assets.svgs.menuStarIcon.svg(),
           ),
         ],
       ),
