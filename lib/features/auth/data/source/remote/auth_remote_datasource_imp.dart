@@ -20,7 +20,6 @@ import 'package:transport_management/util/consts/api.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 ////********** END IMPORTS **********////
 
-@LazySingleton(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   final Logger _logger;
   final NetworkCallHelper _networkCallHelper;

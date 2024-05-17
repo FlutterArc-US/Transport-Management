@@ -7,9 +7,8 @@ import 'package:transport_management/features/home/presentation/providers/select
 import 'package:transport_management/features/home/presentation/views/widgets/bottom_nav_bar.dart';
 import 'package:transport_management/features/home/presentation/views/widgets/drawer_widget.dart';
 import 'package:transport_management/features/home/presentation/views/widgets/menu_notification_header.dart';
-import 'package:transport_management/features/loads/presentation/views/my_loads/my_loads_view.dart';
-import 'package:transport_management/features/loads/presentation/views/post_truck/post_truck_view.dart';
-import 'package:transport_management/features/loads/presentation/views/requests/requests_view.dart';
+import 'package:transport_management/features/rides/presentation/views/rides/rides_view.dart';
+import 'package:transport_management/features/rides/presentation/views/route_today/route_today_view.dart';
 import 'package:transport_management/util/resources/r.dart';
 
 class HomeView extends ConsumerStatefulWidget {
@@ -23,10 +22,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
   double leftPosition = 0;
 
   Widget view(BottomNavItem currentView) {
-    if (currentView.isPostLoad) return const PostTruckView();
-    if (currentView.isBook) return const PostTruckView();
-    if (currentView.isMyLoads) return const MyLoadsView();
-    if (currentView.isRequest) return const RequestsView();
+    if (currentView.isChat) return const SizedBox();
+    if (currentView.isHome) return const RidesView();
+    if (currentView.isMyRouteToday) return const RouteTodayView();
     return const SizedBox();
   }
 
@@ -54,10 +52,10 @@ class _HomeViewState extends ConsumerState<HomeView> {
         FocusManager.instance.primaryFocus!.unfocus();
       },
       child: PopScope(
-        onPopInvoked: (b) => currentView != BottomNavItem.myLoads
+        onPopInvoked: (b) => currentView != BottomNavItem.routeToday
             ? ref
                 .read(selectedNavItemProvider.notifier)
-                .update((state) => BottomNavItem.myLoads)
+                .update((state) => BottomNavItem.routeToday)
             : onWillPop(context),
         canPop: false,
         child: Scaffold(

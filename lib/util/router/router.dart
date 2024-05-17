@@ -15,16 +15,12 @@ import 'package:transport_management/features/auth/presentation/views/register/s
 import 'package:transport_management/features/auth/presentation/views/reset_password/reset_password.dart';
 import 'package:transport_management/features/earnings/presentation/views/earnings/earnings_view.dart';
 import 'package:transport_management/features/home/presentation/views/home_view.dart';
-import 'package:transport_management/features/loads/domain/models/load/load_model.dart';
-import 'package:transport_management/features/loads/presentation/views/delivery_details/delivery_details_view.dart';
-import 'package:transport_management/features/loads/presentation/views/load_details/load_details_view.dart';
-import 'package:transport_management/features/loads/presentation/views/loads_for_you/loads_for_you_view.dart';
-import 'package:transport_management/features/loads/presentation/views/my_loads/my_loads_view.dart';
-import 'package:transport_management/features/loads/presentation/views/pickup_details/pickup_details_view.dart';
-import 'package:transport_management/features/loads/presentation/views/pretrip/pretrip_view.dart';
-import 'package:transport_management/features/loads/presentation/views/submitted_docs/submitted_docs_view.dart';
 import 'package:transport_management/features/notifications/presentation/views/notifications/notifications_view.dart';
 import 'package:transport_management/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
+import 'package:transport_management/features/rides/presentation/views/pickup_details/pickup_details_view.dart';
+import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
+import 'package:transport_management/features/rides/presentation/views/trip_point_details/trip_point_details.dart';
 import 'package:transport_management/features/splash/presentation/splash_view.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/manage_bank/manage_bank_view.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/withdraw_funds/withdraw_funds_view.dart';
@@ -88,19 +84,6 @@ final router = GoRouter(
       },
     ),
     GoRoute(
-      path: RoutePaths.loadDetails,
-      builder: (context, state) {
-        final data = state.extra as LoadModel?;
-        return LoadDetailsView(load: data);
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.deliveryDetails,
-      builder: (context, state) {
-        return const DeliveryDetailsView();
-      },
-    ),
-    GoRoute(
       path: RoutePaths.pickupDetails,
       builder: (context, state) {
         return const PickupDetailsView();
@@ -149,12 +132,6 @@ final router = GoRouter(
       },
     ),
     GoRoute(
-      path: RoutePaths.myLoads,
-      builder: (context, state) {
-        return const MyLoadsView();
-      },
-    ),
-    GoRoute(
       path: RoutePaths.about,
       builder: (context, state) {
         return const AboutView();
@@ -186,22 +163,17 @@ final router = GoRouter(
       },
     ),
     GoRoute(
-      path: RoutePaths.preTrip,
+      path: RoutePaths.rideDetails,
       builder: (context, state) {
-        return const PreTripView();
+        final data = state.extra as LoadModel?;
+        return RideDetailsView(load: data);
       },
     ),
     GoRoute(
-      path: RoutePaths.submittedDocs,
+      path: RoutePaths.tripPoint,
       builder: (context, state) {
-        return const SubmittedDocsView();
+        return const TripPointDetailsView();
       },
     ),
-    GoRoute(
-      path: RoutePaths.forYou,
-      builder: (context, state) {
-        return const LoadsForYouView();
-      },
-    )
   ],
 );

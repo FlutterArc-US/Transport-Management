@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/popups/upload_image_popup.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_outlined_text_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
@@ -23,7 +24,6 @@ import 'package:transport_management/features/auth/presentation/providers/initia
 import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/profile_update/popups/delete_account_popup.dart';
-import 'package:transport_management/features/loads/presentation/views/pretrip/popups/upload_image_popup.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
 import 'package:transport_management/util/resources/r.dart';
