@@ -7,10 +7,8 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/language_toggle_widget.dart';
 import 'package:transport_management/common/widgets/user_avatar.dart';
-import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
 import 'package:transport_management/features/home/domain/enums/drawer_items.dart';
 import 'package:transport_management/features/home/presentation/views/dialogs/logout_confirmation_dialog.dart';
-import 'package:transport_management/features/home/presentation/views/widgets/wallet_balance_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/router/paths.dart';
@@ -44,13 +42,13 @@ class DrawerWidget extends ConsumerWidget {
         padding: EdgeInsets.only(left: 18.w),
         child: Consumer(
           builder: (context, ref, _) {
-            final userAsync = ref.watch(driverProvider);
-
-            if (!userAsync.hasValue) {
-              return const SizedBox();
-            }
-
-            final user = userAsync.value;
+            // final userAsync = ref.watch(driverProvider);
+            //
+            // if (!userAsync.hasValue) {
+            //   return const SizedBox();
+            // }
+            //
+            // final user = userAsync.value;
 
             return Column(
               children: [
@@ -72,7 +70,7 @@ class DrawerWidget extends ConsumerWidget {
                   child: Row(
                     children: [
                       /// [Image]
-                      UserProfileAvatar(image: user!.img),
+                      UserProfileAvatar(),
 
                       11.wb,
 
@@ -81,18 +79,16 @@ class DrawerWidget extends ConsumerWidget {
                         children: [
                           /// [Name]
                           AppText(
-                            text: user.name,
-                            color: R.colors.navyBlue_263C51,
-                            fontSize: 20,
+                            text: 'Jhon Watson',
+                            color: R.colors.green_337A34,
+                            fontSize: 25,
                             fontWeight: FontWeight.w600,
                           ),
 
                           /// [User type]
                           AppText(
-                            text: user.type == 'own'
-                                ? context.appLocale.ownVehicle
-                                : context.appLocale.driver,
-                            color: R.colors.navyBlue_263C51,
+                            text: 'Nintendo Transportation',
+                            color: R.colors.black_FF000000,
                             fontSize: 16,
                           ),
                         ],
@@ -101,39 +97,16 @@ class DrawerWidget extends ConsumerWidget {
                   ),
                 ),
 
-                12.hb,
-
-                /// [Wallet Balance]
-                if (user.type == 'own')
-                  const Align(
-                    alignment: Alignment.bottomRight,
-                    child: WalletBalanceWidget(balance: 225),
-                  ),
-
                 42.hb,
 
                 Consumer(
                   builder: (context, ref, _) {
-                    final userType = user.type;
-
-                    List<DrawerItem> drawerItems = [];
-                    if (userType != 'own') {
-                      drawerItems = [
-                        DrawerItem.recordFault,
-                        DrawerItem.reviews,
-                        DrawerItem.leaves,
-                        DrawerItem.settings,
-                      ];
-                    } else {
-                      drawerItems = DrawerItem.values.toList();
-                    }
-
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(
-                        drawerItems.length,
+                        DrawerItem.values.length,
                         (index) {
-                          final item = drawerItems[index];
+                          final item = DrawerItem.values[index];
                           return TextButton(
                             onPressed: () {
                               GoRouter.of(context).push(item.routePath);
