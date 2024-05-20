@@ -102,10 +102,10 @@ class CustomTextFormField extends StatelessWidget {
             obscuringCharacter: '●',
             focusNode: focusNode,
             style: TextStyle(
-              color: textColor ?? R.colors.black_FF000000,
+              color: textColor ?? R.colors.grey_AEAEAE,
               fontSize: 16.sp,
             ),
-            cursorColor: R.colors.black_FF000000,
+            cursorColor: R.colors.grey_AEAEAE,
             cursorHeight: 20.sp,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
@@ -152,7 +152,7 @@ class CustomTextFormField extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(radius.r),
                 borderSide: BorderSide(
-                    color: focusedBorderColor ?? R.colors.navyBlue_263C51),
+                    color: focusedBorderColor ?? R.colors.green_85C933),
               ),
               suffixIcon: suffixIcon,
             ),

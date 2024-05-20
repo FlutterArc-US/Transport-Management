@@ -7,11 +7,14 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/phone_number_input_field.dart';
+import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/features/auth/domain/models/auth_step/auth_step_model.dart';
 import 'package:transport_management/features/auth/presentation/providers/auth_step_provider/auth_step_provider.dart';
+import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/reset_password/initiate_reset_password_verification_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/reset_password/reset_password_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/auth_bg_widget.dart';
+import 'package:transport_management/features/auth/presentation/views/widgets/login_option_tab.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -58,41 +61,43 @@ class _ForgotPasswordViewState extends ConsumerState<ForgotPasswordView> {
   }
 
   Future<void> _submit() async {
-    FocusManager.instance.primaryFocus?.unfocus();
-    if (formKey.currentState?.validate() ?? false) {
-      try {
-        loading(context);
-        ref
-            .read(authStepNotifierProvider.notifier)
-            .update((state) => AuthStepModel.resetPassword);
-
-        await ref.read(initiateResetPasswordVerificationProvider.future);
-
-        if (!mounted) return;
-
-        GoRouter.of(context).push(RoutePaths.otpVerification);
-        showToast(msg: context.appLocale.otpSentToYourPhone);
-      } on MessageException catch (e) {
-        showToast(msg: e.message);
-      } catch (e) {
-        showToast(msg: context.appLocale.somethingWentWrong);
-      } finally {
-        dismissLoading();
-      }
-    }
+    GoRouter.of(context).push(RoutePaths.otpVerification);
+    // FocusManager.instance.primaryFocus?.unfocus();
+    // if (formKey.currentState?.validate() ?? false) {
+    //   try {
+    //     loading(context);
+    //     ref
+    //         .read(authStepNotifierProvider.notifier)
+    //         .update((state) => AuthStepModel.resetPassword);
+    //
+    //     await ref.read(initiateResetPasswordVerificationProvider.future);
+    //
+    //     if (!mounted) return;
+    //
+    //     GoRouter.of(context).push(RoutePaths.otpVerification);
+    //     showToast(msg: context.appLocale.otpSentToYourPhone);
+    //   } on MessageException catch (e) {
+    //     showToast(msg: e.message);
+    //   } catch (e) {
+    //     showToast(msg: context.appLocale.somethingWentWrong);
+    //   } finally {
+    //     dismissLoading();
+    //   }
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     ref.watch(authStepNotifierProvider);
     ref.watch(resetPasswordFormProvider);
+    final loginOption = ref.watch(loginOptionProvider);
 
     return AuthBgWidget(
       height: 507.h,
       child: Form(
         key: formKey,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 26.w),
+          padding: EdgeInsets.symmetric(horizontal: 25.w),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -112,13 +117,21 @@ class _ForgotPasswordViewState extends ConsumerState<ForgotPasswordView> {
                   textAlign: TextAlign.center,
                 ),
                 31.78.hb,
-                PhoneNumberInputField(
-                  onChanged: (v) {
-                    ref
-                        .read(resetPasswordFormProvider.notifier)
-                        .setPhone(v.completeNumber);
-                  },
-                ),
+                const LoginOptionTab(),
+                10.hb,
+                loginOption.isViaPhoneNumber
+                    ? PhoneNumberInputField(
+                        onChanged: (v) {
+                          ref
+                              .read(resetPasswordFormProvider.notifier)
+                              .setPhone(v.completeNumber);
+                        },
+                      )
+                    : TextInputField(
+                        onChanged: (v) {},
+                        hintText: 'Driving License',
+                        labelText: 'Driving License',
+                      ),
                 80.hb,
                 Center(
                   child: AppFilledButton(

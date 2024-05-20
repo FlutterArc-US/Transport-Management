@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -27,9 +28,13 @@ class AuthBgWidget extends StatelessWidget {
             width: 1.sw,
             height: 1.sh,
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(Assets.pngs.authBg.path),
-                fit: BoxFit.cover,
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.center,
+                colors: [
+                  R.colors.green_074834,
+                  R.colors.green_85C933,
+                ],
               ),
             ),
             child: Column(
@@ -39,10 +44,23 @@ class AuthBgWidget extends StatelessWidget {
                   BackButtonWidget(
                     color: R.colors.white_FFFFFF,
                   ),
-                132.hb,
-                Assets.svgs.appLogo.svg(
-                  width: 165.w,
-                  height: 50.h,
+                50.hb,
+                Assets.pngs.whiteLogo.image(
+                  width: 109.w,
+                  height: 89.h,
+                ),
+                12.hb,
+                AppText(
+                  text: 'TRANSPORT',
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                  color: R.colors.white_FFFFFF,
+                ),
+                AppText(
+                  text: 'MANAGEMENT',
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                  color: R.colors.white_FFFFFF,
                 ),
               ],
             ),

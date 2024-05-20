@@ -17,7 +17,7 @@ class _Colors {
   final Color grey_97A2B0 = const Color(0xFF97A2B0);
   final Color grey_717171 = const Color(0xFF717171);
   final Color grey_767680 = const Color(0xFF767680);
-
+  final Color grey_7B7B7B = const Color(0xFF7B7B7B);
   final Color grey_4D4D4D = const Color(0xFF4D4D4D);
   final Color grey_ABBED1 = const Color(0xFFABBED1);
   final Color grey_D1D3D4 = const Color(0xFFD1D3D4);
@@ -27,7 +27,6 @@ class _Colors {
   final Color grey_F2F4F7 = const Color(0xFFF2F4F7);
   final Color grey_F8F8F8 = const Color(0xFFF8F8F8);
   final Color grey_7C7777 = const Color(0xFF7C7777);
-  final Color grey_7B7B7B = const Color(0xFF7B7B7B);
   final Color grey_2F2B3D = const Color(0xFF2F2B3D);
 
   /// [blue]

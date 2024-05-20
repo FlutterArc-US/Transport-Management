@@ -99,11 +99,29 @@ abstract class AppLocalizations {
   /// **'Welcome'**
   String get welcome;
 
+  /// No description provided for @loginToYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Login to your Account'**
+  String get loginToYourAccount;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
   /// **'Log in'**
   String get login;
+
+  /// No description provided for @viaPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'via Phone Number'**
+  String get viaPhoneNumber;
+
+  /// No description provided for @viaDrivingLicense.
+  ///
+  /// In en, this message translates to:
+  /// **'via Driving License'**
+  String get viaDrivingLicense;
 
   /// No description provided for @platformDescription.
   ///

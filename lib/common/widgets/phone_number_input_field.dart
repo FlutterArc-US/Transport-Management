@@ -40,7 +40,7 @@ class PhoneNumberInputField extends StatelessWidget {
           context.appLocale.phoneNumber,
           style: TextStyle(
             fontSize: 15.sp,
-            color: R.colors.black_FF000000,
+            color: R.colors.black_42403F,
             fontWeight: FontWeight.w500,
             letterSpacing: 0.10.w,
           ),
@@ -82,11 +82,11 @@ class PhoneNumberInputField extends StatelessWidget {
                 (isNotEmpty) ? null : context.appLocale.enterYourPhoneNumber,
             counterText: "",
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: R.colors.grey_AEAEAE),
+              borderSide: BorderSide(color: R.colors.green_85C933),
               borderRadius: BorderRadius.circular(10.r),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: R.colors.navyBlue_263C51),
+              borderSide: BorderSide(color: R.colors.green_85C933),
               borderRadius: BorderRadius.circular(10.r),
             ),
             errorBorder: OutlineInputBorder(
@@ -94,7 +94,7 @@ class PhoneNumberInputField extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.r),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: R.colors.navyBlue_263C51),
+              borderSide: BorderSide(color: R.colors.red_DE2323),
               borderRadius: BorderRadius.circular(10.r),
             ),
           ),

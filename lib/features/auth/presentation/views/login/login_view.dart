@@ -7,11 +7,16 @@ import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
-import 'package:transport_management/common/widgets/gradient_text_widget.dart';
+import 'package:transport_management/common/widgets/custom_text_form_field.dart';
 import 'package:transport_management/common/widgets/password_input_field.dart';
 import 'package:transport_management/common/widgets/phone_number_input_field.dart';
+import 'package:transport_management/common/widgets/text_input_field.dart';
+import 'package:transport_management/features/auth/domain/models/login_option_model/login_option_model.dart';
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login/login_form_provider.dart';
+import 'package:transport_management/features/auth/presentation/providers/login/login_provider.dart';
+import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
+import 'package:transport_management/features/auth/presentation/views/widgets/login_option_tab.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
@@ -34,6 +39,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
 
   late FocusNode phoneFocusNode;
   late FocusNode passwordFocusNode;
+  bool viaPhone = true;
 
   void initializeNodes() {
     phoneFocusNode = FocusNode();
@@ -69,8 +75,9 @@ class _LoginViewState extends ConsumerState<LoginView> {
     if (_formKey.currentState!.validate()) {
       try {
         loading(context);
-        // await ref.read(loginProvider.future);
+        await ref.read(loginProvider.future);
         if (!mounted) return;
+
         GoRouter.of(context).go(RoutePaths.home);
       } on MessageException catch (e) {
         showToast(msg: e.message);
@@ -105,6 +112,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
   @override
   Widget build(BuildContext context) {
     final loginForm = ref.watch(loginFormProvider);
+    final loginOption = ref.watch(loginOptionProvider);
 
     return KeyboardDismissOnTap(
       child: Scaffold(
@@ -172,26 +180,51 @@ class _LoginViewState extends ConsumerState<LoginView> {
                         padding: EdgeInsets.symmetric(horizontal: 25.w),
                         child: Column(
                           children: [
-                            29.hb,
+                            15.hb,
+                            Container(
+                              width: 62.w,
+                              height: 5.h,
+                              decoration: BoxDecoration(
+                                color: R.colors.green_85C933,
+                                borderRadius: BorderRadius.circular(12.r),
+                              ),
+                            ),
+                            50.hb,
                             AppText(
                               text: context.appLocale.login,
                               fontSize: 24,
                               fontWeight: FontWeight.w600,
                               color: R.colors.black_FF000000,
                             ),
-                            15.05.hb,
-                            PhoneNumberInputField(
-                              isNotEmpty: loginForm.phone?.isNotEmpty ?? false,
-                              focusNode: phoneFocusNode,
-                              onEditingComplete: (v) {
-                                passwordFocusNode.requestFocus();
-                              },
-                              onChanged: (v) {
-                                ref
-                                    .read(loginFormProvider.notifier)
-                                    .setPhone(v.completeNumber);
-                              },
+                            5.hb,
+                            AppText(
+                              text: context.appLocale.loginToYourAccount,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: R.colors.grey_7B7B7B,
                             ),
+                            15.05.hb,
+                            const LoginOptionTab(),
+                            10.hb,
+                            loginOption.isViaPhoneNumber
+                                ? PhoneNumberInputField(
+                                    isNotEmpty:
+                                        loginForm.phone?.isNotEmpty ?? false,
+                                    focusNode: phoneFocusNode,
+                                    onEditingComplete: (v) {
+                                      passwordFocusNode.requestFocus();
+                                    },
+                                    onChanged: (v) {
+                                      ref
+                                          .read(loginFormProvider.notifier)
+                                          .setPhone(v.completeNumber);
+                                    },
+                                  )
+                                : TextInputField(
+                                    onChanged: (v) {},
+                                    hintText: 'Driving License',
+                                    labelText: 'Driving License',
+                                  ),
                             16.hb,
                             PasswordInputField(
                               focusNode: passwordFocusNode,
@@ -216,8 +249,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                   child: AppText(
                                     text: context.appLocale.forgotPassword,
                                     fontSize: 12,
-                                    color: R.colors.navyBlue_263C51,
                                     fontWeight: FontWeight.w600,
+                                    color: R.colors.black_1E1E1E,
                                   ),
                                 ),
                               ],
@@ -228,40 +261,6 @@ class _LoginViewState extends ConsumerState<LoginView> {
                               text: context.appLocale.login,
                               onTap: _login,
                             )),
-                            19.hb,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AppText(
-                                  text: context.appLocale.doNotHaveAnAccount,
-                                  fontSize: 12,
-                                  color: R.colors.grey_97A2B0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                5.wb,
-                                InkWell(
-                                  onTap: () {
-                                    GoRouter.of(context)
-                                        .push(RoutePaths.signUp);
-                                  },
-                                  child: GradientText(
-                                    context.appLocale.signUp,
-                                    style: TextStyle(
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: -0.5.sp,
-                                    ),
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        R.colors.blue_305477,
-                                        R.colors.blue_001020,
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            12.hb,
                           ],
                         ),
                       ),
