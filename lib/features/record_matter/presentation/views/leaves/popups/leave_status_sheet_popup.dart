@@ -3,26 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
-import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
+import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 
-class AppBottomSheetPopup extends StatelessWidget {
-  const AppBottomSheetPopup({
+class LeaveStatusSheetPopup extends StatelessWidget {
+  const LeaveStatusSheetPopup({
     required this.onTap,
-    required this.title,
-    required this.image,
-    this.description,
-    this.buttonText,
     super.key,
   });
 
   final VoidCallback onTap;
-  final String title;
-  final String? description;
-  final Widget image;
-  final String? buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -40,34 +32,48 @@ class AppBottomSheetPopup extends StatelessWidget {
               child: Assets.svgs.closeIcon.svg(),
             ),
           ),
-          20.hb,
-          image,
           25.hb,
           AppText(
-            text: title,
+            text: context.appLocale.leaveStatus,
             fontWeight: FontWeight.w600,
             fontSize: 24,
             color: R.colors.navyBlue_263C51,
-            textAlign: TextAlign.center,
           ),
-          if (description != null) 13.hb,
-          if (description != null)
-            SizedBox(
-              width: 313.w,
-              child: AppText(
-                text: description!,
-                fontSize: 14,
-                color: R.colors.navyBlue_263C51,
-                textAlign: TextAlign.center,
-              ),
+          8.hb,
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: R.colors.red_FF4C51.withOpacity(0.2),
             ),
-          const Spacer(),
-          AppFilledButton(
-            text: buttonText ?? context.appLocale.done,
-            onTap: onTap,
-            width: 330,
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+            child: AppText(
+              text: context.appLocale.rejected,
+              fontSize: 14,
+              color: R.colors.red_FF4C51,
+              height: 0,
+            ),
           ),
-          29.hb,
+          32.hb,
+          TextInputField(
+            labelText: context.appLocale.date,
+            hintText: '20/05/2024',
+            onChanged: (v) {},
+          ),
+          15.hb,
+          TextInputField(
+            labelText: context.appLocale.day,
+            onChanged: (v) {},
+            hintText: 'Monday',
+          ),
+          15.hb,
+          TextInputField(
+            labelText: context.appLocale.reason,
+            onChanged: (v) {},
+            hintText: 'Reason',
+            minLines: 4,
+            maxLines: 4,
+          ),
+          24.hb,
         ],
       ),
     );

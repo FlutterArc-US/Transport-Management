@@ -14,14 +14,9 @@ class RoutePaths {
   static const String resetPassword = '/reset-password';
   static const String notifications = '/notifications';
   static const String rideDetails = '/ride-details';
-  static const String pickupDetails = '/pickup-details';
-  static const String deliveryDetails = '/delivery-details';
   static const String earnings = '/earnings';
-  static const String withdrawal = '/withdrawal';
-  static const String withdrawFunds = '/withdraw-funds';
   static const String manageBank = '/manage-bank';
   static const String updateProfile = '/updateProfile';
-  static const String manageVehicle = '/manageVehicle';
   static const String changeRequest = '/changeRequest';
   static const String myLoads = '/my-loads';
   static const String privacyPolicy = '/privacyPolicy';
@@ -33,4 +28,6 @@ class RoutePaths {
   static const String forYou = '/for-you';
   static const String tripPoint = '/trip-point';
   static const String reportFaultExpense = '/report-fault-expense';
+  static const String leaves = '/leaves';
+  static const String applyForLeave = '/apply-for-leave';
 }

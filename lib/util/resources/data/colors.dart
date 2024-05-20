@@ -41,15 +41,18 @@ class _Colors {
   /// [orange]
   final Color orange_EB9949 = const Color(0xFFEB9949);
   final Color orange_FE4B10 = const Color(0xFFFE4B10);
+  final Color orange_FF9F43 = const Color(0xFFFF9F43);
 
   /// [green]
   final Color green_337A34 = const Color(0xFF337A34);
   final Color green_074834 = const Color(0xFF074834);
   final Color green_85C933 = const Color(0xFF85C933);
   final Color green_CFF07B = const Color(0xFFCFF07B);
+  final Color green_28C76F = const Color(0xFF28C76F);
 
   /// [red]
   final Color red_DE2323 = const Color(0xFFDE2323);
+  final Color red_FF4C51 = const Color(0xFFFF4C51);
 
   /// [yellow]
   final Color yellow_FBC02D = const Color(0xFFFBC02D);

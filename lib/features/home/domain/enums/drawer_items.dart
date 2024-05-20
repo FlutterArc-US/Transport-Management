@@ -37,7 +37,7 @@ enum DrawerItem {
       pastTrips => RoutePaths.home,
       chat => RoutePaths.home,
       recordFault => RoutePaths.reportFaultExpense,
-      leaves => RoutePaths.termsOfService,
+      leaves => RoutePaths.leaves,
       courses => RoutePaths.home,
       reviews => RoutePaths.faqsView,
       settings => RoutePaths.home,
