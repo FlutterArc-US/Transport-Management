@@ -38,7 +38,7 @@ enum DrawerItem {
       chat => RoutePaths.home,
       recordFault => RoutePaths.reportFaultExpense,
       leaves => RoutePaths.leaves,
-      courses => RoutePaths.home,
+      courses => RoutePaths.courses,
       reviews => RoutePaths.reviews,
       settings => RoutePaths.home,
       about => RoutePaths.about,

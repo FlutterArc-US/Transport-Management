@@ -13,6 +13,7 @@ import 'package:transport_management/features/auth/presentation/views/otp_verifi
 import 'package:transport_management/features/auth/presentation/views/profile_update/profile_update_view.dart';
 import 'package:transport_management/features/auth/presentation/views/register/sign_up_view.dart';
 import 'package:transport_management/features/auth/presentation/views/reset_password/reset_password.dart';
+import 'package:transport_management/features/courses/presentation/views/courses/courses_view.dart';
 import 'package:transport_management/features/earnings/presentation/views/earnings/earnings_view.dart';
 import 'package:transport_management/features/home/presentation/views/home_view.dart';
 import 'package:transport_management/features/notifications/presentation/views/notifications/notifications_view.dart';
@@ -173,6 +174,12 @@ final router = GoRouter(
       path: RoutePaths.reviews,
       builder: (context, state) {
         return const ReviewsView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.courses,
+      builder: (context, state) {
+        return const CoursesView();
       },
     ),
   ],
