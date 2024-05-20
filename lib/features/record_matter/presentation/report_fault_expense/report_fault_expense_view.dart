@@ -5,20 +5,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
-import 'package:transport_management/common/widgets/app_dropdown.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
+import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/common/widgets/date_input_field.dart';
+import 'package:transport_management/common/widgets/name_input_field.dart';
 import 'package:transport_management/common/widgets/number_input_field.dart';
 import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/features/home/domain/enums/report_option.dart';
+import 'package:transport_management/features/record_matter/presentation/providers/record_matter_form_provider/record_matter_form_provider.dart';
 import 'package:transport_management/features/record_matter/presentation/providers/report_option_provider/report_option_provider.dart';
+import 'package:transport_management/features/record_matter/presentation/report_fault_expense/popups/select_type_sheet.dart';
 import 'package:transport_management/features/record_matter/presentation/report_fault_expense/widgets/upload_images_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/route_today/widgets/tab_bar_widget.dart';
 import 'package:transport_management/features/withdrawal/presentation/providers/withdrawal_form_provider/withdrawal_form_provider.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/withdraw_funds/popups/request_submitted_popup.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
+import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/toast/toast.dart';
 
 class ReportFaultExpenseView extends ConsumerStatefulWidget {
@@ -67,6 +71,7 @@ class _ReportFaultExpenseViewState
   @override
   Widget build(BuildContext context) {
     final reportOption = ref.watch(reportOptionProvider);
+    final reportMatterForm = ref.watch(recordMatterFormProvider);
 
     return KeyboardDismissOnTap(
       child: Scaffold(
@@ -102,17 +107,66 @@ class _ReportFaultExpenseViewState
                         children: [
                           12.hb,
                           if (reportOption == ReportOptionModel.recordExpense)
-                            AppDropdownWidget<String>(
-                              labelText: context.appLocale.type,
-                              onChanged: (v) {},
-                              title: (v) {
-                                return v ?? '';
-                              },
-                              items: const [
-                                'Type 1',
-                                'Type 2',
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  context.appLocale.type,
+                                  style: TextStyle(
+                                    fontSize: 15.sp,
+                                    color: R.colors.black_FF000000,
+                                    letterSpacing: 0.10.w,
+                                  ),
+                                ),
+                                4.95.hb,
+                                InkWell(
+                                  onTap: () {
+                                    showModalBottomSheet<void>(
+                                      context: context,
+                                      scrollControlDisabledMaxHeightRatio: 0.65,
+                                      showDragHandle: true,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(30.r),
+                                          topRight: Radius.circular(30.r),
+                                        ),
+                                      ),
+                                      builder: (context) {
+                                        return const SelectTypeSheet();
+                                      },
+                                    );
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.w,
+                                      vertical: 12.h,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: R.colors.white_FFFFFF,
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      border: Border.all(
+                                          color: R.colors.grey_AEAEAE),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        AppText(
+                                          text: reportMatterForm.type ??
+                                              context.appLocale.selectType,
+                                          color: R.colors.grey_AEAEAE,
+                                          fontSize: 14.sp,
+                                        ),
+                                        Icon(
+                                          Icons.keyboard_arrow_down,
+                                          size: 28.r,
+                                          color: R.colors.green_337A34,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ],
-                              hint: context.appLocale.selectType,
                             ),
                           16.hb,
                           DateInputField(

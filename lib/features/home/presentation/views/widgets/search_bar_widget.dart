@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/widgets/custom_text_form_field.dart';
 import 'package:transport_management/util/resources/r.dart';
 
@@ -17,7 +18,7 @@ class SearchBarWidget extends StatelessWidget {
           color: R.colors.grey_ABBED1,
         ),
       ),
-      hintText: 'Search',
+      hintText: context.appLocale.searchHere,
       onChanged: (v) {
         //
       },

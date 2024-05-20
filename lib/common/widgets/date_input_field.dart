@@ -35,7 +35,7 @@ class _DateInputFieldState extends State<DateInputField> {
       labelText: widget.labelText,
       hintText: widget.hintText,
       suffixIcon: Padding(
-        padding: EdgeInsets.only(right: 9.w),
+        padding: EdgeInsets.only(right: 19.w),
         child: Icon(
           Icons.calendar_month_outlined,
           color: R.colors.green_337A34,
