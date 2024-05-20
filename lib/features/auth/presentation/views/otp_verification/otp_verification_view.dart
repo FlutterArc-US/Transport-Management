@@ -143,7 +143,7 @@ class _OTPVerificationViewState extends ConsumerState<OTPVerificationView> {
     ref.watch(updateProfileFormProvider);
 
     return AuthBgWidget(
-      height: 507.h,
+      height: 481.h,
       child: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 50.w),
@@ -159,8 +159,8 @@ class _OTPVerificationViewState extends ConsumerState<OTPVerificationView> {
               7.95.hb,
               AppText(
                 text: context.appLocale.enter4DigitOTP,
-                fontSize: 15,
-                color: R.colors.black_414143,
+                fontSize: 14,
+                color: R.colors.grey_7B7B7B,
                 textAlign: TextAlign.center,
               ),
               44.92.hb,

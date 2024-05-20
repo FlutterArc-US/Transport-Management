@@ -7,6 +7,6 @@ void showToast({required String msg}) {
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.BOTTOM,
     textColor: R.colors.white_FFFFFF,
-    backgroundColor: R.colors.blue_20B4E3,
+    backgroundColor: R.colors.green_337A34,
   );
 }

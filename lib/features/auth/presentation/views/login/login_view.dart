@@ -8,6 +8,7 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
+import 'package:transport_management/features/auth/presentation/providers/login/login_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login/login_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/login/widgets/via_driving_license_form_widget.dart';
@@ -32,14 +33,20 @@ class _LoginViewState extends ConsumerState<LoginView> {
 
   Future<void> _login() async {
     FocusManager.instance.primaryFocus?.unfocus();
+    final loginOption = ref.read(loginOptionProvider);
+    final loginForm = ref.read(loginFormProvider);
 
     if (_formKey.currentState!.validate()) {
+      if (loginOption.isViaDriverLicense && loginForm.licenseImage == null) {
+        showToast(msg: 'Please upload your driver license image');
+        return;
+      }
       try {
         loading(context);
-        await ref.read(loginProvider.future);
+        // await ref.read(loginProvider.future);
         if (!mounted) return;
 
-        GoRouter.of(context).go(RoutePaths.home);
+        GoRouter.of(context).push(RoutePaths.enterPin);
       } on MessageException catch (e) {
         showToast(msg: e.message);
       } catch (e) {

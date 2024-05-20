@@ -102,7 +102,7 @@ class CustomTextFormField extends StatelessWidget {
             obscuringCharacter: '●',
             focusNode: focusNode,
             style: TextStyle(
-              color: textColor ?? R.colors.grey_AEAEAE,
+              color: textColor ?? R.colors.black_FF000000,
               fontSize: 16.sp,
             ),
             cursorColor: R.colors.grey_AEAEAE,

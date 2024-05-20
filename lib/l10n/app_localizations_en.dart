@@ -13,7 +13,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginToYourAccount => 'Login to your Account';
 
   @override
-  String get login => 'Log in';
+  String get login => 'Login';
 
   @override
   String get viaPhoneNumber => 'via Phone Number';
@@ -55,7 +55,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get verificationOTP => 'Verification OTP';
 
   @override
-  String get enter4DigitOTP => 'Enter 4-digit OTP, sent on your \nphone number';
+  String get enter4DigitOTP => 'Enter 4-digit OTP, sent on your phone number';
 
   @override
   String get resendOTPin => 'Resend OTP in ';
@@ -1021,4 +1021,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get multiDay => 'Multi-day';
+
+  @override
+  String get enterPin => 'Enter Pin';
+
+  @override
+  String get forgotYourPin => 'Forgot Your Pin?';
 }

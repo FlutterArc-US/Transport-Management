@@ -2,7 +2,7 @@
   "@@locale": "en",
   "welcome": "Welcome",
   "loginToYourAccount": "Login to your Account",
-  "login": "Log in",
+  "login": "Login",
   "viaPhoneNumber": "via Phone Number",
   "viaDrivingLicense": "via Driving License",
   "platformDescription": "We connect shippers and carriers to haul together. Find and book loads for you and your fleet, easily upload documents, and get paid quickly with the tap of a button.",
@@ -16,7 +16,7 @@
   "enterYourPhoneNumberToRecoverYourPassword": "Enter your phone number to recover\nyour password.",
   "verify": "Verify",
   "verificationOTP": "Verification OTP",
-  "enter4DigitOTP": "Enter 4-digit OTP, sent on your \nphone number",
+  "enter4DigitOTP": "Enter 4-digit OTP, sent on your phone number",
   "resendOTPin": "Resend OTP in ",
   "countSeconds": "{count} seconds",
   "@countSeconds": {
@@ -388,7 +388,9 @@
   "recent": "Recent",
   "day": "Day",
   "singleDay": "Single day",
-  "multiDay": "Multi-day"
+  "multiDay": "Multi-day",
+  "enterPin": "Enter Pin",
+  "forgotYourPin": "Forgot Your Pin?"
 
 
 }

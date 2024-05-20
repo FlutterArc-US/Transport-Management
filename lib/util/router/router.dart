@@ -6,6 +6,7 @@ import 'package:transport_management/features/about/presentation/views/faq/singl
 import 'package:transport_management/features/about/presentation/views/privacy_policy/privacy_policy_view.dart';
 import 'package:transport_management/features/about/presentation/views/terms_of_service/terms_of_service_view.dart';
 import 'package:transport_management/features/auth/presentation/views/change_request/change_request_view.dart';
+import 'package:transport_management/features/auth/presentation/views/enter_pin/enter_pin_view.dart';
 import 'package:transport_management/features/auth/presentation/views/forget_password/forgot_password_view.dart';
 import 'package:transport_management/features/auth/presentation/views/login/login_view.dart';
 import 'package:transport_management/features/auth/presentation/views/otp_verification/otp_verification_view.dart';
@@ -159,6 +160,12 @@ final router = GoRouter(
       path: RoutePaths.applyForLeave,
       builder: (context, state) {
         return const ApplyForLeaveView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.enterPin,
+      builder: (context, state) {
+        return const EnterPinView();
       },
     ),
   ],

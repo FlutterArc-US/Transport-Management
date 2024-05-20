@@ -7,12 +7,10 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/phone_number_input_field.dart';
-import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/features/auth/presentation/providers/auth_step_provider/auth_step_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/reset_password/reset_password_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/auth_bg_widget.dart';
-import 'package:transport_management/features/auth/presentation/views/widgets/login_option_tab.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/router/paths.dart';
 
@@ -85,7 +83,6 @@ class _ForgotPasswordViewState extends ConsumerState<ForgotPasswordView> {
   Widget build(BuildContext context) {
     ref.watch(authStepNotifierProvider);
     ref.watch(resetPasswordFormProvider);
-    final loginOption = ref.watch(loginOptionProvider);
 
     return AuthBgWidget(
       height: 507.h,
@@ -112,21 +109,13 @@ class _ForgotPasswordViewState extends ConsumerState<ForgotPasswordView> {
                   textAlign: TextAlign.center,
                 ),
                 31.78.hb,
-                const LoginOptionTab(),
-                10.hb,
-                loginOption.isViaPhoneNumber
-                    ? PhoneNumberInputField(
-                        onChanged: (v) {
-                          ref
-                              .read(resetPasswordFormProvider.notifier)
-                              .setPhone(v.completeNumber);
-                        },
-                      )
-                    : TextInputField(
-                        onChanged: (v) {},
-                        hintText: 'Driving License',
-                        labelText: 'Driving License',
-                      ),
+                PhoneNumberInputField(
+                  onChanged: (v) {
+                    ref
+                        .read(resetPasswordFormProvider.notifier)
+                        .setPhone(v.completeNumber);
+                  },
+                ),
                 80.hb,
                 Center(
                   child: AppFilledButton(
