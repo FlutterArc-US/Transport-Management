@@ -36,7 +36,7 @@ enum DrawerItem {
       upcomingSchedule => RoutePaths.home,
       pastTrips => RoutePaths.home,
       chat => RoutePaths.home,
-      recordFault => RoutePaths.about,
+      recordFault => RoutePaths.reportFaultExpense,
       leaves => RoutePaths.termsOfService,
       courses => RoutePaths.home,
       reviews => RoutePaths.faqsView,

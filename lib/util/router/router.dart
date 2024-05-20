@@ -17,6 +17,7 @@ import 'package:transport_management/features/earnings/presentation/views/earnin
 import 'package:transport_management/features/home/presentation/views/home_view.dart';
 import 'package:transport_management/features/notifications/presentation/views/notifications/notifications_view.dart';
 import 'package:transport_management/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:transport_management/features/record_matter/presentation/report_fault_expense/report_fault_expense_view.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
 import 'package:transport_management/features/rides/presentation/views/pickup_details/pickup_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
@@ -173,6 +174,12 @@ final router = GoRouter(
       path: RoutePaths.tripPoint,
       builder: (context, state) {
         return const TripPointDetailsView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.reportFaultExpense,
+      builder: (context, state) {
+        return const ReportFaultExpenseView();
       },
     ),
   ],
