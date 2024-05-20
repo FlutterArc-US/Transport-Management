@@ -15,9 +15,6 @@ import 'package:transport_management/features/auth/presentation/providers/otp_fo
 import 'package:transport_management/features/auth/presentation/providers/reset_password/initiate_reset_password_verification_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/reset_password/reset_password_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_form_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/verify_reset_password_otp_provider/verify_reset_password_otp_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/verify_update_profile_otp_provider/verify_update_profile_otp_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/auth_bg_widget.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
