@@ -2090,6 +2090,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Forgot Your Pin?'**
   String get forgotYourPin;
+
+  /// No description provided for @enterYourPinToLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your pin to login'**
+  String get enterYourPinToLogin;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

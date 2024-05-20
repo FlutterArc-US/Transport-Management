@@ -20,6 +20,7 @@ import 'package:transport_management/features/onboarding/presentation/views/onbo
 import 'package:transport_management/features/record_matter/presentation/views/apply_for_leave/apply_for_leave_view.dart';
 import 'package:transport_management/features/record_matter/presentation/views/leaves/leaves_view.dart';
 import 'package:transport_management/features/record_matter/presentation/views/report_fault_expense/report_fault_expense_view.dart';
+import 'package:transport_management/features/reviews/presentation/views/reviews/reviews_view.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
 import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/trip_point_details.dart';
@@ -166,6 +167,12 @@ final router = GoRouter(
       path: RoutePaths.enterPin,
       builder: (context, state) {
         return const EnterPinView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.reviews,
+      builder: (context, state) {
+        return const ReviewsView();
       },
     ),
   ],

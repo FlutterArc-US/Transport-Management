@@ -9,7 +9,6 @@ import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login/login_form_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/login/login_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/login/widgets/via_driving_license_form_widget.dart';
 import 'package:transport_management/features/auth/presentation/views/login/widgets/via_phone_number_form_widget.dart';
@@ -179,7 +178,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                             16.hb,
                             Center(
                               child: AppFilledButton(
-                                text: context.appLocale.login,
+                                text: context.appLocale.next,
                                 onTap: _login,
                               ),
                             ),

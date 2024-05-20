@@ -390,7 +390,8 @@
   "singleDay": "Single day",
   "multiDay": "Multi-day",
   "enterPin": "Enter Pin",
-  "forgotYourPin": "Forgot Your Pin?"
+  "forgotYourPin": "Forgot Your Pin?",
+  "enterYourPinToLogin": "Enter your pin to login"
 
 
 }

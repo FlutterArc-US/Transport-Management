@@ -1027,4 +1027,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forgotYourPin => 'Forgot Your Pin?';
+
+  @override
+  String get enterYourPinToLogin => 'Enter your pin to login';
 }

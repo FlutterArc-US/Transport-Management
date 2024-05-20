@@ -69,6 +69,13 @@ class _OTPVerificationViewState extends ConsumerState<EnterPinView> {
                 fontWeight: FontWeight.w600,
                 color: R.colors.black_FF000000,
               ),
+              7.95.hb,
+              AppText(
+                text: context.appLocale.enterYourPinToLogin,
+                fontSize: 14,
+                color: R.colors.grey_7B7B7B,
+                textAlign: TextAlign.center,
+              ),
               44.92.hb,
               OtpWidget(
                 onChanged: (v) {
