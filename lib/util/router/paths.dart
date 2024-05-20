@@ -32,4 +32,5 @@ class RoutePaths {
   static const String applyForLeave = '/apply-for-leave';
   static const String enterPin = '/enter-pin';
   static const String reviews = '/reviews';
+  static const String courses = '/courses';
 }

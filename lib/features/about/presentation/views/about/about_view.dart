@@ -66,7 +66,6 @@ class _AboutViewState extends State<AboutView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             mediaPadding.top.hb,
-            28.hb,
             BackButtonWidget(
               color: R.colors.black_FF000000,
             ),
@@ -136,6 +135,7 @@ class _AboutViewState extends State<AboutView> {
                           AppFilledButton(
                             width: 300,
                             text: context.appLocale.privacyPolicy,
+                            color: R.colors.green_337A34,
                             onTap: () {
                               GoRouter.of(context)
                                   .push(RoutePaths.privacyPolicy);

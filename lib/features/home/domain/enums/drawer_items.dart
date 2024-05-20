@@ -12,6 +12,7 @@ enum DrawerItem {
   reviews,
   settings,
   about,
+  faqs,
   terms;
 
   String get iconPath {
@@ -26,6 +27,7 @@ enum DrawerItem {
       reviews => Assets.svgs.reviewsIcon.path,
       settings => Assets.svgs.settingsIcon.path,
       about => Assets.svgs.aboutIcon.path,
+      faqs => Assets.svgs.faqsIcon.path,
       terms => Assets.svgs.termsIcon.path,
     };
   }
@@ -38,10 +40,11 @@ enum DrawerItem {
       chat => RoutePaths.home,
       recordFault => RoutePaths.reportFaultExpense,
       leaves => RoutePaths.leaves,
-      courses => RoutePaths.home,
+      courses => RoutePaths.courses,
       reviews => RoutePaths.reviews,
       settings => RoutePaths.home,
       about => RoutePaths.about,
+      faqs => RoutePaths.faqsView,
       terms => RoutePaths.termsOfService,
     };
   }

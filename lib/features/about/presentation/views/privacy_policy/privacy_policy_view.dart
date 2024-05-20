@@ -25,7 +25,6 @@ class PrivacyPolicyView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             mediaPadding.top.hb,
-            28.hb,
             BackButtonWidget(
               color: R.colors.black_FF000000,
             ),
