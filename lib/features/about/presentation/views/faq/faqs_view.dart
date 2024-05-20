@@ -26,7 +26,6 @@ class FaqsView extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             mediaPadding.top.hb,
-            28.hb,
 
             /// [Back button]
             BackButtonWidget(
