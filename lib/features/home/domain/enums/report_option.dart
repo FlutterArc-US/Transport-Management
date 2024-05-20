@@ -1,0 +1,4 @@
+enum ReportOptionModel {
+  reportFault,
+  recordExpense;
+}

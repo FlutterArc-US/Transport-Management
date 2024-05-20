@@ -76,7 +76,6 @@ class _ManageBankViewState extends ConsumerState<ManageBankView> {
                                 .setIban(v!);
                           },
                           labelText: context.appLocale.iban,
-                          name: context.appLocale.iban,
                           hintText: '',
                           validator: (v) {
                             if (v?.isEmpty ?? true) {

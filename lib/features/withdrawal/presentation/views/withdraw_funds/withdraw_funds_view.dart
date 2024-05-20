@@ -212,7 +212,6 @@ class _WithdrawFundsViewState extends ConsumerState<WithdrawFundsView> {
                                   int.parse(v ?? '0'),
                                 );
                           },
-                          name: context.appLocale.specifyAmount,
                           labelText: context.appLocale.specifyAmount,
                           hintText: context.appLocale.amountWithCurrency(10.00),
                           validator: (value) {
@@ -266,7 +265,6 @@ class _WithdrawFundsViewState extends ConsumerState<WithdrawFundsView> {
                         NumberInputField(
                           onChanged: (v) {},
                           labelText: context.appLocale.iban,
-                          name: context.appLocale.iban,
                           hintText: '14 2004 1010 0505 0001 3',
                           controller: _ibanInputField,
                         ),

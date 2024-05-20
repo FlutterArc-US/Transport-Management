@@ -4,7 +4,6 @@ import 'package:transport_management/common/widgets/custom_text_form_field.dart'
 class NumberInputField extends StatelessWidget {
   const NumberInputField({
     required this.onChanged,
-    required this.name,
     this.controller,
     this.validator,
     this.autofocus,
@@ -18,7 +17,6 @@ class NumberInputField extends StatelessWidget {
     super.key,
   });
 
-  final String name;
   final void Function(String?)? onChanged;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
@@ -42,7 +40,7 @@ class NumberInputField extends StatelessWidget {
       validator: validator ??
           (v) {
             if (v?.isEmpty ?? false) {
-              return '$name is required';
+              return '$labelText is required';
             }
             return null;
           },

@@ -19,7 +19,6 @@ import 'package:transport_management/features/notifications/presentation/views/n
 import 'package:transport_management/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:transport_management/features/record_matter/presentation/report_fault_expense/report_fault_expense_view.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
-import 'package:transport_management/features/rides/presentation/views/pickup_details/pickup_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/trip_point_details.dart';
 import 'package:transport_management/features/splash/presentation/splash_view.dart';
@@ -82,12 +81,6 @@ final router = GoRouter(
       path: RoutePaths.notifications,
       builder: (context, state) {
         return const NotificationsView();
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.pickupDetails,
-      builder: (context, state) {
-        return const PickupDetailsView();
       },
     ),
     GoRoute(

@@ -5,19 +5,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_dropdown.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
-import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
-import 'package:transport_management/common/widgets/name_input_field.dart';
+import 'package:transport_management/common/widgets/date_input_field.dart';
 import 'package:transport_management/common/widgets/number_input_field.dart';
 import 'package:transport_management/common/widgets/text_input_field.dart';
-import 'package:transport_management/features/withdrawal/domain/enums/withdrawal_option.dart';
+import 'package:transport_management/features/home/domain/enums/report_option.dart';
+import 'package:transport_management/features/record_matter/presentation/providers/report_option_provider/report_option_provider.dart';
+import 'package:transport_management/features/record_matter/presentation/report_fault_expense/widgets/upload_images_widget.dart';
+import 'package:transport_management/features/rides/presentation/views/route_today/widgets/tab_bar_widget.dart';
 import 'package:transport_management/features/withdrawal/presentation/providers/withdrawal_form_provider/withdrawal_form_provider.dart';
-import 'package:transport_management/features/withdrawal/presentation/providers/withdrawal_option_provider/withdrawal_option_provider.dart';
 import 'package:transport_management/features/withdrawal/presentation/views/withdraw_funds/popups/request_submitted_popup.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
-import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/toast/toast.dart';
 
 class ReportFaultExpenseView extends ConsumerStatefulWidget {
@@ -31,10 +32,6 @@ class ReportFaultExpenseView extends ConsumerStatefulWidget {
 class _ReportFaultExpenseViewState
     extends ConsumerState<ReportFaultExpenseView> {
   final formKey = GlobalKey<FormState>();
-
-  final _bankNameInputField = TextEditingController();
-  final _accountTitleInputField = TextEditingController();
-  final _ibanInputField = TextEditingController();
 
   Future<void> _submit() async {
     FocusManager.instance.primaryFocus?.unfocus();
@@ -69,7 +66,7 @@ class _ReportFaultExpenseViewState
 
   @override
   Widget build(BuildContext context) {
-    final withdrawalOption = ref.watch(withdrawalOptionNotifierProvider);
+    final reportOption = ref.watch(reportOptionProvider);
 
     return KeyboardDismissOnTap(
       child: Scaffold(
@@ -81,192 +78,104 @@ class _ReportFaultExpenseViewState
               MediaQuery.of(context).padding.top.hb,
               const BackButtonWidget(),
               20.49.hb,
-              AppText(
-                text: context.appLocale.withdraw,
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
+              TabBarWidget(
+                itemsList: ReportOptionModel.values,
+                selected: reportOption.index,
+                itemNames: [
+                  context.appLocale.reportFault,
+                  context.appLocale.recordExpense,
+                ],
+                onChanged: (i) {
+                  ref.read(reportOptionProvider.notifier).state =
+                      ReportOptionModel.values[i];
+                },
               ),
-              25.hb,
+              47.hb,
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   child: Form(
                     key: formKey,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 19.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: List.generate(
-                              WithdrawalOption.values.length,
-                              (index) {
-                                final item = WithdrawalOption.values[index];
-                                return InkWell(
-                                  borderRadius: BorderRadius.circular(32.r),
-                                  onTap: () {
-                                    ref
-                                        .read(withdrawalOptionNotifierProvider
-                                            .notifier)
-                                        .update((state) => item);
-                                  },
-                                  child: Container(
-                                    width: 170.w,
-                                    height: 87.h,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20.r),
-                                      gradient: LinearGradient(
-                                        colors: item ==
-                                                WithdrawalOption.earlyWithdrawal
-                                            ? [
-                                                R.colors.blue_305477,
-                                                R.colors.blue_001020,
-                                              ]
-                                            : [
-                                                R.colors.green_074834,
-                                                R.colors.green_85C933,
-                                              ],
-                                      ),
-                                    ),
-                                    child: Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Positioned(
-                                          top: 6.h,
-                                          right: 7.w,
-                                          child: CircleAvatar(
-                                              radius: 10.r,
-                                              backgroundColor:
-                                                  R.colors.white_FFFFFF,
-                                              child: item == withdrawalOption
-                                                  ? Icon(
-                                                      Icons.check,
-                                                      size: 15.r,
-                                                      color: withdrawalOption ==
-                                                              WithdrawalOption
-                                                                  .earlyWithdrawal
-                                                          ? R.colors.blue_305477
-                                                          : R.colors
-                                                              .green_074834,
-                                                    )
-                                                  : const SizedBox()),
-                                        ),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            AppText(
-                                              text: item ==
-                                                      WithdrawalOption
-                                                          .earlyWithdrawal
-                                                  ? context
-                                                      .appLocale.earlyWithdraw
-                                                  : context.appLocale
-                                                      .availableBalance,
-                                              fontSize: 12,
-                                              color: R.colors.white_FFFFFF,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                            10.hb,
-                                            AppText(
-                                              text: context.appLocale
-                                                  .amountWithCurrency(100000),
-                                              fontSize: 32,
-                                              color: R.colors.white_FFFFFF,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 27.w),
+                      child: Column(
+                        children: [
+                          12.hb,
+                          if (reportOption == ReportOptionModel.recordExpense)
+                            AppDropdownWidget<String>(
+                              labelText: context.appLocale.type,
+                              onChanged: (v) {},
+                              title: (v) {
+                                return v ?? '';
+                              },
+                              items: const [
+                                'Type 1',
+                                'Type 2',
+                              ],
+                              hint: context.appLocale.selectType,
+                            ),
+                          16.hb,
+                          DateInputField(
+                            labelText: context.appLocale.date,
+                            hintText: context.appLocale.selectDate,
+                            onChanged: (v) {},
+                          ),
+                          16.hb,
+                          TextInputField(
+                            onChanged: (v) {},
+                            hintText: context.appLocale.typeMessageHere,
+                            labelText: context.appLocale.message,
+                            maxLines: 4,
+                            minLines: 4,
+                          ),
+                          16.hb,
+                          if (reportOption == ReportOptionModel.recordExpense)
+                            NumberInputField(
+                              onChanged: (v) {
+                                ref
+                                    .read(withdrawalFormProvider.notifier)
+                                    .setAmount(
+                                      int.parse(v ?? '0'),
+                                    );
+                              },
+                              labelText: context.appLocale.amount,
+                              hintText: context.appLocale.enterAmount,
+                              validator: (value) {
+                                if (value?.isEmpty ?? false) {
+                                  return 'Please enter an amount';
+                                }
+
+                                if (!RegExp(r'^[0-9]+$').hasMatch(value!)) {
+                                  return 'Please enter only digits';
+                                }
+                                int? amount = int.tryParse(value);
+
+                                if (amount != null && amount > 100000000000) {
+                                  return 'Amount must not be greater than 100 billion';
+                                }
+
+                                return null;
                               },
                             ),
+                          24.hb,
+                          UploadDocsImagesWidget(
+                            text:
+                                reportOption == ReportOptionModel.recordExpense
+                                    ? context.appLocale.attachReceipt
+                                    : context.appLocale.attachPictures,
+                            onChanged: (v) {},
                           ),
-                        ),
-                        22.hb,
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 21.w),
-                          child: AppText(
-                            text: context.appLocale.additionalChargeNote,
-                            fontSize: 12,
-                            color: R.colors.navyBlue_263C51,
+                          52.hb,
+                          AppFilledButton(
+                            text:
+                                reportOption == ReportOptionModel.recordExpense
+                                    ? context.appLocale.recordExpense
+                                    : context.appLocale.reportAFault,
+                            onTap: _submit,
                           ),
-                        ),
-                        12.hb,
-                        NumberInputField(
-                          onChanged: (v) {
-                            ref.read(withdrawalFormProvider.notifier).setAmount(
-                                  int.parse(v ?? '0'),
-                                );
-                          },
-                          name: context.appLocale.specifyAmount,
-                          labelText: context.appLocale.specifyAmount,
-                          hintText: context.appLocale.amountWithCurrency(10.00),
-                          validator: (value) {
-                            if (value?.isEmpty ?? false) {
-                              return 'Please enter an amount';
-                            }
-
-                            if (!RegExp(r'^[0-9]+$').hasMatch(value!)) {
-                              return 'Please enter only digits';
-                            }
-                            int? amount = int.tryParse(value);
-
-                            if (amount != null && amount > 100000000000) {
-                              return 'Amount must not be greater than 100 billion';
-                            }
-
-                            return null;
-                          },
-                        ),
-                        15.hb,
-                        TextInputField(
-                          onChanged: (v) {
-                            ref
-                                .read(withdrawalFormProvider.notifier)
-                                .setMessage(v!);
-                          },
-                          labelText: context.appLocale.messageOptional,
-                          hintText: context.appLocale.typeHere,
-                          maxLines: 4,
-                          minLines: 4,
-                        ),
-                        15.hb,
-                        NameInputField(
-                          onChanged: (v) {
-                            ref
-                                .read(withdrawalFormProvider.notifier)
-                                .setBankName(v!);
-                          },
-                          controller: _bankNameInputField,
-                          labelText: context.appLocale.bankName,
-                          hintText: 'Homestead Savings Bank',
-                        ),
-                        15.hb,
-                        NameInputField(
-                          onChanged: (v) {},
-                          labelText: context.appLocale.accountTitle,
-                          hintText: 'John Doe',
-                          controller: _accountTitleInputField,
-                        ),
-                        15.hb,
-                        NumberInputField(
-                          onChanged: (v) {},
-                          labelText: context.appLocale.iban,
-                          name: context.appLocale.iban,
-                          hintText: '14 2004 1010 0505 0001 3',
-                          controller: _ibanInputField,
-                        ),
-                        18.hb,
-                        AppFilledButton(
-                          width: 352,
-                          text: context.appLocale.submitRequest,
-                          onTap: _submit,
-                        ),
-                        30.hb,
-                      ],
+                          30.hb,
+                        ],
+                      ),
                     ),
                   ),
                 ),

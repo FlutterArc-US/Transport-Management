@@ -221,7 +221,6 @@ class _PersonalDetailsStepState extends ConsumerState<PersonalDetailsStep> {
                             .read(registerFormProvider.notifier)
                             .setFleetId(int.parse(v!));
                       },
-                      name: context.appLocale.fleetCompanyID,
                       labelText: context.appLocale.fleetCompanyID,
                       hintText: context.appLocale.fleetCompanyID,
                     ),

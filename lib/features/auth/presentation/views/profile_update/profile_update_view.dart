@@ -407,7 +407,6 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                                 19.hb,
                                 NumberInputField(
                                   onChanged: (v) {},
-                                  name: context.appLocale.fleetCompanyID,
                                   labelText: context.appLocale.fleetCompanyID,
                                   hintText: context.appLocale.fleetCompanyID,
                                   controller: _fleetInputField,
