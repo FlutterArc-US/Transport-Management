@@ -385,7 +385,8 @@
   "reason": "Reason",
   "typeReasonHere": "Type reason here",
   "leaveRequestSuccess": "Your leave request was sent successfully!",
-  "recent": "Recent"
+  "recent": "Recent",
+  "day": "Day"
 
 
 

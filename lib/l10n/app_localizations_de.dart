@@ -1012,4 +1012,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get recent => 'Recent';
+
+  @override
+  String get day => 'Day';
 }
