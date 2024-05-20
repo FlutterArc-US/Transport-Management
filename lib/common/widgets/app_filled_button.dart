@@ -31,7 +31,7 @@ class AppFilledButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width?.w ?? 293.w,
+      width: width?.w ?? 378.w,
       height: height?.h ?? 45.h,
       decoration: BoxDecoration(
         color: color??R.colors.green_85C933,
@@ -49,11 +49,11 @@ class AppFilledButton extends StatelessWidget {
           foregroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
           minimumSize: Size(
-            width?.w ?? 333.w,
+            width?.w ?? 378.w,
             height?.h ?? 48.h,
           ),
           maximumSize: Size(
-            width?.w ?? 333.w,
+            width?.w ?? 378.w,
             height?.h ?? 48.h,
           ),
         ),

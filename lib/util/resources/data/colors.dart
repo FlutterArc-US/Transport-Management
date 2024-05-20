@@ -27,9 +27,7 @@ class _Colors {
   final Color grey_F2F4F7 = const Color(0xFFF2F4F7);
   final Color grey_F8F8F8 = const Color(0xFFF8F8F8);
   final Color grey_7C7777 = const Color(0xFF7C7777);
-  final Color grey_7B7B7B = const Color(0xFF7B7B7B);
   final Color grey_2F2B3D = const Color(0xFF2F2B3D);
-
 
   /// [blue]
   final Color blue_20B4E3 = const Color(0xFF20B4E3);

@@ -17,14 +17,11 @@ import 'package:transport_management/features/earnings/presentation/views/earnin
 import 'package:transport_management/features/home/presentation/views/home_view.dart';
 import 'package:transport_management/features/notifications/presentation/views/notifications/notifications_view.dart';
 import 'package:transport_management/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:transport_management/features/record_matter/presentation/report_fault_expense/report_fault_expense_view.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
-import 'package:transport_management/features/rides/presentation/views/pickup_details/pickup_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/trip_point_details.dart';
 import 'package:transport_management/features/splash/presentation/splash_view.dart';
-import 'package:transport_management/features/withdrawal/presentation/views/manage_bank/manage_bank_view.dart';
-import 'package:transport_management/features/withdrawal/presentation/views/withdraw_funds/withdraw_funds_view.dart';
-import 'package:transport_management/features/withdrawal/presentation/views/withdrawal/withdrawal_view.dart';
 import 'package:transport_management/util/router/paths.dart';
 
 final router = GoRouter(
@@ -84,33 +81,9 @@ final router = GoRouter(
       },
     ),
     GoRoute(
-      path: RoutePaths.pickupDetails,
-      builder: (context, state) {
-        return const PickupDetailsView();
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.withdrawal,
-      builder: (context, state) {
-        return const WithdrawalView();
-      },
-    ),
-    GoRoute(
       path: RoutePaths.earnings,
       builder: (context, state) {
         return const EarningsView();
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.withdrawFunds,
-      builder: (context, state) {
-        return const WithdrawFundsView();
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.manageBank,
-      builder: (context, state) {
-        return const ManageBankView();
       },
     ),
     GoRoute(
@@ -173,6 +146,12 @@ final router = GoRouter(
       path: RoutePaths.tripPoint,
       builder: (context, state) {
         return const TripPointDetailsView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.reportFaultExpense,
+      builder: (context, state) {
+        return const ReportFaultExpenseView();
       },
     ),
   ],

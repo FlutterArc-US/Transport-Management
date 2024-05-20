@@ -74,8 +74,7 @@ class CustomTextFormField extends StatelessWidget {
             labelText!,
             style: TextStyle(
               fontSize: 15.sp,
-              color: R.colors.black_42403F,
-              fontWeight: FontWeight.w500,
+              color: R.colors.black_FF000000,
               letterSpacing: 0.10.w,
             ),
           ),
@@ -117,8 +116,8 @@ class CustomTextFormField extends StatelessWidget {
               hintText: hintText,
               hintStyle: TextStyle(
                 color: !enabled
-                    ? R.colors.grey_97A2B0.withOpacity(0.4)
-                    : R.colors.grey_97A2B0,
+                    ? R.colors.grey_AEAEAE.withOpacity(0.4)
+                    : R.colors.grey_AEAEAE,
                 fontSize: 14.sp,
                 letterSpacing: 0.12.w,
               ),

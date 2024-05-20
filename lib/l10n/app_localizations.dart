@@ -1802,6 +1802,264 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Trip Details'**
   String get tripDetails;
+
+  /// No description provided for @trackYourJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Track your Journey'**
+  String get trackYourJourney;
+
+  /// No description provided for @upcomingSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Schedule'**
+  String get upcomingSchedule;
+
+  /// No description provided for @pastTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'Past Trips'**
+  String get pastTrips;
+
+  /// No description provided for @recordYourMatters.
+  ///
+  /// In en, this message translates to:
+  /// **'Record your Matters'**
+  String get recordYourMatters;
+
+  /// No description provided for @recordFaultExpense.
+  ///
+  /// In en, this message translates to:
+  /// **'Record Fault / Expense'**
+  String get recordFaultExpense;
+
+  /// No description provided for @leaves.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaves'**
+  String get leaves;
+
+  /// No description provided for @reviewAndWiki.
+  ///
+  /// In en, this message translates to:
+  /// **'Review & Wiki'**
+  String get reviewAndWiki;
+
+  /// No description provided for @courses.
+  ///
+  /// In en, this message translates to:
+  /// **'Courses'**
+  String get courses;
+
+  /// No description provided for @reviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviews'**
+  String get reviews;
+
+  /// No description provided for @extras.
+  ///
+  /// In en, this message translates to:
+  /// **'Extras'**
+  String get extras;
+
+  /// No description provided for @reportFault.
+  ///
+  /// In en, this message translates to:
+  /// **'Report Fault'**
+  String get reportFault;
+
+  /// No description provided for @recordExpense.
+  ///
+  /// In en, this message translates to:
+  /// **'Record Expense'**
+  String get recordExpense;
+
+  /// No description provided for @date.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get date;
+
+  /// No description provided for @selectDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Date'**
+  String get selectDate;
+
+  /// No description provided for @message.
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get message;
+
+  /// No description provided for @typeMessageHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Type message here'**
+  String get typeMessageHere;
+
+  /// No description provided for @attachPictures.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach Pictures'**
+  String get attachPictures;
+
+  /// No description provided for @reportAFault.
+  ///
+  /// In en, this message translates to:
+  /// **'Report A Fault'**
+  String get reportAFault;
+
+  /// No description provided for @faultReported.
+  ///
+  /// In en, this message translates to:
+  /// **'Fault Reported'**
+  String get faultReported;
+
+  /// No description provided for @faultRequestSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Your request for change in the vehicle has been sent successfully'**
+  String get faultRequestSuccess;
+
+  /// No description provided for @type.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get type;
+
+  /// No description provided for @selectType.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Type'**
+  String get selectType;
+
+  /// No description provided for @enterAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Amount'**
+  String get enterAmount;
+
+  /// No description provided for @amount.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get amount;
+
+  /// No description provided for @attachReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach Receipt'**
+  String get attachReceipt;
+
+  /// No description provided for @recordAnExpense.
+  ///
+  /// In en, this message translates to:
+  /// **'Record An Expense'**
+  String get recordAnExpense;
+
+  /// No description provided for @searchHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Here'**
+  String get searchHere;
+
+  /// No description provided for @allCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'All Categories'**
+  String get allCategories;
+
+  /// No description provided for @expenseRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Expense Recorded'**
+  String get expenseRecorded;
+
+  /// No description provided for @expenseRequestSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Your request for change in the vehicle has been sent successfully'**
+  String get expenseRequestSuccess;
+
+  /// No description provided for @hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Hours'**
+  String get hours;
+
+  /// No description provided for @days.
+  ///
+  /// In en, this message translates to:
+  /// **'Days'**
+  String get days;
+
+  /// No description provided for @sick.
+  ///
+  /// In en, this message translates to:
+  /// **'Sick'**
+  String get sick;
+
+  /// No description provided for @tapForLeaveDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap on any date to see details about leave'**
+  String get tapForLeaveDetails;
+
+  /// No description provided for @approved.
+  ///
+  /// In en, this message translates to:
+  /// **'Approved'**
+  String get approved;
+
+  /// No description provided for @pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pending;
+
+  /// No description provided for @rejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected'**
+  String get rejected;
+
+  /// No description provided for @applyForLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply For Leave'**
+  String get applyForLeave;
+
+  /// No description provided for @leaveStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave Status'**
+  String get leaveStatus;
+
+  /// No description provided for @reason.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get reason;
+
+  /// No description provided for @typeReasonHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Type reason here'**
+  String get typeReasonHere;
+
+  /// No description provided for @leaveRequestSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Your leave request was sent successfully!'**
+  String get leaveRequestSuccess;
+
+  /// No description provided for @recent.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent'**
+  String get recent;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

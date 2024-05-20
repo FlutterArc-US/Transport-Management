@@ -8,18 +8,13 @@ import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/phone_number_input_field.dart';
 import 'package:transport_management/common/widgets/text_input_field.dart';
-import 'package:transport_management/features/auth/domain/models/auth_step/auth_step_model.dart';
 import 'package:transport_management/features/auth/presentation/providers/auth_step_provider/auth_step_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/reset_password/initiate_reset_password_verification_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/reset_password/reset_password_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/auth_bg_widget.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/login_option_tab.dart';
-import 'package:transport_management/util/exceptions/message_exception.dart';
-import 'package:transport_management/util/loading/loading.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/router/paths.dart';
-import 'package:transport_management/util/toast/toast.dart';
 
 class ForgotPasswordView extends ConsumerStatefulWidget {
   const ForgotPasswordView({super.key});

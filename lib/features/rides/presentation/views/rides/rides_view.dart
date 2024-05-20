@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/num.dart';
-import 'package:transport_management/features/loads/presentation/views/my_loads/widgets/loads_list_widget.dart';
+import 'package:transport_management/features/rides/presentation/views/rides/widgets/rides_list_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/rides/widgets/weekly_calendar_widget.dart';
 
 class RidesView extends StatelessWidget {

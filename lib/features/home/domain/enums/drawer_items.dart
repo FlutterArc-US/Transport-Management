@@ -1,57 +1,48 @@
-import 'package:flutter/cupertino.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/router/paths.dart';
 
 enum DrawerItem {
-  manageVehicle,
-  earnings,
-  withdrawals,
-  reports,
+  routeToday,
+  upcomingSchedule,
+  pastTrips,
+  chat,
+  recordFault,
+  leaves,
+  courses,
+  reviews,
+  settings,
   about,
-  terms,
-  support,
-  faqs,
-  settings;
+  terms;
 
-  String get name {
+  String get iconPath {
     return switch (this) {
-      manageVehicle => 'Manage Vehicle',
-      earnings => 'Transactions',
-      withdrawals => 'Withdrawals',
-      reports => 'Reports',
-      about => 'About',
-      terms => 'Terms',
-      support => 'Support',
-      faqs => 'FAQs',
-      settings => 'Settings',
-    };
-  }
-
-  Widget get icon {
-    return switch (this) {
-      manageVehicle => Assets.svgs.manageVehicleIcon.svg(),
-      earnings => Assets.svgs.transactionsIcon.svg(),
-      withdrawals => Assets.svgs.withdrawalsIcon.svg(),
-      reports => Assets.svgs.reportsIcon.svg(),
-      about => Assets.svgs.aboutIcon.svg(),
-      terms => Assets.svgs.termsIcon.svg(),
-      support => Assets.svgs.supportIcon.svg(),
-      faqs => Assets.svgs.faqsIcon.svg(),
-      settings => Assets.svgs.settingsIcon.svg(),
+      routeToday => Assets.svgs.drawerRouteTodayIcon.path,
+      upcomingSchedule => Assets.svgs.upcomingScheduleIcon.path,
+      pastTrips => Assets.svgs.pastTripsIcon.path,
+      chat => Assets.svgs.drawerChatIcon.path,
+      recordFault => Assets.svgs.recordFaultIcon.path,
+      leaves => Assets.svgs.leavesIcon.path,
+      courses => Assets.svgs.coursesIcon.path,
+      reviews => Assets.svgs.reviewsIcon.path,
+      settings => Assets.svgs.settingsIcon.path,
+      about => Assets.svgs.aboutIcon.path,
+      terms => Assets.svgs.termsIcon.path,
     };
   }
 
   String get routePath {
     return switch (this) {
-      manageVehicle => RoutePaths.manageVehicle,
-      earnings => RoutePaths.earnings,
-      withdrawals => RoutePaths.withdrawal,
-      reports => RoutePaths.home,
+      routeToday => RoutePaths.home,
+      upcomingSchedule => RoutePaths.home,
+      pastTrips => RoutePaths.home,
+      chat => RoutePaths.home,
+      recordFault => RoutePaths.reportFaultExpense,
+      leaves => RoutePaths.termsOfService,
+      courses => RoutePaths.home,
+      reviews => RoutePaths.faqsView,
+      settings => RoutePaths.home,
       about => RoutePaths.about,
       terms => RoutePaths.termsOfService,
-      support => RoutePaths.home,
-      faqs => RoutePaths.faqsView,
-      settings => RoutePaths.home,
     };
   }
 }

@@ -5,7 +5,7 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/common/widgets/user_avatar.dart';
-import 'package:transport_management/features/rides/presentation/views/pickup_details/widgets/additional_details_widget.dart';
+import 'package:transport_management/features/rides/presentation/views/trip_point_details/widgets/additional_details_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/widgets/point_notes_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -28,7 +28,7 @@ class TripPointDetailsView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 25.w),
               child: Column(
                 children: [
-                  AppText(
+                  const AppText(
                     text: 'Point 1 Name',
                     fontSize: 24,
                     fontWeight: FontWeight.w600,
@@ -154,11 +154,11 @@ class TripPointDetailsView extends StatelessWidget {
                     16.hb,
                     const Divider(),
                     16.hb,
-                    PointNotesWidget(),
+                    const PointNotesWidget(),
                     16.hb,
                     const Divider(),
                     16.hb,
-                    AdditionalDetailsWidget()
+                    const AdditionalDetailsWidget()
                   ],
                 ),
               ),

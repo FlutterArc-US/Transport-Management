@@ -8,10 +8,12 @@ class TabBarWidget<T> extends ConsumerWidget {
     required this.selected,
     required this.itemsList,
     required this.onChanged,
+    required this.itemNames,
     super.key,
   });
 
   final List<T> itemsList;
+  final List<String> itemNames;
   final int selected;
   final void Function(int) onChanged;
 
@@ -37,7 +39,7 @@ class TabBarWidget<T> extends ConsumerWidget {
               borderRadius: BorderRadius.circular(10.r),
               onTap: () => onChanged(index),
               child: Container(
-                width: 340.w * 0.32,
+                width: 330.w * (1 / itemsList.length),
                 height: 38.h,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -47,7 +49,7 @@ class TabBarWidget<T> extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(10.r),
                 ),
                 child: Text(
-                  itemsList[index].toString(),
+                  itemNames[index],
                 ),
               ),
             );

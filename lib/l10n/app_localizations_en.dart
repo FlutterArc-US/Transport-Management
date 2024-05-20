@@ -883,4 +883,133 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tripDetails => 'Trip Details';
+
+  @override
+  String get trackYourJourney => 'Track your Journey';
+
+  @override
+  String get upcomingSchedule => 'Upcoming Schedule';
+
+  @override
+  String get pastTrips => 'Past Trips';
+
+  @override
+  String get recordYourMatters => 'Record your Matters';
+
+  @override
+  String get recordFaultExpense => 'Record Fault / Expense';
+
+  @override
+  String get leaves => 'Leaves';
+
+  @override
+  String get reviewAndWiki => 'Review & Wiki';
+
+  @override
+  String get courses => 'Courses';
+
+  @override
+  String get reviews => 'Reviews';
+
+  @override
+  String get extras => 'Extras';
+
+  @override
+  String get reportFault => 'Report Fault';
+
+  @override
+  String get recordExpense => 'Record Expense';
+
+  @override
+  String get date => 'Date';
+
+  @override
+  String get selectDate => 'Select Date';
+
+  @override
+  String get message => 'Message';
+
+  @override
+  String get typeMessageHere => 'Type message here';
+
+  @override
+  String get attachPictures => 'Attach Pictures';
+
+  @override
+  String get reportAFault => 'Report A Fault';
+
+  @override
+  String get faultReported => 'Fault Reported';
+
+  @override
+  String get faultRequestSuccess => 'Your request for change in the vehicle has been sent successfully';
+
+  @override
+  String get type => 'Type';
+
+  @override
+  String get selectType => 'Select Type';
+
+  @override
+  String get enterAmount => 'Enter Amount';
+
+  @override
+  String get amount => 'Amount';
+
+  @override
+  String get attachReceipt => 'Attach Receipt';
+
+  @override
+  String get recordAnExpense => 'Record An Expense';
+
+  @override
+  String get searchHere => 'Search Here';
+
+  @override
+  String get allCategories => 'All Categories';
+
+  @override
+  String get expenseRecorded => 'Expense Recorded';
+
+  @override
+  String get expenseRequestSuccess => 'Your request for change in the vehicle has been sent successfully';
+
+  @override
+  String get hours => 'Hours';
+
+  @override
+  String get days => 'Days';
+
+  @override
+  String get sick => 'Sick';
+
+  @override
+  String get tapForLeaveDetails => 'Tap on any date to see details about leave';
+
+  @override
+  String get approved => 'Approved';
+
+  @override
+  String get pending => 'Pending';
+
+  @override
+  String get rejected => 'Rejected';
+
+  @override
+  String get applyForLeave => 'Apply For Leave';
+
+  @override
+  String get leaveStatus => 'Leave Status';
+
+  @override
+  String get reason => 'Reason';
+
+  @override
+  String get typeReasonHere => 'Type reason here';
+
+  @override
+  String get leaveRequestSuccess => 'Your leave request was sent successfully!';
+
+  @override
+  String get recent => 'Recent';
 }

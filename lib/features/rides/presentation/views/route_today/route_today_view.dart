@@ -28,6 +28,7 @@ class RouteTodayView extends ConsumerWidget {
         16.hb,
         TabBarWidget(
           selected: selected,
+          itemNames: const ['Trip 1', 'Trip 2', 'Trip 3'],
           onChanged: (selected) {
             ref.read(selectedRideProvider.notifier).state = selected;
           },
