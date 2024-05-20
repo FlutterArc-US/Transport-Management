@@ -1,1 +1,0 @@
-enum WithdrawalOption { availableBalance, earlyWithdrawal }

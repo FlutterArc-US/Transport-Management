@@ -5,11 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_bottom_sheet_popup.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/common/widgets/date_input_field.dart';
-import 'package:transport_management/common/widgets/name_input_field.dart';
 import 'package:transport_management/common/widgets/number_input_field.dart';
 import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/features/home/domain/enums/report_option.dart';
@@ -18,8 +18,7 @@ import 'package:transport_management/features/record_matter/presentation/provide
 import 'package:transport_management/features/record_matter/presentation/report_fault_expense/popups/select_type_sheet.dart';
 import 'package:transport_management/features/record_matter/presentation/report_fault_expense/widgets/upload_images_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/route_today/widgets/tab_bar_widget.dart';
-import 'package:transport_management/features/withdrawal/presentation/providers/withdrawal_form_provider/withdrawal_form_provider.dart';
-import 'package:transport_management/features/withdrawal/presentation/views/withdraw_funds/popups/request_submitted_popup.dart';
+import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -38,6 +37,8 @@ class _ReportFaultExpenseViewState
   final formKey = GlobalKey<FormState>();
 
   Future<void> _submit() async {
+    final reportOption = ref.read(reportOptionProvider);
+
     FocusManager.instance.primaryFocus?.unfocus();
     if (formKey.currentState?.validate() ?? false) {
       try {
@@ -52,10 +53,20 @@ class _ReportFaultExpenseViewState
             ),
           ),
           builder: (context) {
-            return RequestSubmittedPopup(onTap: () {
-              GoRouter.of(context).pop();
-              GoRouter.of(context).pop();
-            });
+            return AppBottomSheetPopup(
+              title: reportOption == ReportOptionModel.recordExpense
+                  ? context.appLocale.expenseRecorded
+                  : context.appLocale.faultReported,
+              image: Assets.pngs.expenseRecordedImg.image(
+                width: 232.w,
+                height: 183.h,
+              ),
+              description: context.appLocale
+                  .yourRequestForChangeInTheVehicleHasBeenSentSuccessfully,
+              onTap: () {
+                GoRouter.of(context).pop();
+              },
+            );
           },
         );
       } on MessageException catch (e) {
@@ -176,7 +187,11 @@ class _ReportFaultExpenseViewState
                           ),
                           16.hb,
                           TextInputField(
-                            onChanged: (v) {},
+                            onChanged: (v) {
+                              ref
+                                  .read(recordMatterFormProvider.notifier)
+                                  .setMessage(v!);
+                            },
                             hintText: context.appLocale.typeMessageHere,
                             labelText: context.appLocale.message,
                             maxLines: 4,
@@ -187,7 +202,7 @@ class _ReportFaultExpenseViewState
                             NumberInputField(
                               onChanged: (v) {
                                 ref
-                                    .read(withdrawalFormProvider.notifier)
+                                    .read(recordMatterFormProvider.notifier)
                                     .setAmount(
                                       int.parse(v ?? '0'),
                                     );

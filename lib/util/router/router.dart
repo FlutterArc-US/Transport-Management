@@ -22,9 +22,6 @@ import 'package:transport_management/features/rides/domain/models/load/load_mode
 import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/trip_point_details.dart';
 import 'package:transport_management/features/splash/presentation/splash_view.dart';
-import 'package:transport_management/features/withdrawal/presentation/views/manage_bank/manage_bank_view.dart';
-import 'package:transport_management/features/withdrawal/presentation/views/withdraw_funds/withdraw_funds_view.dart';
-import 'package:transport_management/features/withdrawal/presentation/views/withdrawal/withdrawal_view.dart';
 import 'package:transport_management/util/router/paths.dart';
 
 final router = GoRouter(
@@ -84,27 +81,9 @@ final router = GoRouter(
       },
     ),
     GoRoute(
-      path: RoutePaths.withdrawal,
-      builder: (context, state) {
-        return const WithdrawalView();
-      },
-    ),
-    GoRoute(
       path: RoutePaths.earnings,
       builder: (context, state) {
         return const EarningsView();
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.withdrawFunds,
-      builder: (context, state) {
-        return const WithdrawFundsView();
-      },
-    ),
-    GoRoute(
-      path: RoutePaths.manageBank,
-      builder: (context, state) {
-        return const ManageBankView();
       },
     ),
     GoRoute(

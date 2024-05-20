@@ -8,10 +8,21 @@ import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 
-class RequestSubmittedPopup extends StatelessWidget {
-  const RequestSubmittedPopup({required this.onTap, super.key});
+class AppBottomSheetPopup extends StatelessWidget {
+  const AppBottomSheetPopup({
+    required this.onTap,
+    required this.title,
+    required this.description,
+    required this.image,
+    this.buttonText,
+    super.key,
+  });
 
   final VoidCallback onTap;
+  final String title;
+  final String description;
+  final Widget image;
+  final String? buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -30,27 +41,27 @@ class RequestSubmittedPopup extends StatelessWidget {
             ),
           ),
           20.hb,
-          Assets.svgs.requestSubmittedImage.svg(
-            width: 232.w,
-            height: 128.h,
-          ),
-          56.hb,
+          image,
+          25.hb,
           AppText(
-            text: context.appLocale.requestSubmitted,
-            fontWeight: FontWeight.w700,
+            text: title,
+            fontWeight: FontWeight.w600,
             fontSize: 24,
             color: R.colors.navyBlue_263C51,
           ),
           13.hb,
-          AppText(
-            text: context.appLocale.withdrawalRequestSubmittedSuccess,
-            fontSize: 14,
-            color: R.colors.navyBlue_263C51,
-            textAlign: TextAlign.center,
+          SizedBox(
+            width: 313.w,
+            child: AppText(
+              text: description,
+              fontSize: 14,
+              color: R.colors.navyBlue_263C51,
+              textAlign: TextAlign.center,
+            ),
           ),
           const Spacer(),
           AppFilledButton(
-            text: context.appLocale.done,
+            text: buttonText ?? context.appLocale.done,
             onTap: onTap,
             width: 330,
           ),
