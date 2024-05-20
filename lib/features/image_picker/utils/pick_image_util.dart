@@ -27,7 +27,7 @@ class PickImageUtil {
       }
       return;
     } on MessageException catch (e) {
-      showToast(msg: e.message);
+      debugPrint(e.message);
       return;
     } on StoragePermissionDenied {
       showToast(msg: 'Storage Permission is denied');
@@ -53,7 +53,7 @@ class PickImageUtil {
     } on ImageNotSelectedException {
       return;
     } catch (e) {
-      showToast(msg: 'Something went wrong');
+      debugPrint('Something went wrong');
     }
     return;
   }
@@ -73,7 +73,7 @@ class PickImageUtil {
       }
       return;
     } on MessageException catch (e) {
-      showToast(msg: e.message);
+      debugPrint(e.message);
       return;
     } on StoragePermissionDenied {
       showToast(msg: 'Storage Permission is denied');
@@ -99,7 +99,7 @@ class PickImageUtil {
     } on ImageNotSelectedException {
       return;
     } catch (e) {
-      showToast(msg: 'Something went wrong');
+      debugPrint('Something went wrong');
     }
     return;
   }
@@ -120,7 +120,7 @@ class PickImageUtil {
       }
       return;
     } on MessageException catch (e) {
-      showToast(msg: e.message);
+      debugPrint(e.message);
       return;
     } on CameraPermissionDenied catch (e) {
       showToast(msg: e.message);
@@ -140,7 +140,7 @@ class PickImageUtil {
     } on ImageNotSelectedException {
       return;
     } catch (e) {
-      showToast(msg: 'Something went wrong');
+      debugPrint('Something went wrong');
     }
   }
 }

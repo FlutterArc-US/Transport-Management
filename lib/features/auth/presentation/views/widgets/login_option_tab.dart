@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/features/auth/domain/models/login_option_model/login_option_model.dart';
+import 'package:transport_management/features/auth/presentation/providers/login/login_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
 import 'package:transport_management/util/resources/r.dart';
 
@@ -40,6 +41,7 @@ class _LoginOptionTabState extends ConsumerState<LoginOptionTab> {
                 final option = LoginOptionModel.values[index];
                 return InkWell(
                   onTap: () {
+                    ref.invalidate(loginFormProvider);
                     ref.read(loginOptionProvider.notifier).state =
                         LoginOptionModel.values[index];
                   },

@@ -56,10 +56,17 @@ class UploadDocsImagesWidget extends ConsumerWidget {
                   return index == 0
                       ? InkWell(
                           onTap: () {
-                            showDialog<dynamic>(
+                            showModalBottomSheet<void>(
                               context: context,
+                              showDragHandle: true,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30.r),
+                                  topRight: Radius.circular(30.r),
+                                ),
+                              ),
                               builder: (context) {
-                                return OpenGalleryCameraDialog(onTapCamera: () {
+                                return OpenGalleryCameraSheet(onTapCamera: () {
                                   PickImageUtil().pickCameraImage(
                                     context: context,
                                     ref: ref,
