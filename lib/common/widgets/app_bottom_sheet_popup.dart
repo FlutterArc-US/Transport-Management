@@ -12,15 +12,15 @@ class AppBottomSheetPopup extends StatelessWidget {
   const AppBottomSheetPopup({
     required this.onTap,
     required this.title,
-    required this.description,
     required this.image,
+    this.description,
     this.buttonText,
     super.key,
   });
 
   final VoidCallback onTap;
   final String title;
-  final String description;
+  final String? description;
   final Widget image;
   final String? buttonText;
 
@@ -48,17 +48,19 @@ class AppBottomSheetPopup extends StatelessWidget {
             fontWeight: FontWeight.w600,
             fontSize: 24,
             color: R.colors.navyBlue_263C51,
+            textAlign: TextAlign.center,
           ),
-          13.hb,
-          SizedBox(
-            width: 313.w,
-            child: AppText(
-              text: description,
-              fontSize: 14,
-              color: R.colors.navyBlue_263C51,
-              textAlign: TextAlign.center,
+          if (description != null) 13.hb,
+          if (description != null)
+            SizedBox(
+              width: 313.w,
+              child: AppText(
+                text: description!,
+                fontSize: 14,
+                color: R.colors.navyBlue_263C51,
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
           const Spacer(),
           AppFilledButton(
             text: buttonText ?? context.appLocale.done,

@@ -3,9 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
-import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
-import 'package:transport_management/common/widgets/date_input_field.dart';
 import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -72,7 +70,7 @@ class LeaveStatusSheetPopup extends StatelessWidget {
             labelText: context.appLocale.reason,
             onChanged: (v) {},
             hintText: 'Reason',
-            minLines: 5,
+            minLines: 4,
             maxLines: 4,
           ),
           24.hb,

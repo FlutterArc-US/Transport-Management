@@ -2066,6 +2066,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Day'**
   String get day;
+
+  /// No description provided for @singleDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Single day'**
+  String get singleDay;
+
+  /// No description provided for @multiDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Multi-day'**
+  String get multiDay;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

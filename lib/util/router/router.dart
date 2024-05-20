@@ -8,7 +8,6 @@ import 'package:transport_management/features/about/presentation/views/terms_of_
 import 'package:transport_management/features/auth/presentation/views/change_request/change_request_view.dart';
 import 'package:transport_management/features/auth/presentation/views/forget_password/forgot_password_view.dart';
 import 'package:transport_management/features/auth/presentation/views/login/login_view.dart';
-import 'package:transport_management/features/auth/presentation/views/manage_vehicle/manage_vehicle_view.dart';
 import 'package:transport_management/features/auth/presentation/views/otp_verification/otp_verification_view.dart';
 import 'package:transport_management/features/auth/presentation/views/profile_update/profile_update_view.dart';
 import 'package:transport_management/features/auth/presentation/views/register/sign_up_view.dart';
@@ -17,6 +16,7 @@ import 'package:transport_management/features/earnings/presentation/views/earnin
 import 'package:transport_management/features/home/presentation/views/home_view.dart';
 import 'package:transport_management/features/notifications/presentation/views/notifications/notifications_view.dart';
 import 'package:transport_management/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:transport_management/features/record_matter/presentation/views/apply_for_leave/apply_for_leave_view.dart';
 import 'package:transport_management/features/record_matter/presentation/views/leaves/leaves_view.dart';
 import 'package:transport_management/features/record_matter/presentation/views/report_fault_expense/report_fault_expense_view.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
@@ -94,12 +94,6 @@ final router = GoRouter(
       },
     ),
     GoRoute(
-      path: RoutePaths.manageVehicle,
-      builder: (context, state) {
-        return const ManageVehicleView();
-      },
-    ),
-    GoRoute(
       path: RoutePaths.changeRequest,
       builder: (context, state) {
         return const ChangeRequestView();
@@ -159,6 +153,12 @@ final router = GoRouter(
       path: RoutePaths.leaves,
       builder: (context, state) {
         return const LeavesView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.applyForLeave,
+      builder: (context, state) {
+        return const ApplyForLeaveView();
       },
     ),
   ],

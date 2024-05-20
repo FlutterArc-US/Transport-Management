@@ -6,7 +6,7 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/util/resources/r.dart';
 
-class LeavesPieChartsWidget extends StatefulWidget {
+class LeavesPieChartsWidget extends StatelessWidget {
   const LeavesPieChartsWidget({
     required this.hours,
     required this.totalHours,
@@ -25,11 +25,6 @@ class LeavesPieChartsWidget extends StatefulWidget {
   final int totalSick;
 
   @override
-  State<LeavesPieChartsWidget> createState() => _LeavesPieChartsWidgetState();
-}
-
-class _LeavesPieChartsWidgetState extends State<LeavesPieChartsWidget> {
-  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,20 +32,20 @@ class _LeavesPieChartsWidgetState extends State<LeavesPieChartsWidget> {
         buildPieChart(
           context: context,
           title: context.appLocale.hours,
-          value: widget.hours,
-          totalValue: widget.totalHours,
+          value: hours,
+          totalValue: totalHours,
         ),
         buildPieChart(
           context: context,
           title: context.appLocale.days,
-          value: widget.days,
-          totalValue: widget.totalDays,
+          value: days,
+          totalValue: totalDays,
         ),
         buildPieChart(
           context: context,
           title: context.appLocale.sick,
-          value: widget.sick,
-          totalValue: widget.totalSick,
+          value: sick,
+          totalValue: totalSick,
         ),
       ],
     );

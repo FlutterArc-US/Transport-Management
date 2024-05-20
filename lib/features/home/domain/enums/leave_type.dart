@@ -1,0 +1,4 @@
+enum LeaveTypeModel {
+  single,
+  multi;
+}

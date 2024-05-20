@@ -17,7 +17,6 @@ class RoutePaths {
   static const String earnings = '/earnings';
   static const String manageBank = '/manage-bank';
   static const String updateProfile = '/updateProfile';
-  static const String manageVehicle = '/manageVehicle';
   static const String changeRequest = '/changeRequest';
   static const String myLoads = '/my-loads';
   static const String privacyPolicy = '/privacyPolicy';
@@ -30,4 +29,5 @@ class RoutePaths {
   static const String tripPoint = '/trip-point';
   static const String reportFaultExpense = '/report-fault-expense';
   static const String leaves = '/leaves';
+  static const String applyForLeave = '/apply-for-leave';
 }
