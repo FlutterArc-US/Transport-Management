@@ -7,13 +7,11 @@ import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
-import 'package:transport_management/common/widgets/password_input_field.dart';
-import 'package:transport_management/common/widgets/phone_number_input_field.dart';
-import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login/login_form_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/login/login_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
+import 'package:transport_management/features/auth/presentation/views/login/widgets/via_driving_license_form_widget.dart';
+import 'package:transport_management/features/auth/presentation/views/login/widgets/via_phone_number_form_widget.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/login_option_tab.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
@@ -32,51 +30,22 @@ class LoginView extends ConsumerStatefulWidget {
 class _LoginViewState extends ConsumerState<LoginView> {
   final _formKey = GlobalKey<FormState>();
 
-  final _phoneInput = TextEditingController();
-  final _passwordInput = TextEditingController();
-
-  late FocusNode phoneFocusNode;
-  late FocusNode passwordFocusNode;
-  bool viaPhone = true;
-
-  void initializeNodes() {
-    phoneFocusNode = FocusNode();
-    passwordFocusNode = FocusNode();
-  }
-
-  Future<void> disposeNodes() async {
-    passwordFocusNode.dispose();
-    phoneFocusNode.dispose();
-  }
-
-  Future<void> disposeControllers() async {
-    _phoneInput.dispose();
-    _passwordInput.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    initializeNodes();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    disposeControllers();
-    disposeNodes();
-  }
-
   Future<void> _login() async {
     FocusManager.instance.primaryFocus?.unfocus();
+    final loginOption = ref.read(loginOptionProvider);
+    final loginForm = ref.read(loginFormProvider);
 
     if (_formKey.currentState!.validate()) {
+      if (loginOption.isViaDriverLicense && loginForm.licenseImage == null) {
+        showToast(msg: 'Please upload your driver license image');
+        return;
+      }
       try {
         loading(context);
-        await ref.read(loginProvider.future);
+        // await ref.read(loginProvider.future);
         if (!mounted) return;
 
-        GoRouter.of(context).go(RoutePaths.home);
+        GoRouter.of(context).push(RoutePaths.enterPin);
       } on MessageException catch (e) {
         showToast(msg: e.message);
       } catch (e) {
@@ -109,7 +78,6 @@ class _LoginViewState extends ConsumerState<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    final loginForm = ref.watch(loginFormProvider);
     final loginOption = ref.watch(loginOptionProvider);
 
     return KeyboardDismissOnTap(
@@ -203,62 +171,17 @@ class _LoginViewState extends ConsumerState<LoginView> {
                             ),
                             15.05.hb,
                             const LoginOptionTab(),
-                            10.hb,
+                            33.hb,
                             loginOption.isViaPhoneNumber
-                                ? PhoneNumberInputField(
-                                    isNotEmpty:
-                                        loginForm.phone?.isNotEmpty ?? false,
-                                    focusNode: phoneFocusNode,
-                                    onEditingComplete: (v) {
-                                      passwordFocusNode.requestFocus();
-                                    },
-                                    onChanged: (v) {
-                                      ref
-                                          .read(loginFormProvider.notifier)
-                                          .setPhone(v.completeNumber);
-                                    },
-                                  )
-                                : TextInputField(
-                                    onChanged: (v) {},
-                                    hintText: 'Driving License',
-                                    labelText: 'Driving License',
-                                  ),
+                                ? const ViaPhoneNumberFormWidget()
+                                : const ViaDrivingLicenseFormWidget(),
                             16.hb,
-                            PasswordInputField(
-                              focusNode: passwordFocusNode,
-                              controller: _passwordInput,
-                              onChanged: (v) {
-                                ref
-                                    .read(loginFormProvider.notifier)
-                                    .setPassword(v!);
-                              },
-                              labelText: context.appLocale.password,
-                              hintText: context.appLocale.password,
-                            ),
-                            7.hb,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    GoRouter.of(context)
-                                        .push(RoutePaths.forgetPassword);
-                                  },
-                                  child: AppText(
-                                    text: context.appLocale.forgotPassword,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: R.colors.black_1E1E1E,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            15.hb,
                             Center(
-                                child: AppFilledButton(
-                              text: context.appLocale.login,
-                              onTap: _login,
-                            )),
+                              child: AppFilledButton(
+                                text: context.appLocale.next,
+                                onTap: _login,
+                              ),
+                            ),
                           ],
                         ),
                       ),

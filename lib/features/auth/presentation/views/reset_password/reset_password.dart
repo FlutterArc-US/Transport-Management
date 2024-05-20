@@ -72,7 +72,7 @@ class _ResetPasswordViewState extends ConsumerState<ResetPasswordView> {
     if (formKey.currentState?.validate() ?? false) {
       try {
         loading(context);
-        await ref.read(resetPasswordProvider.future);
+        // await ref.read(resetPasswordProvider.future);
         if (!mounted) return;
 
         showToast(msg: context.appLocale.passwordChanged);

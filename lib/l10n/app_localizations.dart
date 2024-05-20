@@ -108,7 +108,7 @@ abstract class AppLocalizations {
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
-  /// **'Log in'**
+  /// **'Login'**
   String get login;
 
   /// No description provided for @viaPhoneNumber.
@@ -192,7 +192,7 @@ abstract class AppLocalizations {
   /// No description provided for @enter4DigitOTP.
   ///
   /// In en, this message translates to:
-  /// **'Enter 4-digit OTP, sent on your \nphone number'**
+  /// **'Enter 4-digit OTP, sent on your phone number'**
   String get enter4DigitOTP;
 
   /// No description provided for @resendOTPin.
@@ -2078,6 +2078,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Multi-day'**
   String get multiDay;
+
+  /// No description provided for @enterPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Pin'**
+  String get enterPin;
+
+  /// No description provided for @forgotYourPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Your Pin?'**
+  String get forgotYourPin;
+
+  /// No description provided for @enterYourPinToLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your pin to login'**
+  String get enterYourPinToLogin;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

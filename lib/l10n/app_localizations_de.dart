@@ -1021,4 +1021,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get multiDay => 'Multi-day';
+
+  @override
+  String get enterPin => 'Enter Pin';
+
+  @override
+  String get forgotYourPin => 'Forgot Your Pin?';
+
+  @override
+  String get enterYourPinToLogin => 'Enter your pin to login';
 }

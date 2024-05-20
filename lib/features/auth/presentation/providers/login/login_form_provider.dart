@@ -21,6 +21,10 @@ class LoginForm extends _$LoginForm {
     state = state.copyWith(countryCode: value);
   }
 
+  void setLicenseImage(String value) {
+    state = state.copyWith(licenseImage: value);
+  }
+
   @override
   LoginFormModel build() {
     return LoginFormModel.initial();

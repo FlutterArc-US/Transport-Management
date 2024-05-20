@@ -39,7 +39,7 @@ enum DrawerItem {
       recordFault => RoutePaths.reportFaultExpense,
       leaves => RoutePaths.leaves,
       courses => RoutePaths.home,
-      reviews => RoutePaths.faqsView,
+      reviews => RoutePaths.reviews,
       settings => RoutePaths.home,
       about => RoutePaths.about,
       terms => RoutePaths.termsOfService,

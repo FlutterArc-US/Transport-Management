@@ -18,7 +18,7 @@ class NotificationTileWidget extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 28.r,
-            backgroundColor: R.colors.blue_20B4E3,
+            backgroundColor: R.colors.green_85C933,
             child: Assets.svgs.loadAssignedIcon.svg(),
           ),
           17.wb,
@@ -27,21 +27,21 @@ class NotificationTileWidget extends StatelessWidget {
             children: [
               AppText(
                 text: 'Load Assigned!',
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: R.colors.navyBlue_263C51,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+                color: R.colors.black_FF000000,
               ),
               2.hb,
               AppText(
                 text: 'Load #23232 has been assigned to you',
                 fontSize: 14,
-                color: R.colors.navyBlue_263C51,
+                color: R.colors.grey_7B7B7B,
               ),
               2.hb,
               AppText(
                 text: 'Mon, 11:50 pm',
                 fontSize: 12,
-                color: R.colors.blue_20B4E3,
+                color: R.colors.black_FF000000,
               ),
             ],
           )
