@@ -71,6 +71,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
         loading(context);
         // await ref.read(loginProvider.future);
         if (!mounted) return;
+        GoRouter.of(context).go(RoutePaths.home);
       } on MessageException catch (e) {
         showToast(msg: e.message);
       } catch (e) {

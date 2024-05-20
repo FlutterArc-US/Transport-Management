@@ -43,7 +43,7 @@ class _AppBottomNavBarState extends ConsumerState<AppBottomNavBar> {
               navItemName(BottomNavItem.values[index]),
               style: TextStyle(
                 color: R.colors.white_FFFFFF,
-                fontSize: 10.sp,
+                fontSize: 9.sp,
               ),
             ),
           );

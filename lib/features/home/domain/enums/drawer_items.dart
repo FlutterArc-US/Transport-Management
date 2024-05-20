@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/router/paths.dart';
 
@@ -15,19 +14,19 @@ enum DrawerItem {
   about,
   terms;
 
-  Widget get icon {
+  String get iconPath {
     return switch (this) {
-      routeToday => Assets.svgs.routeTodayActive.svg(),
-      upcomingSchedule => Assets.svgs.upcomingScheduleIcon.svg(),
-      pastTrips => Assets.svgs.pastTripsIcon.svg(),
-      chat => Assets.svgs.chatActive.svg(),
-      recordFault => Assets.svgs.recordFaultIcon.svg(),
-      leaves => Assets.svgs.leavesIcon.svg(),
-      courses => Assets.svgs.coursesIcon.svg(),
-      reviews => Assets.svgs.reviewsIcon.svg(),
-      settings => Assets.svgs.settingsIcon.svg(),
-      about => Assets.svgs.aboutIcon.svg(),
-      terms => Assets.svgs.termsIcon.svg(),
+      routeToday => Assets.svgs.drawerRouteTodayIcon.path,
+      upcomingSchedule => Assets.svgs.upcomingScheduleIcon.path,
+      pastTrips => Assets.svgs.pastTripsIcon.path,
+      chat => Assets.svgs.drawerChatIcon.path,
+      recordFault => Assets.svgs.recordFaultIcon.path,
+      leaves => Assets.svgs.leavesIcon.path,
+      courses => Assets.svgs.coursesIcon.path,
+      reviews => Assets.svgs.reviewsIcon.path,
+      settings => Assets.svgs.settingsIcon.path,
+      about => Assets.svgs.aboutIcon.path,
+      terms => Assets.svgs.termsIcon.path,
     };
   }
 

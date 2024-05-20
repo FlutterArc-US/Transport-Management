@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
@@ -32,6 +33,22 @@ class DrawerWidget extends ConsumerWidget {
     };
   }
 
+  String itemTitle(DrawerItem item, BuildContext context) {
+    return switch (item) {
+      DrawerItem.routeToday => context.appLocale.trackYourJourney,
+      DrawerItem.upcomingSchedule => context.appLocale.trackYourJourney,
+      DrawerItem.pastTrips => context.appLocale.trackYourJourney,
+      DrawerItem.chat => context.appLocale.recordYourMatters,
+      DrawerItem.recordFault => context.appLocale.recordYourMatters,
+      DrawerItem.leaves => context.appLocale.recordYourMatters,
+      DrawerItem.courses => context.appLocale.reviewAndWiki,
+      DrawerItem.reviews => context.appLocale.reviewAndWiki,
+      DrawerItem.settings => context.appLocale.extras,
+      DrawerItem.about => context.appLocale.extras,
+      DrawerItem.terms => context.appLocale.extras,
+    };
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
@@ -50,125 +67,179 @@ class DrawerWidget extends ConsumerWidget {
             //
             // final user = userAsync.value;
 
-            return Column(
-              children: [
-                MediaQuery.of(context).padding.top.hb,
-                20.hb,
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  MediaQuery.of(context).padding.top.hb,
+                  20.hb,
 
-                /// [Change Language]
-                Padding(
-                  padding: EdgeInsets.only(right: 14.w),
-                  child: const Align(
-                    alignment: Alignment.topRight,
-                    child: LanguageToggleWidget(),
+                  /// [Change Language]
+                  Padding(
+                    padding: EdgeInsets.only(right: 14.w),
+                    child: const Align(
+                      alignment: Alignment.topRight,
+                      child: LanguageToggleWidget(),
+                    ),
                   ),
-                ),
-                22.hb,
-                InkWell(
-                  onTap: () =>
-                      GoRouter.of(context).push(RoutePaths.updateProfile),
-                  child: Row(
-                    children: [
-                      /// [Image]
-                      UserProfileAvatar(),
+                  22.hb,
+                  InkWell(
+                    onTap: () =>
+                        GoRouter.of(context).push(RoutePaths.updateProfile),
+                    child: Row(
+                      children: [
+                        /// [Image]
+                        const UserProfileAvatar(),
 
-                      11.wb,
+                        11.wb,
 
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          /// [Name]
-                          AppText(
-                            text: 'Jhon Watson',
-                            color: R.colors.green_337A34,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w600,
-                          ),
-
-                          /// [User type]
-                          AppText(
-                            text: 'Nintendo Transportation',
-                            color: R.colors.black_FF000000,
-                            fontSize: 16,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-
-                42.hb,
-
-                Consumer(
-                  builder: (context, ref, _) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: List.generate(
-                        DrawerItem.values.length,
-                        (index) {
-                          final item = DrawerItem.values[index];
-                          return TextButton(
-                            onPressed: () {
-                              GoRouter.of(context).push(item.routePath);
-                            },
-                            style: TextButton.styleFrom(
-                              shape: const BeveledRectangleBorder(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /// [Name]
+                            AppText(
+                              text: 'John Watson',
+                              color: R.colors.green_337A34,
+                              fontSize: 25,
+                              fontWeight: FontWeight.w600,
                             ),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  height: 24.r,
-                                  width: 24.r,
-                                  child: item.icon,
-                                ),
-                                24.wb,
-                                SizedBox(
-                                  width: 175.w,
-                                  child: AppText(
-                                    text: itemName(item, context),
-                                    fontSize: 14,
-                                    color: R.colors.black_FF000000,
+
+                            /// [User type]
+                            AppText(
+                              text: 'Nintendo Transportation',
+                              color: R.colors.black_FF000000,
+                              fontSize: 15,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+
+                  42.hb,
+
+                  Consumer(
+                    builder: (context, ref, _) {
+                      final shownTitles = <String>{};
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children:
+                            List.generate(DrawerItem.values.length, (index) {
+                          final item = DrawerItem.values[index];
+                          final title = itemTitle(item, context);
+                          final shouldShowTitle = !shownTitles.contains(title);
+
+                          if (shouldShowTitle) {
+                            shownTitles.add(title);
+                          }
+
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (shouldShowTitle)
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 14.h),
+                                  child: SizedBox(
+                                    width: 175.w,
+                                    child: AppText(
+                                      text: title,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 14,
+                                      color: R.colors.black_FF000000,
+                                    ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              TextButton(
+                                onPressed: () {
+                                  GoRouter.of(context).push(item.routePath);
+                                },
+                                style: TextButton.styleFrom(
+                                  shape: const BeveledRectangleBorder(),
+                                ),
+                                child: Row(
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundColor: R.colors.green_85C933,
+                                      child: SizedBox(
+                                        height: 24.r,
+                                        width: 24.r,
+                                        child: SvgPicture.asset(
+                                          item.iconPath,
+                                          colorFilter: ColorFilter.mode(
+                                            R.colors.white_FFFFFF,
+                                            BlendMode.srcIn,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    24.wb,
+                                    SizedBox(
+                                      width: 175.w,
+                                      child: AppText(
+                                        text: itemName(item, context),
+                                        fontSize: 14,
+                                        color: R.colors.black_FF000000,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        }),
+                      );
+                    },
+                  ),
+
+                  53.hb,
+
+                  /// [Logout]
+                  Consumer(
+                    builder: (context, ref, _) {
+                      return InkWell(
+                        onTap: () async {
+                          await showDialog<void>(
+                            context: context,
+                            builder: (context) =>
+                                const LogoutConfirmationPopup(),
                           );
                         },
-                      ),
-                    );
-                  },
-                ),
-                const Spacer(),
-
-                /// [Logout]
-                Consumer(
-                  builder: (context, ref, _) {
-                    return InkWell(
-                      onTap: () async {
-                        await showDialog<void>(
-                          context: context,
-                          builder: (context) => const LogoutConfirmationPopup(),
-                        );
-                      },
-                      child: Row(
-                        children: [
-                          12.wb,
-                          Assets.svgs.logoutIcon.svg(),
-                          8.wb,
-                          AppText(
-                            text: context.appLocale.logout,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: R.colors.blue_20B4E3,
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 22.w),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: Container(
+                              width: 132.w,
+                              padding: EdgeInsets.symmetric(
+                                vertical: 8.h,
+                              ),
+                              decoration: BoxDecoration(
+                                color: R.colors.green_337A34,
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Assets.svgs.logoutIcon.svg(),
+                                  10.wb,
+                                  AppText(
+                                    text: context.appLocale.logout,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: R.colors.white_FFFFFF,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-                24.hb,
-                MediaQuery.of(context).padding.bottom.hb,
-              ],
+                        ),
+                      );
+                    },
+                  ),
+                  24.hb,
+                  MediaQuery.of(context).padding.bottom.hb,
+                ],
+              ),
             );
           },
         ),
