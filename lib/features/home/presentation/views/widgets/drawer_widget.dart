@@ -32,6 +32,7 @@ class DrawerWidget extends ConsumerWidget {
       DrawerItem.terms => context.appLocale.terms,
       DrawerItem.faqs => context.appLocale.faqs,
       DrawerItem.support => context.appLocale.support,
+      DrawerItem.units => context.appLocale.systemUnits,
     };
   }
 
@@ -50,6 +51,7 @@ class DrawerWidget extends ConsumerWidget {
       DrawerItem.terms => context.appLocale.extras,
       DrawerItem.faqs => context.appLocale.extras,
       DrawerItem.support => context.appLocale.extras,
+      DrawerItem.units => context.appLocale.extras,
     };
   }
 

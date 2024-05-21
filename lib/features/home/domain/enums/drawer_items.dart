@@ -11,6 +11,7 @@ enum DrawerItem {
   courses,
   reviews,
   settings,
+  units,
   about,
   faqs,
   support,
@@ -31,6 +32,7 @@ enum DrawerItem {
       faqs => Assets.svgs.faqsIcon.path,
       support => Assets.svgs.supportIcon.path,
       terms => Assets.svgs.termsIcon.path,
+      units => Assets.svgs.weightIcon.path,
     };
   }
 
@@ -49,6 +51,7 @@ enum DrawerItem {
       faqs => RoutePaths.faqsView,
       support => RoutePaths.support,
       terms => RoutePaths.termsOfService,
+      units => RoutePaths.units,
     };
   }
 }
