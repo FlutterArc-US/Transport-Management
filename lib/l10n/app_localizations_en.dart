@@ -711,30 +711,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get skip => 'Skip';
 
   @override
-  String get joinIndividuallyOrFleet => 'Join Individually Or Part Of Fleet';
-
-  @override
-  String get bookYourLoad => 'Book Your Load';
-
-  @override
-  String get useAIToBoostMatch => 'Use AI To Boost Match';
-
-  @override
-  String get earnAndSeeReports => 'Earn & See Reports';
-
-  @override
-  String get soloDriver => 'You can own your vehicle and become a solo driver.';
-
-  @override
-  String get learnGrowSucceed => 'Learn, grow, and succeed with our app\'s diverse educational resources, interactive lessons, and personalized learning experiences.';
-
-  @override
-  String get unlockPotential => 'Unlock your potential with interactive courses and expert instructors at your fingertips.';
-
-  @override
-  String get learnAnytimeAnywhere => 'Learn anytime, anywhere, with a vast library of educational content and personalized study plans.';
-
-  @override
   String get booked => 'Booked';
 
   @override

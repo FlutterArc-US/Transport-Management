@@ -11,7 +11,7 @@ class AppLanguage extends _$AppLanguage {
 
   void toggle() {
     if (state == 'en') {
-      state = 'gr';
+      state = 'nl';
     } else {
       state = 'en';
     }

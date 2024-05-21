@@ -7,6 +7,7 @@ import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_nl.dart';
 
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
@@ -90,7 +91,8 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('de'),
-    Locale('en')
+    Locale('en'),
+    Locale('nl')
   ];
 
   /// No description provided for @welcome.
@@ -1455,54 +1457,6 @@ abstract class AppLocalizations {
   /// **'Skip'**
   String get skip;
 
-  /// No description provided for @joinIndividuallyOrFleet.
-  ///
-  /// In en, this message translates to:
-  /// **'Join Individually Or Part Of Fleet'**
-  String get joinIndividuallyOrFleet;
-
-  /// No description provided for @bookYourLoad.
-  ///
-  /// In en, this message translates to:
-  /// **'Book Your Load'**
-  String get bookYourLoad;
-
-  /// No description provided for @useAIToBoostMatch.
-  ///
-  /// In en, this message translates to:
-  /// **'Use AI To Boost Match'**
-  String get useAIToBoostMatch;
-
-  /// No description provided for @earnAndSeeReports.
-  ///
-  /// In en, this message translates to:
-  /// **'Earn & See Reports'**
-  String get earnAndSeeReports;
-
-  /// No description provided for @soloDriver.
-  ///
-  /// In en, this message translates to:
-  /// **'You can own your vehicle and become a solo driver.'**
-  String get soloDriver;
-
-  /// No description provided for @learnGrowSucceed.
-  ///
-  /// In en, this message translates to:
-  /// **'Learn, grow, and succeed with our app\'s diverse educational resources, interactive lessons, and personalized learning experiences.'**
-  String get learnGrowSucceed;
-
-  /// No description provided for @unlockPotential.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock your potential with interactive courses and expert instructors at your fingertips.'**
-  String get unlockPotential;
-
-  /// No description provided for @learnAnytimeAnywhere.
-  ///
-  /// In en, this message translates to:
-  /// **'Learn anytime, anywhere, with a vast library of educational content and personalized study plans.'**
-  String get learnAnytimeAnywhere;
-
   /// No description provided for @booked.
   ///
   /// In en, this message translates to:
@@ -2149,7 +2103,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['de', 'en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['de', 'en', 'nl'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -2162,6 +2116,7 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'de': return AppLocalizationsDe();
     case 'en': return AppLocalizationsEn();
+    case 'nl': return AppLocalizationsNl();
   }
 
   throw FlutterError(

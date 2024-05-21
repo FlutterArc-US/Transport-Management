@@ -44,7 +44,7 @@ enum DrawerItem {
       leaves => RoutePaths.leaves,
       courses => RoutePaths.courses,
       reviews => RoutePaths.reviews,
-      settings => RoutePaths.home,
+      settings => RoutePaths.updateProfile,
       about => RoutePaths.about,
       faqs => RoutePaths.faqsView,
       support => RoutePaths.support,
