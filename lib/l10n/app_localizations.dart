@@ -2104,6 +2104,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Distance'**
   String get distance;
+
+  /// No description provided for @kilometers.
+  ///
+  /// In en, this message translates to:
+  /// **'Kilometers'**
+  String get kilometers;
+
+  /// No description provided for @miles.
+  ///
+  /// In en, this message translates to:
+  /// **'Miles'**
+  String get miles;
+
+  /// No description provided for @kilograms.
+  ///
+  /// In en, this message translates to:
+  /// **'Kilograms'**
+  String get kilograms;
+
+  /// No description provided for @pounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Pounds'**
+  String get pounds;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

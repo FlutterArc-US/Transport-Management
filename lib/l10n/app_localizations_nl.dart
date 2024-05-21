@@ -1033,4 +1033,16 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get distance => 'Distance';
+
+  @override
+  String get kilometers => 'Kilometers';
+
+  @override
+  String get miles => 'Miles';
+
+  @override
+  String get kilograms => 'Kilograms';
+
+  @override
+  String get pounds => 'Pounds';
 }

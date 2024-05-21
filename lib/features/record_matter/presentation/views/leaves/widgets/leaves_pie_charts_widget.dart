@@ -4,6 +4,7 @@ import 'package:pie_chart/pie_chart.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
+import 'package:transport_management/features/record_matter/presentation/views/leaves/widgets/ring_widget.dart';
 import 'package:transport_management/util/resources/r.dart';
 
 class LeavesPieChartsWidget extends StatelessWidget {
@@ -26,26 +27,35 @@ class LeavesPieChartsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Column(
       children: [
-        buildPieChart(
-          context: context,
-          title: context.appLocale.hours,
-          value: hours,
-          totalValue: totalHours,
+        RingWidget(
+          progress: 2,
+          total: 10,
+          radius: 50.r,
         ),
-        buildPieChart(
-          context: context,
-          title: context.appLocale.days,
-          value: days,
-          totalValue: totalDays,
-        ),
-        buildPieChart(
-          context: context,
-          title: context.appLocale.sick,
-          value: sick,
-          totalValue: totalSick,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            buildPieChart(
+              context: context,
+              title: context.appLocale.hours,
+              value: hours,
+              totalValue: totalHours,
+            ),
+            buildPieChart(
+              context: context,
+              title: context.appLocale.days,
+              value: days,
+              totalValue: totalDays,
+            ),
+            buildPieChart(
+              context: context,
+              title: context.appLocale.sick,
+              value: sick,
+              totalValue: totalSick,
+            ),
+          ],
         ),
       ],
     );
