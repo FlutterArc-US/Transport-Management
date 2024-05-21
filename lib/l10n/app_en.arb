@@ -391,7 +391,11 @@
   "requestSubmittedSuccessfully": "Your request has been submitted successfully",
   "newPin": "New Pin",
   "systemUnits": "System Units",
-  "distance": "Distance"
+  "distance": "Distance",
+  "kilometers": "Kilometers",
+  "miles": "Miles",
+  "kilograms": "Kilograms",
+  "pounds": "Pounds"
 
 
 }

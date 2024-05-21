@@ -17,6 +17,20 @@ import 'package:transport_management/util/resources/r.dart';
 class SystemUnitsView extends ConsumerWidget {
   const SystemUnitsView({super.key});
 
+  String weightUnitText(BuildContext context, WeightUnitType type) {
+    return switch (type) {
+      WeightUnitType.kg => context.appLocale.kilograms,
+      WeightUnitType.lbs => context.appLocale.pounds,
+    };
+  }
+
+  String distanceUnitText(BuildContext context, DistanceUnitType type) {
+    return switch (type) {
+      DistanceUnitType.km => context.appLocale.kilometers,
+      DistanceUnitType.miles => context.appLocale.miles,
+    };
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final distanceUnit = ref.watch(distanceUnitConversionProvider);
@@ -57,7 +71,7 @@ class SystemUnitsView extends ConsumerWidget {
                       (index) {
                         final unit = WeightUnitType.values[index];
                         return Padding(
-                          padding: EdgeInsets.only(right: 62.w),
+                          padding: EdgeInsets.only(right: 32.w),
                           child: InkWell(
                             borderRadius: BorderRadius.circular(10.r),
                             onTap: () {
@@ -69,18 +83,22 @@ class SystemUnitsView extends ConsumerWidget {
                               padding: EdgeInsets.all(4.r),
                               child: Row(
                                 children: [
-                                  AppText(
-                                    text: unit.name,
-                                    fontSize: 14,
-                                    height: 0,
-                                  ),
-                                  10.wb,
                                   Icon(
                                     weightUnit == unit
                                         ? Icons.radio_button_checked
                                         : Icons.radio_button_off,
                                     size: 18.r,
-                                  )
+                                    color: weightUnit == unit
+                                        ? R.colors.green_85C933
+                                        : R.colors.black_FF000000,
+                                  ),
+                                  10.wb,
+                                  AppText(
+                                    text:
+                                        '${weightUnitText(context, unit)} (${unit.name})',
+                                    fontSize: 14,
+                                    height: 0,
+                                  ),
                                 ],
                               ),
                             ),
@@ -104,7 +122,7 @@ class SystemUnitsView extends ConsumerWidget {
                       (index) {
                         final unit = DistanceUnitType.values[index];
                         return Padding(
-                          padding: EdgeInsets.only(right: 62.w),
+                          padding: EdgeInsets.only(right: 32.w),
                           child: InkWell(
                             borderRadius: BorderRadius.circular(10.r),
                             onTap: () {
@@ -116,18 +134,23 @@ class SystemUnitsView extends ConsumerWidget {
                               padding: EdgeInsets.all(4.r),
                               child: Row(
                                 children: [
-                                  AppText(
-                                    text: unit.name,
-                                    fontSize: 14,
-                                    height: 0,
-                                  ),
-                                  10.wb,
                                   Icon(
                                     distanceUnit == unit
                                         ? Icons.radio_button_checked
                                         : Icons.radio_button_off,
                                     size: 18.r,
-                                  )
+                                    color: distanceUnit == unit
+                                        ? R.colors.green_85C933
+                                        : R.colors.black_FF000000,
+                                  ),
+                                  10.wb,
+                                  AppText(
+                                    text:
+                                        '${distanceUnitText(context, unit)} (${unit.name})',
+                                    fontSize: 14,
+                                    height: 0,
+                                    color: R.colors.black_FF000000,
+                                  ),
                                 ],
                               ),
                             ),
