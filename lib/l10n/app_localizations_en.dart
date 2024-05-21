@@ -1030,4 +1030,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enterYourPinToLogin => 'Enter your pin to login';
+
+  @override
+  String get createNewTicket => 'Create New Ticket';
+
+  @override
+  String get inReview => 'In Review';
+
+  @override
+  String get resolved => 'Resolved';
+
+  @override
+  String get ticket => 'Ticket';
+
+  @override
+  String get tickets => 'Tickets';
+
+  @override
+  String get requestSubmittedSuccessfully => 'Your request has been submitted successfully';
+
+  @override
+  String get newPin => 'New Pin';
 }

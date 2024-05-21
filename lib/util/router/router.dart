@@ -26,6 +26,10 @@ import 'package:transport_management/features/rides/domain/models/load/load_mode
 import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/trip_point_details.dart';
 import 'package:transport_management/features/splash/presentation/splash_view.dart';
+import 'package:transport_management/features/support/domain/models/ticket_model.dart';
+import 'package:transport_management/features/support/presentation/views/create_new_ticket/create_new_ticket_view.dart';
+import 'package:transport_management/features/support/presentation/views/ticket_detail/ticket_detail_view.dart';
+import 'package:transport_management/features/support/presentation/views/tickets/tickets_view.dart';
 import 'package:transport_management/util/router/paths.dart';
 
 final router = GoRouter(
@@ -180,6 +184,25 @@ final router = GoRouter(
       path: RoutePaths.courses,
       builder: (context, state) {
         return const CoursesView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.createNewTicket,
+      builder: (context, state) {
+        return const CreateNewTicketView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.ticketDetail,
+      builder: (context, state) {
+        final data = state.extra as TicketModel;
+        return TicketDetailView(ticket: data);
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.support,
+      builder: (context, state) {
+        return const TicketsView();
       },
     ),
   ],

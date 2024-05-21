@@ -391,7 +391,14 @@
   "multiDay": "Multi-day",
   "enterPin": "Enter Pin",
   "forgotYourPin": "Forgot Your Pin?",
-  "enterYourPinToLogin": "Enter your pin to login"
+  "enterYourPinToLogin": "Enter your pin to login",
+  "createNewTicket": "Create New Ticket",
+  "inReview": "In Review",
+  "resolved": "Resolved",
+  "ticket": "Ticket",
+  "tickets": "Tickets",
+  "requestSubmittedSuccessfully": "Your request has been submitted successfully",
+  "newPin": "New Pin"
 
 
 }

@@ -2096,6 +2096,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter your pin to login'**
   String get enterYourPinToLogin;
+
+  /// No description provided for @createNewTicket.
+  ///
+  /// In en, this message translates to:
+  /// **'Create New Ticket'**
+  String get createNewTicket;
+
+  /// No description provided for @inReview.
+  ///
+  /// In en, this message translates to:
+  /// **'In Review'**
+  String get inReview;
+
+  /// No description provided for @resolved.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolved'**
+  String get resolved;
+
+  /// No description provided for @ticket.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticket'**
+  String get ticket;
+
+  /// No description provided for @tickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Tickets'**
+  String get tickets;
+
+  /// No description provided for @requestSubmittedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Your request has been submitted successfully'**
+  String get requestSubmittedSuccessfully;
+
+  /// No description provided for @newPin.
+  ///
+  /// In en, this message translates to:
+  /// **'New Pin'**
+  String get newPin;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

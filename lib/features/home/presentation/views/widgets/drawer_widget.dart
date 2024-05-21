@@ -31,6 +31,7 @@ class DrawerWidget extends ConsumerWidget {
       DrawerItem.about => context.appLocale.about,
       DrawerItem.terms => context.appLocale.terms,
       DrawerItem.faqs => context.appLocale.faqs,
+      DrawerItem.support => context.appLocale.support,
     };
   }
 
@@ -48,6 +49,7 @@ class DrawerWidget extends ConsumerWidget {
       DrawerItem.about => context.appLocale.extras,
       DrawerItem.terms => context.appLocale.extras,
       DrawerItem.faqs => context.appLocale.extras,
+      DrawerItem.support => context.appLocale.extras,
     };
   }
 
@@ -153,6 +155,7 @@ class DrawerWidget extends ConsumerWidget {
                                 ),
                               TextButton(
                                 onPressed: () {
+                                  GoRouter.of(context).pop();
                                   GoRouter.of(context).push(item.routePath);
                                 },
                                 style: TextButton.styleFrom(

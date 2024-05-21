@@ -34,7 +34,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AppExitDialog(
-          color: R.colors.blue_20B4E3,
+          color: R.colors.green_337A34,
         );
       },
     );
