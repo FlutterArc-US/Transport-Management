@@ -13,6 +13,7 @@ enum DrawerItem {
   settings,
   about,
   faqs,
+  support,
   terms;
 
   String get iconPath {
@@ -28,6 +29,7 @@ enum DrawerItem {
       settings => Assets.svgs.settingsIcon.path,
       about => Assets.svgs.aboutIcon.path,
       faqs => Assets.svgs.faqsIcon.path,
+      support => Assets.svgs.supportIcon.path,
       terms => Assets.svgs.termsIcon.path,
     };
   }
@@ -42,9 +44,10 @@ enum DrawerItem {
       leaves => RoutePaths.leaves,
       courses => RoutePaths.courses,
       reviews => RoutePaths.reviews,
-      settings => RoutePaths.home,
+      settings => RoutePaths.updateProfile,
       about => RoutePaths.about,
       faqs => RoutePaths.faqsView,
+      support => RoutePaths.support,
       terms => RoutePaths.termsOfService,
     };
   }

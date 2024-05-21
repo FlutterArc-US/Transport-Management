@@ -711,30 +711,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get skip => 'Überspringen';
 
   @override
-  String get joinIndividuallyOrFleet => 'Einzeln beitreten oder Teil der Flotte';
-
-  @override
-  String get bookYourLoad => 'Buchen Sie Ihre Ladung';
-
-  @override
-  String get useAIToBoostMatch => 'Verwenden Sie KI, um die Übereinstimmung zu verbessern';
-
-  @override
-  String get earnAndSeeReports => 'Verdienen und Berichte einsehen';
-
-  @override
-  String get soloDriver => 'Sie können Ihr Fahrzeug besitzen und alleine fahren.';
-
-  @override
-  String get learnGrowSucceed => 'Lernen, wachsen und erfolgreich sein mit den vielfältigen Bildungsressourcen, interaktiven Lektionen und personalisierten Lernerfahrungen unserer App.';
-
-  @override
-  String get unlockPotential => 'Entfesseln Sie Ihr Potenzial mit interaktiven Kursen und Expertenlehrern, die Ihnen zur Verfügung stehen.';
-
-  @override
-  String get learnAnytimeAnywhere => 'Lernen Sie jederzeit und überall mit einer umfangreichen Bibliothek an Bildungsinhalten und personalisierten Lernplänen.';
-
-  @override
   String get booked => 'Gebucht';
 
   @override
@@ -1030,4 +1006,25 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get enterYourPinToLogin => 'Enter your pin to login';
+
+  @override
+  String get createNewTicket => 'Create New Ticket';
+
+  @override
+  String get inReview => 'In Review';
+
+  @override
+  String get resolved => 'Resolved';
+
+  @override
+  String get ticket => 'Ticket';
+
+  @override
+  String get tickets => 'Tickets';
+
+  @override
+  String get requestSubmittedSuccessfully => 'Your request has been submitted successfully';
+
+  @override
+  String get newPin => 'New Pin';
 }

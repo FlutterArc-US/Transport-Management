@@ -58,6 +58,7 @@ class RouteTodayView extends ConsumerWidget {
                 ),
                 24.hb,
                 AppFilledButton(
+                  width: 334,
                   text: context.appLocale.startTheRide,
                   onTap: () {
                     showModalBottomSheet<void>(

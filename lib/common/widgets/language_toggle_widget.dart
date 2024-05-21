@@ -12,13 +12,13 @@ class LanguageToggleWidget extends ConsumerWidget {
   const LanguageToggleWidget({super.key});
 
   void selectLanguage(BuildContext context, String code) {
-    if (code == 'gr') {
+    if (code == 'nl') {
       MyApp.of(context)!.setLocale(
         const Locale.fromSubtags(languageCode: 'en'),
       );
     } else {
       MyApp.of(context)!.setLocale(
-        const Locale.fromSubtags(languageCode: 'de'),
+        const Locale.fromSubtags(languageCode: 'nl'),
       );
     }
   }
@@ -64,12 +64,12 @@ class LanguageToggleWidget extends ConsumerWidget {
                   ),
                   Row(
                     children: [
-                      Assets.pngs.grLangIcon.image(
+                      Assets.pngs.nlFlagIcon.image(
                         height: 20.r,
                       ),
                       2.wb,
                       AppText(
-                        text: 'GR',
+                        text: 'NL',
                         fontWeight: FontWeight.w600,
                         color: R.colors.white_FFFFFF,
                       ),
@@ -81,7 +81,7 @@ class LanguageToggleWidget extends ConsumerWidget {
           ),
           AnimatedPositioned(
             left: language == 'en' ? 0 : 50.w,
-            right: language == 'gr' ? 0 : 50.w,
+            right: language == 'nl' ? 0 : 50.w,
             duration: const Duration(milliseconds: 300),
             child: Padding(
               padding: EdgeInsets.all(1.r),
@@ -104,7 +104,7 @@ class LanguageToggleWidget extends ConsumerWidget {
                           ? Assets.pngs.enLangIcon.image(
                               height: 20.r,
                             )
-                          : Assets.pngs.grLangIcon.image(
+                          : Assets.pngs.nlFlagIcon.image(
                               height: 20.r,
                             ),
                       2.wb,

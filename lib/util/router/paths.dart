@@ -33,4 +33,7 @@ class RoutePaths {
   static const String enterPin = '/enter-pin';
   static const String reviews = '/reviews';
   static const String courses = '/courses';
+  static const String createNewTicket = '/create-new-ticket';
+  static const String ticketDetail = '/ticket-detail';
+  static const String support = '/support';
 }

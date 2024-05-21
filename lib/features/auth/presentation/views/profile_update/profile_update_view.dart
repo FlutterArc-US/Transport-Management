@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/popups/upload_image_popup.dart';
+import 'package:transport_management/common/widgets/app_bottom_sheet_popup.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_outlined_text_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
@@ -24,6 +25,7 @@ import 'package:transport_management/features/auth/presentation/providers/initia
 import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/profile_update/popups/delete_account_popup.dart';
+import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -43,7 +45,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
   final _nameInputField = TextEditingController();
   final _emailInputField = TextEditingController();
   final _phoneInputField = TextEditingController();
-  final _fleetInputField = TextEditingController();
+  final _pinInputField = TextEditingController();
   final _passwordInputField = TextEditingController();
 
   final _nameFocusNode = FocusNode();
@@ -55,7 +57,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
   @override
   void initState() {
     super.initState();
-    _loadData();
+    // _loadData();
   }
 
   Future<void> _loadData() async {
@@ -63,7 +65,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
     _nameInputField.text = user?.name ?? '';
     _emailInputField.text = user?.email ?? '';
     _phoneInputField.text = user?.phone ?? '';
-    _fleetInputField.text = '${user?.fleetId ?? 0}';
+    _pinInputField.text = '${user?.fleetId ?? 0}';
     ref
         .read(updateProfileFormProvider.notifier)
         .setCountryCode(user?.phonePrefix.toString() ?? '92');
@@ -76,14 +78,37 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
     if (_formKey.currentState!.validate()) {
       try {
         loading(context);
-        if (form.phone != null) {
-          await _initiateVerification();
-        } else {
-          await ref.read(updateProfileProvider.future);
-          if (!mounted) return;
+        // if (form.phone != null) {
+        //   await _initiateVerification();
+        // } else {
+        //   await ref.read(updateProfileProvider.future);
+        //   if (!mounted) return;
+        //
+        //   showToast(msg: context.appLocale.profileUpdatedSuccessfully);
+        // }
 
-          showToast(msg: context.appLocale.profileUpdatedSuccessfully);
-        }
+        showModalBottomSheet<void>(
+          context: context,
+          showDragHandle: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30.r),
+              topRight: Radius.circular(30.r),
+            ),
+          ),
+          builder: (context) {
+            return AppBottomSheetPopup(
+              title: context.appLocale.profileUpdatedSuccessfully,
+              image: Assets.pngs.profileUpdateSuccessImage.image(
+                height: 211.h,
+                width: 209.w,
+              ),
+              onTap: () {
+                GoRouter.of(context).pop();
+              },
+            );
+          },
+        );
       } on MessageException catch (e) {
         showToast(msg: e.message);
       } catch (e) {
@@ -128,7 +153,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
       return Icon(
         size: 65.r,
         Icons.person,
-        color: R.colors.navyBlue_263C51,
+        color: R.colors.green_337A34,
       );
     }
 
@@ -152,7 +177,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
     return Icon(
       size: 65.r,
       Icons.person,
-      color: R.colors.navyBlue_263C51,
+      color: R.colors.green_337A34,
     );
   }
 
@@ -161,7 +186,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
     _nameInputField.dispose();
     _emailInputField.dispose();
     _phoneInputField.dispose();
-    _fleetInputField.dispose();
+    _pinInputField.dispose();
     _passwordInputField.dispose();
     _nameFocusNode.dispose();
     _emailFocusNode.dispose();
@@ -175,13 +200,13 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
   Widget build(BuildContext context) {
     final mediaPadding = MediaQuery.of(context).padding;
     final profileForm = ref.watch(updateProfileFormProvider);
-    final userAsync = ref.watch(driverProvider);
-
-    if (!userAsync.hasValue) {
-      return CircularProgressIndicator(color: R.colors.navyBlue_263C51);
-    }
-
-    final user = userAsync.value;
+    // final userAsync = ref.watch(driverProvider);
+    //
+    // if (!userAsync.hasValue) {
+    //   return CircularProgressIndicator(color: R.colors.navyBlue_263C51);
+    // }
+    //
+    // final user = userAsync.value;
 
     return Scaffold(
       body: KeyboardDismissOnTap(
@@ -251,10 +276,8 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                                 children: [
                                   Container(
                                     decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: R.colors.blue_20B4E3,
-                                        width: 2.r,
-                                      ),
+                                      color:
+                                          R.colors.grey_BEBEBE.withOpacity(0.1),
                                       borderRadius:
                                           BorderRadius.circular(100.r),
                                     ),
@@ -271,7 +294,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                                                 File(profileForm.image!),
                                                 fit: BoxFit.cover,
                                               )
-                                            : userImage(user),
+                                            : userImage(null),
                                       ),
                                     ),
                                   ),
@@ -279,7 +302,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                                     bottom: 7.86.h,
                                     right: 2.68.w,
                                     child: CircleAvatar(
-                                      backgroundColor: R.colors.navyBlue_263C51,
+                                      backgroundColor: R.colors.green_337A34,
                                       child: Padding(
                                         padding: EdgeInsets.all(7.r),
                                         child: Icon(
@@ -334,7 +357,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                             focusNode: _phoneFocusNode,
                             onEditingComplete: (v) =>
                                 _passwordFocusNode.requestFocus(),
-                            initialCountryCode: user?.phonePrefix ?? 'DE',
+                            initialCountryCode: 'DE',
                             onChanged: (v) {
                               ref
                                   .read(updateProfileFormProvider.notifier)
@@ -360,7 +383,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                             },
                             labelText: context.appLocale.password,
                             controller: _passwordInputField,
-                            hintText: '',
+                            hintText: 'Password',
                             validator: (v) {
                               if (v?.isNotEmpty ?? false) {
                                 if (v!.length < 6) {
@@ -378,7 +401,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                             focusNode: _confirmPasswordFocusNode,
                             onChanged: (v) {},
                             labelText: context.appLocale.confirmPassword,
-                            hintText: '',
+                            hintText: 'Confirm Password',
                             validator: (password) {
                               if (_passwordInputField.text.isNotEmpty) {
                                 if (password!.length < 6) {
@@ -394,27 +417,12 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
 
                           16.hb,
 
-                          if (user!.type == 'fleet')
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                AppText(
-                                  text: context.appLocale.fleetCompanyDetails,
-                                  fontWeight: FontWeight.w600,
-                                  color: R.colors.black_414143,
-                                  fontSize: 16,
-                                ),
-                                19.hb,
-                                NumberInputField(
-                                  onChanged: (v) {},
-                                  labelText: context.appLocale.fleetCompanyID,
-                                  hintText: context.appLocale.fleetCompanyID,
-                                  controller: _fleetInputField,
-                                  enabled: false,
-                                  fillColor: R.colors.grey_D1D3D4,
-                                ),
-                              ],
-                            ),
+                          NumberInputField(
+                            onChanged: (v) {},
+                            labelText: context.appLocale.newPin,
+                            hintText: context.appLocale.newPin,
+                            controller: _pinInputField,
+                          ),
 
                           39.hb,
 

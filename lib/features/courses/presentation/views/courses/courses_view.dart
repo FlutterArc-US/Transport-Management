@@ -5,6 +5,7 @@ import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
+import 'package:transport_management/features/courses/presentation/views/courses/widgets/courses_filter_widget.dart';
 import 'package:transport_management/features/courses/presentation/views/courses/widgets/courses_list.dart';
 
 class CoursesView extends StatelessWidget {
@@ -27,7 +28,9 @@ class CoursesView extends StatelessWidget {
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
               ),
-              21.hb,
+              33.hb,
+              const CoursesFilterWidget(),
+              38.hb,
               const CoursesList(),
             ],
           ),
