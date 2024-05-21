@@ -45,7 +45,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
   final _nameInputField = TextEditingController();
   final _emailInputField = TextEditingController();
   final _phoneInputField = TextEditingController();
-  final _fleetInputField = TextEditingController();
+  final _pinInputField = TextEditingController();
   final _passwordInputField = TextEditingController();
 
   final _nameFocusNode = FocusNode();
@@ -65,7 +65,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
     _nameInputField.text = user?.name ?? '';
     _emailInputField.text = user?.email ?? '';
     _phoneInputField.text = user?.phone ?? '';
-    _fleetInputField.text = '${user?.fleetId ?? 0}';
+    _pinInputField.text = '${user?.fleetId ?? 0}';
     ref
         .read(updateProfileFormProvider.notifier)
         .setCountryCode(user?.phonePrefix.toString() ?? '92');
@@ -186,7 +186,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
     _nameInputField.dispose();
     _emailInputField.dispose();
     _phoneInputField.dispose();
-    _fleetInputField.dispose();
+    _pinInputField.dispose();
     _passwordInputField.dispose();
     _nameFocusNode.dispose();
     _emailFocusNode.dispose();
@@ -421,7 +421,7 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                             onChanged: (v) {},
                             labelText: context.appLocale.newPin,
                             hintText: context.appLocale.newPin,
-                            controller: _fleetInputField,
+                            controller: _pinInputField,
                           ),
 
                           39.hb,
