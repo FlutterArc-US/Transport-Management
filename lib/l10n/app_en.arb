@@ -389,7 +389,13 @@
   "ticket": "Ticket",
   "tickets": "Tickets",
   "requestSubmittedSuccessfully": "Your request has been submitted successfully",
-  "newPin": "New Pin"
+  "newPin": "New Pin",
+  "systemUnits": "System Units",
+  "distance": "Distance",
+  "kilometers": "Kilometers",
+  "miles": "Miles",
+  "kilograms": "Kilograms",
+  "pounds": "Pounds"
 
 
 }

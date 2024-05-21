@@ -2092,6 +2092,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'New Pin'**
   String get newPin;
+
+  /// No description provided for @systemUnits.
+  ///
+  /// In en, this message translates to:
+  /// **'System Units'**
+  String get systemUnits;
+
+  /// No description provided for @distance.
+  ///
+  /// In en, this message translates to:
+  /// **'Distance'**
+  String get distance;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1027,4 +1027,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get newPin => 'Nieuwe pincode';
+
+  @override
+  String get systemUnits => 'System Units';
+
+  @override
+  String get distance => 'Distance';
 }

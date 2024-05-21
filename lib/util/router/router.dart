@@ -24,6 +24,7 @@ import 'package:transport_management/features/record_matter/presentation/views/r
 import 'package:transport_management/features/reviews/presentation/views/reviews/reviews_view.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
 import 'package:transport_management/features/rides/presentation/views/ride_details/ride_details_view.dart';
+import 'package:transport_management/features/rides/presentation/views/system_units/system_units_view.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/trip_point_details.dart';
 import 'package:transport_management/features/splash/presentation/splash_view.dart';
 import 'package:transport_management/features/support/domain/models/ticket_model.dart';
@@ -203,6 +204,12 @@ final router = GoRouter(
       path: RoutePaths.support,
       builder: (context, state) {
         return const TicketsView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.units,
+      builder: (context, state) {
+        return const SystemUnitsView();
       },
     ),
   ],

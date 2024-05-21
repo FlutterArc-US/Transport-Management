@@ -1027,4 +1027,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get newPin => 'New Pin';
+
+  @override
+  String get systemUnits => 'System Units';
+
+  @override
+  String get distance => 'Distance';
 }

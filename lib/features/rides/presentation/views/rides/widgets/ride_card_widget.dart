@@ -1,23 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/extensions/unit_converter.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
+import 'package:transport_management/features/rides/presentation/providers/distance_unit_conversion_provider/distance_unit_conversion_provider.dart';
 import 'package:transport_management/features/rides/presentation/views/rides/widgets/route_point_card_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/rides/widgets/vertical_stepper_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/router/paths.dart';
 
-class RideCardWidget extends StatelessWidget {
+class RideCardWidget extends ConsumerStatefulWidget {
   const RideCardWidget({
     super.key,
     this.load,
   });
 
   final LoadModel? load;
+
+  @override
+  ConsumerState<RideCardWidget> createState() => _RideCardWidgetState();
+}
+
+class _RideCardWidgetState extends ConsumerState<RideCardWidget> {
+  String distance(double distance) {
+    final distanceUnit = ref.watch(distanceUnitConversionProvider);
+
+    if (distanceUnit.isKm) {
+      return '${distance.toKilometers} km';
+    } else {
+      return '${distance.toMi} Mi';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +46,7 @@ class RideCardWidget extends StatelessWidget {
         onTap: () {
           GoRouter.of(context).push(
             RoutePaths.rideDetails,
-            extra: load,
+            extra: widget.load,
           );
         },
         child: Container(
@@ -158,7 +176,7 @@ class RideCardWidget extends StatelessWidget {
                           ),
                           6.wb,
                           AppText(
-                            text: '1200 MI',
+                            text: distance(1200),
                             fontSize: 10,
                             color: R.colors.white_FFFFFF,
                           ),

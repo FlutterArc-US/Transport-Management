@@ -1,15 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/extensions/unit_converter.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
+import 'package:transport_management/features/rides/presentation/providers/weight_unit_conversion_provider/weight_unit_conversion_provider.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 import 'package:transport_management/util/router/paths.dart';
 
-class RoutePointCardWidget extends StatelessWidget {
+class RoutePointCardWidget extends ConsumerStatefulWidget {
   const RoutePointCardWidget({super.key});
+
+  @override
+  ConsumerState<RoutePointCardWidget> createState() =>
+      _RoutePointCardWidgetState();
+}
+
+class _RoutePointCardWidgetState extends ConsumerState<RoutePointCardWidget> {
+  String weight(double weight) {
+    final weightUnit = ref.watch(weightUnitConversionProvider);
+
+    if (weightUnit.isKg) {
+      return '${weight.toKilograms} kg';
+    } else {
+      return '${weight.toLbs} lbs';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,8 +143,8 @@ class RoutePointCardWidget extends StatelessWidget {
                       ),
                     ),
                     4.wb,
-                    const AppText(
-                      text: '14K lbs',
+                    AppText(
+                      text: weight(14000),
                       fontSize: 10,
                     )
                   ],
