@@ -3,12 +3,16 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class RingPainter extends CustomPainter {
-  final double progress;
-  final double total;
+  final num progress;
+  final num total;
+  final Color? emptyColor;
+  final Color? fillColor;
 
   RingPainter({
     required this.progress,
     required this.total,
+    this.emptyColor,
+    this.fillColor,
   });
 
   @override
@@ -18,12 +22,12 @@ class RingPainter extends CustomPainter {
     Offset center = Offset(size.width / 2, size.height / 2);
 
     Paint backgroundPaint = Paint()
-      ..color = Colors.grey
+      ..color = emptyColor ?? Colors.grey
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth;
 
     Paint foregroundPaint = Paint()
-      ..color = Colors.green
+      ..color = fillColor ?? Colors.green
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth;
 
@@ -41,14 +45,18 @@ class RingPainter extends CustomPainter {
 }
 
 class RingWidget extends StatelessWidget {
-  final double progress;
-  final double total;
-  final double radius;
+  final num progress;
+  final num total;
+  final num radius;
+  final Color? emptyColor;
+  final Color? fillColor;
 
   const RingWidget({
     required this.progress,
     required this.total,
     required this.radius,
+    this.emptyColor,
+    this.fillColor,
     Key? key,
   }) : super(key: key);
 
@@ -56,7 +64,12 @@ class RingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPaint(
       size: Size(radius * 2, radius * 2),
-      painter: RingPainter(progress: progress, total: total),
+      painter: RingPainter(
+        progress: progress,
+        total: total,
+        emptyColor: emptyColor,
+        fillColor: fillColor,
+      ),
     );
   }
 }
