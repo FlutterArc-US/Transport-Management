@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pie_chart/pie_chart.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
+import 'package:transport_management/features/record_matter/presentation/views/leaves/widgets/ring_widget.dart';
 import 'package:transport_management/util/resources/r.dart';
 
 class LeavesPieChartsWidget extends StatelessWidget {
@@ -26,26 +26,30 @@ class LeavesPieChartsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Column(
       children: [
-        buildPieChart(
-          context: context,
-          title: context.appLocale.hours,
-          value: hours,
-          totalValue: totalHours,
-        ),
-        buildPieChart(
-          context: context,
-          title: context.appLocale.days,
-          value: days,
-          totalValue: totalDays,
-        ),
-        buildPieChart(
-          context: context,
-          title: context.appLocale.sick,
-          value: sick,
-          totalValue: totalSick,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            buildPieChart(
+              context: context,
+              title: context.appLocale.hours,
+              value: hours,
+              totalValue: totalHours,
+            ),
+            buildPieChart(
+              context: context,
+              title: context.appLocale.days,
+              value: days,
+              totalValue: totalDays,
+            ),
+            buildPieChart(
+              context: context,
+              title: context.appLocale.sick,
+              value: sick,
+              totalValue: totalSick,
+            ),
+          ],
         ),
       ],
     );
@@ -72,22 +76,13 @@ class LeavesPieChartsWidget extends StatelessWidget {
             ),
           ],
         ),
-        8.wb,
-        PieChart(
-          totalValue: totalValue.toDouble(),
-          dataMap: {title: value.toDouble()},
-          baseChartColor: R.colors.grey_E7E7E7,
-          animationDuration: const Duration(milliseconds: 500),
-          chartRadius: 36.r,
-          colorList: [R.colors.green_337A34],
-          initialAngleInDegree: 0,
-          chartType: ChartType.ring,
-          ringStrokeWidth: 10.w,
-          centerText: '',
-          legendOptions: const LegendOptions(showLegends: false),
-          chartValuesOptions: const ChartValuesOptions(
-            showChartValues: false,
-          ),
+        10.wb,
+        RingWidget(
+          progress: value,
+          total: totalValue,
+          radius: 28.r,
+          emptyColor: R.colors.grey_E7E7E7,
+          fillColor: R.colors.green_337A34,
         ),
       ],
     );

@@ -7,7 +7,6 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
-import 'package:transport_management/features/record_matter/presentation/views/leaves/popups/leave_status_sheet_popup.dart';
 import 'package:transport_management/features/record_matter/presentation/views/leaves/widgets/calendar_widget.dart';
 import 'package:transport_management/features/record_matter/presentation/views/leaves/widgets/leaves_pie_charts_widget.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -43,7 +42,7 @@ class LeavesView extends StatelessWidget {
                       days: 5,
                       totalHours: 100,
                       hours: 5,
-                      sick: 2,
+                      sick: 4,
                       totalSick: 5,
                     ),
                     41.hb,

@@ -166,7 +166,7 @@ class _CalendarWidgetState extends ConsumerState<CalendarWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: daysOfWeek.map((day) {
                 return Container(
-                  width: 45.r,
+                  width: 40.r,
                   alignment: Alignment.center,
                   child: AppText(
                     text: day,
