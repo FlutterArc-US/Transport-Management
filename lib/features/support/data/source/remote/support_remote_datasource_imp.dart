@@ -1,12 +1,9 @@
-////********** START IMPORTS **********////
-import 'package:transport_management/features/support/data/entities/load/rest_ticket.dart';
+import 'package:injectable/injectable.dart';
 import 'package:transport_management/features/support/data/source/remote/support_remote_datasource.dart';
 import 'package:transport_management/features/support/domain/usecases/create_ticket.dart';
 import 'package:transport_management/features/support/domain/usecases/get_my_tickets.dart';
 import 'package:transport_management/helpers/network_call_helper/network_call_helper.dart';
-import 'package:transport_management/util/consts/api.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
-import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 ////********** END IMPORTS **********////
 
