@@ -3,15 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
-import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/features/rides/domain/enums/unit_type/distance_unit_type.dart';
 import 'package:transport_management/features/rides/domain/enums/unit_type/weight_unit_type.dart';
-import 'package:transport_management/features/rides/domain/models/load/load_model.dart';
 import 'package:transport_management/features/rides/presentation/providers/distance_unit_conversion_provider/distance_unit_conversion_provider.dart';
 import 'package:transport_management/features/rides/presentation/providers/weight_unit_conversion_provider/weight_unit_conversion_provider.dart';
-import 'package:transport_management/features/rides/presentation/views/rides/widgets/ride_card_widget.dart';
 import 'package:transport_management/util/resources/r.dart';
 
 class SystemUnitsView extends ConsumerWidget {

@@ -1,10 +1,8 @@
-import 'package:transport_management/features/support/domain/models/ticket_model.dart';
-import 'package:transport_management/features/support/presentation/providers/get_all_tickets_provider/get_all_tickets_provider.dart';
-import 'package:transport_management/features/support/presentation/views/tickets/widgets/ticket_tile_widget.dart';
-import 'package:transport_management/features/support/presentation/views/tickets/widgets/tickets_loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:transport_management/features/support/domain/models/ticket_model.dart';
+import 'package:transport_management/features/support/presentation/views/tickets/widgets/ticket_tile_widget.dart';
 
 class TicketsListWidget extends ConsumerWidget {
   const TicketsListWidget({super.key});

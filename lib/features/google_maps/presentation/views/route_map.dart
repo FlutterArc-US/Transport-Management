@@ -135,7 +135,6 @@ class _RouteMapWidgetState extends State<RouteMapWidget> {
     }
 
     if (markers.length > 1) {
-      // getDirections(markers);
       addStraightLine(markers);
     }
   }
