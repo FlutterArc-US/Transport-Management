@@ -11,10 +11,21 @@ import 'package:transport_management/util/resources/r.dart';
 class LeaveStatusSheetPopup extends StatelessWidget {
   const LeaveStatusSheetPopup({
     required this.onTap,
+    required this.status,
     super.key,
   });
 
   final VoidCallback onTap;
+  final String status;
+
+  Color getStatusColor(String status) {
+    return switch (status) {
+      'approved' => R.colors.green_28C76F,
+      'pending' => R.colors.orange_FF9F43,
+      'rejected' => R.colors.red_FF4C51,
+      _ => R.colors.grey_6A6A6A,
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +54,7 @@ class LeaveStatusSheetPopup extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: R.colors.red_FF4C51.withOpacity(0.2),
+              color: getStatusColor(status).withOpacity(0.2),
             ),
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
             child: AppText(

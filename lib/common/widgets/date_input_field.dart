@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:transport_management/common/extensions/app_localization.dart';
+import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/custom_text_form_field.dart';
+import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
 
 class DateInputField extends StatefulWidget {
@@ -29,6 +34,70 @@ class DateInputField extends StatefulWidget {
 class _DateInputFieldState extends State<DateInputField> {
   final dateInput = TextEditingController();
 
+  Future<void> selectDate(BuildContext context) async {
+    final DateTime? picked = await showModalBottomSheet<DateTime>(
+      scrollControlDisabledMaxHeightRatio: 0.55,
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30.r),
+          topRight: Radius.circular(30.r),
+        ),
+      ),
+      builder: (BuildContext context) {
+        DateTime selectedDate = DateTime.now();
+        return Column(
+          children: [
+            12.hb,
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: EdgeInsets.only(right: 12.w),
+                child: InkWell(
+                  onTap: () {
+                    GoRouter.of(context).pop();
+                  },
+                  child: Assets.svgs.closeIcon.svg(),
+                ),
+              ),
+            ),
+            AppText(
+              text: context.appLocale.selectType,
+              fontWeight: FontWeight.w600,
+              fontSize: 25,
+            ),
+            12.hb,
+            Expanded(
+              child: Theme(
+                data: ThemeData.light().copyWith(
+                  primaryColor: R.colors.green_85C933,
+                  colorScheme: ColorScheme.light(
+                    primary: R.colors.green_85C933,
+                  ),
+                  dialogBackgroundColor: R.colors.white_FFFFFF,
+                ),
+                child: CalendarDatePicker(
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(1990),
+                  lastDate: DateTime(2070),
+                  onDateChanged: (DateTime date) {
+                    selectedDate = date;
+                    final formattedDate =
+                        DateFormat(widget.dateFormat ?? 'dd-MM-yyyy')
+                            .format(date);
+                    dateInput.text = formattedDate;
+                    widget.onChanged!(dateInput.text);
+                    GoRouter.of(context).pop();
+                  },
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
@@ -42,16 +111,7 @@ class _DateInputFieldState extends State<DateInputField> {
         ),
       ),
       onTap: () async {
-        final dateSelected = await showDatePicker(
-          context: context,
-          firstDate: DateTime(1990),
-          lastDate: DateTime(2070),
-        );
-
-        final formattedDate =
-            DateFormat(widget.dateFormat ?? 'dd-MM-yyyy').format(dateSelected!);
-        dateInput.text = formattedDate;
-        widget.onChanged!(dateInput.text);
+        selectDate(context);
       },
       controller: dateInput,
       keyboardType: TextInputType.name,
@@ -67,8 +127,18 @@ class _DateInputFieldState extends State<DateInputField> {
           context: context,
           firstDate: DateTime(1990),
           lastDate: DateTime(2070),
+          builder: (BuildContext context, Widget? child) {
+            return Theme(
+              data: ThemeData.light().copyWith(
+                primaryColor: Colors.green, // Header background color
+                colorScheme: ColorScheme.light(primary: Colors.green),
+                dialogBackgroundColor:
+                    Colors.white, // Background color of the dialog
+              ),
+              child: child!,
+            );
+          },
         );
-
         final formattedDate = DateFormat('dd-MM-yyyy').format(dateSelected!);
         dateInput.text = formattedDate;
         widget.onChanged!(dateInput.text);

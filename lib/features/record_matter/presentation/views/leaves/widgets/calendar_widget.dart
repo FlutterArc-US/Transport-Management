@@ -4,13 +4,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
+import 'package:transport_management/features/home/domain/enums/leave_type.dart';
+import 'package:transport_management/features/record_matter/domain/models/leave/leave_model.dart';
+import 'package:transport_management/features/record_matter/presentation/providers/leave_type_provider/leave_type_provider.dart';
+import 'package:transport_management/features/record_matter/presentation/providers/selected_leaves_provider/selected_leaves_provider.dart';
 import 'package:transport_management/features/record_matter/presentation/views/leaves/popups/leave_status_sheet_popup.dart';
 import 'package:transport_management/util/resources/r.dart';
 
 class CalendarWidget extends ConsumerStatefulWidget {
   const CalendarWidget({
+    required this.onTapDay,
+    required this.highlightedDayColor,
+    required this.textColor,
+    this.daysSelected,
     super.key,
   });
+
+  final void Function(int day) onTapDay;
+  final Color highlightedDayColor;
+  final Color textColor;
+  final List<LeaveModel>? daysSelected;
 
   @override
   ConsumerState createState() => _CalendarWidgetState();
@@ -118,6 +131,19 @@ class _CalendarWidgetState extends ConsumerState<CalendarWidget> {
     return sameDate;
   }
 
+  Color getDayColor(int day) {
+    if (widget.daysSelected?.any((e) => e.day == day) ?? false) {
+      return switch (
+          widget.daysSelected!.firstWhere((e) => e.day == day).status) {
+        'pending' => R.colors.orange_FF9F43,
+        'approved' => R.colors.green_28C76F,
+        'rejected' => R.colors.red_FF4C51,
+        _ => widget.highlightedDayColor
+      };
+    }
+    return R.colors.white_FFFFFF;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -194,41 +220,22 @@ class _CalendarWidgetState extends ConsumerState<CalendarWidget> {
 
                   return InkWell(
                     borderRadius: BorderRadius.circular(60.r),
-                    onTap: () {
-                      if (index % 13 == 0) {
-                        showModalBottomSheet<void>(
-                          context: context,
-                          showDragHandle: true,
-                          scrollControlDisabledMaxHeightRatio: 0.7,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30.r),
-                              topRight: Radius.circular(30.r),
-                            ),
-                          ),
-                          builder: (context) {
-                            return LeaveStatusSheetPopup(
-                              onTap: () {},
-                            );
-                          },
-                        );
-                      }
-                    },
+                    onTap: () => widget.onTapDay(day),
                     child: Container(
                       width: 45.r,
                       alignment: Alignment.center,
                       child: CircleAvatar(
-                        backgroundColor: index % 13 == 0
-                            ? R.colors.red_FF4C51
-                            : R.colors.white_FFFFFF,
+                        backgroundColor: getDayColor(day),
                         radius: 18.r,
                         child: AppText(
                           text: day.toString(),
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: index % 13 == 0
-                              ? R.colors.white_FFFFFF
-                              : R.colors.black_FF000000,
+                          color:
+                              widget.daysSelected?.any((e) => e.day == day) ??
+                                      true
+                                  ? R.colors.white_FFFFFF
+                                  : R.colors.black_FF000000,
                         ),
                       ),
                     ),

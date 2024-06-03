@@ -134,7 +134,7 @@ class _ReportFaultExpenseViewState
                                   onTap: () {
                                     showModalBottomSheet<void>(
                                       context: context,
-                                      scrollControlDisabledMaxHeightRatio: 0.65,
+                                      isScrollControlled: true,
                                       showDragHandle: true,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(

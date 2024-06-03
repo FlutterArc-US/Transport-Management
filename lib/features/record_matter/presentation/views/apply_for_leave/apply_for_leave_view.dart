@@ -11,10 +11,13 @@ import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/common/widgets/text_input_field.dart';
 import 'package:transport_management/features/home/domain/enums/leave_type.dart';
+import 'package:transport_management/features/record_matter/domain/models/leave/leave_model.dart';
 import 'package:transport_management/features/record_matter/presentation/providers/leave_type_provider/leave_type_provider.dart';
+import 'package:transport_management/features/record_matter/presentation/providers/selected_leaves_provider/selected_leaves_provider.dart';
 import 'package:transport_management/features/record_matter/presentation/views/leaves/widgets/calendar_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/route_today/widgets/tab_bar_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
+import 'package:transport_management/util/resources/r.dart';
 
 class ApplyForLeaveView extends ConsumerWidget {
   const ApplyForLeaveView({super.key});
@@ -22,6 +25,7 @@ class ApplyForLeaveView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final leaveType = ref.watch(leaveTypeProvider);
+    final selectedLeaves = ref.watch(selectedLeavesProvider);
 
     return KeyboardDismissOnTap(
       child: Scaffold(
@@ -49,6 +53,7 @@ class ApplyForLeaveView extends ConsumerWidget {
                       onChanged: (i) {
                         ref.read(leaveTypeProvider.notifier).state =
                             LeaveTypeModel.values[i];
+                        ref.read(selectedLeavesProvider.notifier).reset();
                       },
                       itemNames: [
                         context.appLocale.singleDay,
@@ -56,7 +61,24 @@ class ApplyForLeaveView extends ConsumerWidget {
                       ],
                     ),
                     18.hb,
-                    const CalendarWidget(),
+                    CalendarWidget(
+                      highlightedDayColor: R.colors.green_337A34,
+                      textColor: R.colors.black_FF000000,
+                      daysSelected: selectedLeaves,
+                      onTapDay: (day) {
+                        if (leaveType == LeaveTypeModel.single) {
+                          ref
+                              .read(selectedLeavesProvider.notifier)
+                              .updateSingle(
+                                LeaveModel(day: day, status: null),
+                              );
+                        } else {
+                          ref.read(selectedLeavesProvider.notifier).updateMulti(
+                                LeaveModel(day: day, status: null),
+                              );
+                        }
+                      },
+                    ),
                     16.hb,
                     TextInputField(
                       onChanged: (v) {},

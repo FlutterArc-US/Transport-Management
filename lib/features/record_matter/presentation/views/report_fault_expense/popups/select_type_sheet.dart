@@ -74,6 +74,7 @@ class SelectTypeSheet extends ConsumerWidget {
                           ref
                               .read(recordMatterFormProvider.notifier)
                               .setType(types[index]);
+                          GoRouter.of(context).pop();
                         },
                         child: Padding(
                           padding: EdgeInsets.symmetric(vertical: 12.h),
