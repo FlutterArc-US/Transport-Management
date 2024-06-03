@@ -8,7 +8,6 @@ import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/phone_number_input_field.dart';
 import 'package:transport_management/features/auth/presentation/providers/auth_step_provider/auth_step_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/reset_password/reset_password_form_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/auth_bg_widget.dart';
 import 'package:transport_management/util/resources/r.dart';

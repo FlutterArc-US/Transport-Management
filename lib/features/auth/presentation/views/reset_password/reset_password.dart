@@ -9,7 +9,6 @@ import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/password_input_field.dart';
 import 'package:transport_management/features/auth/presentation/providers/auth_step_provider/auth_step_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/reset_password/reset_password_form_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/reset_password/reset_password_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/auth_bg_widget.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
 import 'package:transport_management/util/loading/loading.dart';
