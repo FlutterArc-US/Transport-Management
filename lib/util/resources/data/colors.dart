@@ -20,24 +20,21 @@ class _Colors {
   final Color grey_7B7B7B = const Color(0xFF7B7B7B);
   final Color grey_4D4D4D = const Color(0xFF4D4D4D);
   final Color grey_ABBED1 = const Color(0xFFABBED1);
-  final Color grey_D1D3D4 = const Color(0xFFD1D3D4);
   final Color grey_AEAEAE = const Color(0xFFAEAEAE);
   final Color grey_CBE2EF = const Color(0xFFCBE2EF);
   final Color grey_E7E7E7 = const Color(0xFFE7E7E7);
-  final Color grey_F2F4F7 = const Color(0xFFF2F4F7);
   final Color grey_F8F8F8 = const Color(0xFFF8F8F8);
   final Color grey_7C7777 = const Color(0xFF7C7777);
   final Color grey_2F2B3D = const Color(0xFF2F2B3D);
   final Color grey_BEBEBE = const Color(0xFFBEBEBE);
+  final Color grey_6A6A6A = const Color(0xFF6A6A6A);
+  final Color grey_868685 = const Color(0xFF868685);
 
   /// [blue]
   final Color blue_20B4E3 = const Color(0xFF20B4E3);
   final Color navyBlue_263C51 = const Color(0xFF263C51);
   final Color blue_305477 = const Color(0xFF305477);
   final Color blue_001020 = const Color(0xFF001020);
-
-  /// [brown]
-  final Color brown_4E4E4E = const Color(0xFF4E4E4E);
 
   /// [orange]
   final Color orange_EB9949 = const Color(0xFFEB9949);
@@ -56,6 +53,5 @@ class _Colors {
   final Color red_FF4C51 = const Color(0xFFFF4C51);
 
   /// [yellow]
-  final Color yellow_FBC02D = const Color(0xFFFBC02D);
   final Color yellow_F4BF37 = const Color(0xFFF4BF37);
 }

@@ -2128,6 +2128,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pounds'**
   String get pounds;
+
+  /// No description provided for @selectDialCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Dial Code'**
+  String get selectDialCode;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

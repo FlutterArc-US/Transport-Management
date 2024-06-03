@@ -2,15 +2,18 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl_phone_field/countries.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_field/phone_number.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
+import 'package:transport_management/common/widgets/phone_input/countries.dart';
+import 'package:transport_management/common/widgets/phone_input/country_picker_dialog.dart';
+import 'package:transport_management/common/widgets/phone_input/intl_phone_field.dart';
+import 'package:transport_management/common/widgets/phone_input/phone_number.dart';
+import 'package:transport_management/features/auth/presentation/providers/show_error_message_provider/show_error_message_provider.dart';
 import 'package:transport_management/util/resources/r.dart';
 
-class PhoneNumberInputField extends StatelessWidget {
+class PhoneNumberInputField extends ConsumerWidget {
   const PhoneNumberInputField({
     required this.onChanged,
     this.onCountryChanged,
@@ -31,7 +34,9 @@ class PhoneNumberInputField extends StatelessWidget {
   final String? initialCountryCode;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final showErrorMessage = ref.watch(showErrorMessageProvider);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -45,7 +50,45 @@ class PhoneNumberInputField extends StatelessWidget {
           ),
         ),
         4.95.hb,
-        IntlPhoneField(
+        AppPhoneField(
+          isModalSheet: true,
+          iconColor: R.colors.green_85C933,
+          title: context.appLocale.selectDialCode,
+          titleStyle: TextStyle(
+            fontSize: 25.sp,
+            color: R.colors.black_42403F,
+            fontWeight: FontWeight.w600,
+            fontFamily: 'Urbanist',
+          ),
+          cursorColor: R.colors.grey_AEAEAE,
+          cursorHeight: 20.sp,
+          dropdownIconPosition: IconPosition.trailing,
+          pickerDialogStyle: PickerDialogStyle(
+            searchFieldInputDecoration: InputDecoration(
+              prefixIcon: Icon(
+                Icons.search,
+                color: R.colors.grey_6A6A6A,
+              ),
+              hintText: 'Type a country',
+              hintStyle: TextStyle(
+                fontSize: 15.sp,
+                color: R.colors.grey_6A6A6A,
+                fontWeight: FontWeight.w500,
+              ),
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 12.h,
+                horizontal: 16.w,
+              ),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: R.colors.grey_868685),
+                borderRadius: BorderRadius.circular(10.r),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: R.colors.grey_868685),
+                borderRadius: BorderRadius.circular(10.r),
+              ),
+            ),
+          ),
           keyboardType: Platform.isIOS
               ? const TextInputType.numberWithOptions(
                   signed: true,
@@ -60,7 +103,6 @@ class PhoneNumberInputField extends StatelessWidget {
           onSubmitted: onEditingComplete,
           controller: controller,
           focusNode: focusNode,
-          autovalidateMode: AutovalidateMode.always,
           onCountryChanged: onCountryChanged,
           validator: (v) {
             if (v?.number.isEmpty ?? false) {
@@ -72,20 +114,21 @@ class PhoneNumberInputField extends StatelessWidget {
             return null;
           },
           decoration: InputDecoration(
+            errorText: showErrorMessage
+                ? context.appLocale.enterYourPhoneNumber
+                : null,
             contentPadding: EdgeInsets.symmetric(
               vertical: 12.h,
               horizontal: 16.w,
             ),
             border: InputBorder.none,
-            errorText:
-                (isNotEmpty) ? null : context.appLocale.enterYourPhoneNumber,
             counterText: "",
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: R.colors.green_85C933),
+              borderSide: BorderSide(color: R.colors.grey_AEAEAE),
               borderRadius: BorderRadius.circular(10.r),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: R.colors.green_85C933),
+              borderSide: BorderSide(color: R.colors.grey_AEAEAE),
               borderRadius: BorderRadius.circular(10.r),
             ),
             errorBorder: OutlineInputBorder(
@@ -98,15 +141,15 @@ class PhoneNumberInputField extends StatelessWidget {
             ),
           ),
           initialCountryCode: initialCountryCode ?? 'DE',
-          cursorColor: R.colors.black_FF000000,
           flagsButtonPadding: EdgeInsets.only(bottom: 2.75.h),
           dropdownIcon: Icon(
-            Icons.arrow_drop_down,
+            Icons.keyboard_arrow_down,
             color: R.colors.black_FF000000,
           ),
           dropdownTextStyle: TextStyle(
-            fontSize: 16.sp,
+            fontSize: 15.sp,
             color: R.colors.black_FF000000,
+            fontWeight: FontWeight.w500,
           ),
           style: TextStyle(
             fontSize: 16.sp,

@@ -51,13 +51,14 @@ class SelectTypeSheet extends ConsumerWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 27.w),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SearchBarWidget(),
                       16.hb,
                       AppText(
                         text: context.appLocale.allCategories,
-                        fontSize: 14,
-                        color: R.colors.navyBlue_263C51,
+                        fontSize: 12,
+                        color: R.colors.grey_6A6A6A,
                         textAlign: TextAlign.center,
                       ),
                     ],
