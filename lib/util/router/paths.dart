@@ -34,4 +34,5 @@ class RoutePaths {
   static const String ticketDetail = '/ticket-detail';
   static const String support = '/support';
   static const String units = '/units';
+  static const String viewOnMap = '/view-on-map';
 }

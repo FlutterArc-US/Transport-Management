@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/common/widgets/user_avatar.dart';
+import 'package:transport_management/features/google_maps/domain/models/lat_lng/lat_lng_model.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/widgets/additional_details_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/trip_point_details/widgets/point_notes_widget.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
+import 'package:transport_management/util/router/paths.dart';
 
 class TripPointDetailsView extends StatelessWidget {
   const TripPointDetailsView({super.key});
@@ -120,7 +123,21 @@ class TripPointDetailsView extends StatelessWidget {
                           ),
                           const Spacer(),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              GoRouter.of(context).push(
+                                RoutePaths.viewOnMap,
+                                extra: [
+                                  LatLngModel(lat: 40.7128, lng: -74.0060),
+                                  LatLngModel(lat: 43.6510, lng: -79.3470),
+                                  LatLngModel(lat: 49.8951, lng: -97.1384),
+                                  LatLngModel(lat: 51.0447, lng: -114.0719),
+                                  LatLngModel(lat: 39.7392, lng: -104.9903),
+                                  LatLngModel(lat: 37.7749, lng: -122.4194),
+                                  LatLngModel(lat: 49.2827, lng: -123.1207),
+                                ],
+                              );
+                            },
+                            borderRadius: BorderRadius.circular(20.r),
                             child: Container(
                               padding: EdgeInsets.symmetric(
                                 horizontal: 8.w,

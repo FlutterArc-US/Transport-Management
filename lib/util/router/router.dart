@@ -14,6 +14,8 @@ import 'package:transport_management/features/auth/presentation/views/profile_up
 import 'package:transport_management/features/auth/presentation/views/register/sign_up_view.dart';
 import 'package:transport_management/features/auth/presentation/views/reset_password/reset_password.dart';
 import 'package:transport_management/features/courses/presentation/views/courses/courses_view.dart';
+import 'package:transport_management/features/google_maps/domain/models/lat_lng/lat_lng_model.dart';
+import 'package:transport_management/features/google_maps/presentation/views/view_location.dart';
 import 'package:transport_management/features/home/presentation/views/home_view.dart';
 import 'package:transport_management/features/notifications/presentation/views/notifications/notifications_view.dart';
 import 'package:transport_management/features/onboarding/presentation/views/onboarding_view.dart';
@@ -203,6 +205,13 @@ final router = GoRouter(
       path: RoutePaths.units,
       builder: (context, state) {
         return const SystemUnitsView();
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.viewOnMap,
+      builder: (context, state) {
+        final points = state.extra as List<LatLngModel>;
+        return ViewLocation(points: points);
       },
     ),
   ],
