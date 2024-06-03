@@ -33,6 +33,7 @@ class CustomTextFormField extends StatelessWidget {
     this.readOnly = false,
     this.labelColor,
     this.textColor,
+    this.hintStyle,
     this.width,
   });
 
@@ -63,6 +64,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color? labelColor;
   final Color? textColor;
   final double? width;
+  final TextStyle? hintStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -114,13 +116,14 @@ class CustomTextFormField extends StatelessWidget {
               ),
               prefixIcon: prefixIcon,
               hintText: hintText,
-              hintStyle: TextStyle(
-                color: !enabled
-                    ? R.colors.grey_AEAEAE.withOpacity(0.4)
-                    : R.colors.grey_AEAEAE,
-                fontSize: 14.sp,
-                letterSpacing: 0.12.w,
-              ),
+              hintStyle: hintStyle ??
+                  TextStyle(
+                    color: !enabled
+                        ? R.colors.grey_AEAEAE.withOpacity(0.4)
+                        : R.colors.grey_AEAEAE,
+                    fontSize: 14.sp,
+                    letterSpacing: 0.12.w,
+                  ),
               errorStyle: TextStyle(
                 fontSize: 12.sp,
                 color: R.colors.red_DE2323,

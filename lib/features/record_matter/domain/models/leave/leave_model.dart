@@ -1,9 +1,11 @@
 class LeaveModel {
-  int day;
-  String? status;
+  final int day;
+  final String? status;
+  final String? date;
 
   LeaveModel({
     required this.day,
-    required this.status,
+    this.status,
+    this.date,
   });
 }

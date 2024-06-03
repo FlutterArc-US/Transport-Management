@@ -20,6 +20,12 @@ class LeavesView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final daysSelected = [
+      LeaveModel(day: 12, status: 'approved', date: '2024-06-12'),
+      LeaveModel(day: 4, status: 'pending', date: '2024-06-04'),
+      LeaveModel(day: 24, status: 'rejected', date: '2024-06-24'),
+    ];
+
     return KeyboardDismissOnTap(
       child: Scaffold(
         body: SizedBox(
@@ -52,29 +58,28 @@ class LeavesView extends ConsumerWidget {
                     CalendarWidget(
                         highlightedDayColor: R.colors.green_337A34,
                         textColor: const Color(0xFF42403F),
-                        daysSelected: [
-                          LeaveModel(day: 4, status: 'approved'),
-                          LeaveModel(day: 7, status: 'pending'),
-                          LeaveModel(day: 26, status: 'rejected'),
-                        ],
+                        daysSelected: daysSelected,
                         onTapDay: (day) {
-                          showModalBottomSheet<void>(
-                            context: context,
-                            showDragHandle: true,
-                            scrollControlDisabledMaxHeightRatio: 0.7,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(30.r),
-                                topRight: Radius.circular(30.r),
+                          if (daysSelected.any((e) => e.day == day.day)) {
+                            showModalBottomSheet<void>(
+                              context: context,
+                              showDragHandle: true,
+                              scrollControlDisabledMaxHeightRatio: 0.7,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30.r),
+                                  topRight: Radius.circular(30.r),
+                                ),
                               ),
-                            ),
-                            builder: (context) {
-                              return LeaveStatusSheetPopup(
-                                status: 'rejected',
-                                onTap: () {},
-                              );
-                            },
-                          );
+                              builder: (context) {
+                                return LeaveStatusSheetPopup(
+                                  leave: daysSelected
+                                      .firstWhere((e) => e.day == day.day),
+                                  onTap: () {},
+                                );
+                              },
+                            );
+                          }
                         }),
                     24.hb,
                     Row(

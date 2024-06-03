@@ -43,78 +43,91 @@ class ApplyForLeaveView extends ConsumerWidget {
                 fontWeight: FontWeight.w600,
               ),
               21.hb,
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 26.w),
-                child: Column(
-                  children: [
-                    TabBarWidget<String>(
-                      selected: leaveType.index,
-                      itemsList: const ['single', 'multi'],
-                      onChanged: (i) {
-                        ref.read(leaveTypeProvider.notifier).state =
-                            LeaveTypeModel.values[i];
-                        ref.read(selectedLeavesProvider.notifier).reset();
-                      },
-                      itemNames: [
-                        context.appLocale.singleDay,
-                        context.appLocale.multiDay,
-                      ],
-                    ),
-                    18.hb,
-                    CalendarWidget(
-                      highlightedDayColor: R.colors.green_337A34,
-                      textColor: R.colors.black_FF000000,
-                      daysSelected: selectedLeaves,
-                      onTapDay: (day) {
-                        if (leaveType == LeaveTypeModel.single) {
-                          ref
-                              .read(selectedLeavesProvider.notifier)
-                              .updateSingle(
-                                LeaveModel(day: day, status: null),
-                              );
-                        } else {
-                          ref.read(selectedLeavesProvider.notifier).updateMulti(
-                                LeaveModel(day: day, status: null),
-                              );
-                        }
-                      },
-                    ),
-                    16.hb,
-                    TextInputField(
-                      onChanged: (v) {},
-                      hintText: context.appLocale.reason,
-                      maxLines: 4,
-                      minLines: 4,
-                    ),
-                    12.hb,
-                    AppFilledButton(
-                      text: context.appLocale.sendRequest,
-                      onTap: () {
-                        showModalBottomSheet<void>(
-                          context: context,
-                          showDragHandle: true,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30.r),
-                              topRight: Radius.circular(30.r),
-                            ),
-                          ),
-                          builder: (context) {
-                            return AppBottomSheetPopup(
-                              title: context.appLocale.leaveRequestSuccess,
-                              image: Assets.pngs.calendarPopupImage.image(
-                                width: 209.w,
-                                height: 184.h,
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 26.w),
+                    child: Column(
+                      children: [
+                        TabBarWidget<String>(
+                          selected: leaveType.index,
+                          itemsList: const ['single', 'multi'],
+                          onChanged: (i) {
+                            ref.read(leaveTypeProvider.notifier).state =
+                                LeaveTypeModel.values[i];
+                            ref.read(selectedLeavesProvider.notifier).reset();
+                          },
+                          itemNames: [
+                            context.appLocale.singleDay,
+                            context.appLocale.multiDay,
+                          ],
+                        ),
+                        18.hb,
+                        CalendarWidget(
+                          highlightedDayColor: R.colors.green_337A34,
+                          textColor: R.colors.black_FF000000,
+                          daysSelected: selectedLeaves,
+                          onTapDay: (day) {
+                            if (leaveType == LeaveTypeModel.single) {
+                              ref
+                                  .read(selectedLeavesProvider.notifier)
+                                  .updateSingle(
+                                    LeaveModel(
+                                      day: day.day,
+                                      date: day.date,
+                                    ),
+                                  );
+                            } else {
+                              ref
+                                  .read(selectedLeavesProvider.notifier)
+                                  .updateMulti(
+                                    LeaveModel(
+                                      day: day.day,
+                                      date: day.date,
+                                    ),
+                                  );
+                            }
+                          },
+                        ),
+                        16.hb,
+                        TextInputField(
+                          onChanged: (v) {},
+                          hintText: context.appLocale.reason,
+                          maxLines: 4,
+                          minLines: 4,
+                        ),
+                        12.hb,
+                        AppFilledButton(
+                          text: context.appLocale.sendRequest,
+                          onTap: () {
+                            showModalBottomSheet<void>(
+                              context: context,
+                              showDragHandle: true,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30.r),
+                                  topRight: Radius.circular(30.r),
+                                ),
                               ),
-                              onTap: () {
-                                GoRouter.of(context).pop();
+                              builder: (context) {
+                                return AppBottomSheetPopup(
+                                  title: context.appLocale.leaveRequestSuccess,
+                                  image: Assets.pngs.calendarPopupImage.image(
+                                    width: 209.w,
+                                    height: 184.h,
+                                  ),
+                                  onTap: () {
+                                    GoRouter.of(context).pop();
+                                  },
+                                );
                               },
                             );
                           },
-                        );
-                      },
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
               22.hb,

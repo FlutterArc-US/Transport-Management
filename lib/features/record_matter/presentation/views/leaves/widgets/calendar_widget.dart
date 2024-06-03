@@ -20,7 +20,7 @@ class CalendarWidget extends ConsumerStatefulWidget {
     super.key,
   });
 
-  final void Function(int day) onTapDay;
+  final void Function(LeaveModel leave) onTapDay;
   final Color highlightedDayColor;
   final Color textColor;
   final List<LeaveModel>? daysSelected;
@@ -109,9 +109,21 @@ class _CalendarWidgetState extends ConsumerState<CalendarWidget> {
     });
   }
 
-  bool isSameDate(String check, int day) {
+  int taggedDay(int day) {
+    return widget.daysSelected?.firstWhere((element) => isSameDate(day)).day ??
+        0;
+  }
+
+  bool isSameDate(int day) {
+    final check = widget.daysSelected
+        ?.firstWhere(
+          (element) => element.day == day,
+          orElse: () =>
+              LeaveModel(day: day, status: 'default', date: '2024-06-01'),
+        )
+        .date;
     final selectedDate = DateTime(yearNow, monthNow, day);
-    final checkDate = DateTime.parse(check);
+    final checkDate = DateTime.parse(check!);
     final sameYear = checkDate.year == selectedDate.year;
     final sameMonth = checkDate.month == selectedDate.month;
     final sameDay = checkDate.day == selectedDate.day;
@@ -126,7 +138,6 @@ class _CalendarWidgetState extends ConsumerState<CalendarWidget> {
     final sameYear = checkDate.year == selectedDate.year;
     final sameMonth = checkDate.month == selectedDate.month;
     final sameDay = checkDate.day == selectedDate.day;
-
     final sameDate = sameYear && sameMonth && sameDay;
     return sameDate;
   }
@@ -220,23 +231,28 @@ class _CalendarWidgetState extends ConsumerState<CalendarWidget> {
 
                   return InkWell(
                     borderRadius: BorderRadius.circular(60.r),
-                    onTap: () => widget.onTapDay(day),
-                    child: Container(
-                      width: 45.r,
-                      alignment: Alignment.center,
-                      child: CircleAvatar(
-                        backgroundColor: getDayColor(day),
-                        radius: 18.r,
-                        child: AppText(
-                          text: day.toString(),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color:
-                              widget.daysSelected?.any((e) => e.day == day) ??
-                                      true
-                                  ? R.colors.white_FFFFFF
-                                  : R.colors.black_FF000000,
-                        ),
+                    onTap: () => widget.onTapDay(
+                      LeaveModel(
+                        day: day,
+                        date:
+                            DateTime(yearNow, monthNow, day).toIso8601String(),
+                      ),
+                    ),
+                    child: CircleAvatar(
+                      backgroundColor: !isSameDate(day)
+                          ? R.colors.white_FFFFFF
+                          : getDayColor(day),
+                      radius: 18.r,
+                      child: AppText(
+                        text: day.toString(),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: isSameDate(day) &&
+                                (widget.daysSelected
+                                        ?.any((e) => e.day == day) ??
+                                    true)
+                            ? R.colors.white_FFFFFF
+                            : R.colors.black_FF000000,
                       ),
                     ),
                   );

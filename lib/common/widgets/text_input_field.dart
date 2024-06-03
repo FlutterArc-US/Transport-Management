@@ -14,6 +14,8 @@ class TextInputField extends StatelessWidget {
     this.autofocus,
     this.maxLines,
     this.minLines,
+    this.hintStyle,
+    this.enabled = true,
     super.key,
   });
 
@@ -28,6 +30,8 @@ class TextInputField extends StatelessWidget {
   final bool? autofocus;
   final int? minLines;
   final int? maxLines;
+  final TextStyle? hintStyle;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +48,8 @@ class TextInputField extends StatelessWidget {
       autofocus: autofocus ?? false,
       minLine: minLines ?? 1,
       maxLines: maxLines ?? 1,
+      hintStyle: hintStyle,
+      enabled: enabled,
     );
   }
 }
