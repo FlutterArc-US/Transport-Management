@@ -212,7 +212,7 @@ class _OTPVerificationViewState extends ConsumerState<OTPVerificationView> {
                         text: '$_secondsRemaining seconds',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          color: R.colors.navyBlue_263C51,
+                          color: R.colors.green_85C933,
                         ),
                       ),
                     ],

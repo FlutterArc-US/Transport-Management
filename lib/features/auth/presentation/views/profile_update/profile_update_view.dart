@@ -436,8 +436,9 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                           27.hb,
 
                           /// [Delete Account button]
-                          AppOutlinedTextButton(
+                          AppFilledButton(
                             text: context.appLocale.deleteAccount,
+                            color: R.colors.green_074834,
                             onTap: () {
                               showModalBottomSheet<void>(
                                 context: context,

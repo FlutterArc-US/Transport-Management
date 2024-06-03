@@ -5,25 +5,25 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CourseCardWidget extends StatelessWidget {
   const CourseCardWidget({super.key});
 
-  // _launchUrl() async {
-  //   const url =
-  //       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4';
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
+  Future<void> _launchUrl(String url) async {
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+        _launchUrl(
+            'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4');
       },
       child: Container(
         decoration: BoxDecoration(

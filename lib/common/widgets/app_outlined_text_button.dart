@@ -25,7 +25,7 @@ class AppOutlinedTextButton extends StatelessWidget {
         backgroundColor: WidgetStateProperty.all(R.colors.white_FFFFFF),
         side: WidgetStateProperty.all(
           BorderSide(
-            color: color ?? R.colors.navyBlue_263C51,
+            color: color ?? R.colors.black_FF000000,
           ),
         ),
         minimumSize: WidgetStateProperty.all(
@@ -44,7 +44,7 @@ class AppOutlinedTextButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          color: color ?? R.colors.navyBlue_263C51,
+          color: color ?? R.colors.black_FF000000,
           fontSize: 14.sp,
           fontWeight: FontWeight.w600,
         ),

@@ -14,8 +14,6 @@ class RoutePaths {
   static const String resetPassword = '/reset-password';
   static const String notifications = '/notifications';
   static const String rideDetails = '/ride-details';
-  static const String earnings = '/earnings';
-  static const String manageBank = '/manage-bank';
   static const String updateProfile = '/updateProfile';
   static const String changeRequest = '/changeRequest';
   static const String myLoads = '/my-loads';
@@ -23,7 +21,6 @@ class RoutePaths {
   static const String termsOfService = '/termsOfService';
   static const String faqsView = '/faqsView';
   static const String singleFaqView = '/singleFaqView';
-  static const String preTrip = '/preTrip';
   static const String submittedDocs = '/submitted-docs';
   static const String forYou = '/for-you';
   static const String tripPoint = '/trip-point';
