@@ -7,6 +7,7 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/custom_text_form_field.dart';
 import 'package:transport_management/gen/assets.gen.dart';
+import 'package:transport_management/util/date_input_formatter/date_input_formatter.dart';
 import 'package:transport_management/util/resources/r.dart';
 
 class DateInputField extends StatefulWidget {
@@ -34,8 +35,23 @@ class DateInputField extends StatefulWidget {
 class _DateInputFieldState extends State<DateInputField> {
   final dateInput = TextEditingController();
 
+  String calculateEndDateAsString(String initialDate, int duration) {
+    List<String> parts = initialDate.split('-');
+    int day = int.parse(parts[0]);
+    int month = int.parse(parts[1]);
+    int year = int.parse(parts[2]);
+
+    DateTime startDate = DateTime(year, month, day);
+
+    DateTime endDate = startDate.add(Duration(days: duration));
+
+    String formattedEndDate = '${endDate.day}-${endDate.month}-${endDate.year}';
+
+    return formattedEndDate;
+  }
+
   Future<void> selectDate(BuildContext context) async {
-    final DateTime? picked = await showModalBottomSheet<DateTime>(
+    await showModalBottomSheet<DateTime>(
       scrollControlDisabledMaxHeightRatio: 0.55,
       context: context,
       shape: RoundedRectangleBorder(
@@ -45,7 +61,6 @@ class _DateInputFieldState extends State<DateInputField> {
         ),
       ),
       builder: (BuildContext context) {
-        DateTime selectedDate = DateTime.now();
         return Column(
           children: [
             12.hb,
@@ -81,7 +96,6 @@ class _DateInputFieldState extends State<DateInputField> {
                   firstDate: DateTime(1990),
                   lastDate: DateTime(2070),
                   onDateChanged: (DateTime date) {
-                    selectedDate = date;
                     final formattedDate =
                         DateFormat(widget.dateFormat ?? 'dd-MM-yyyy')
                             .format(date);
@@ -115,6 +129,7 @@ class _DateInputFieldState extends State<DateInputField> {
       },
       controller: dateInput,
       keyboardType: TextInputType.name,
+      inputFormatters: [DateInputFormatter()],
       validator: widget.validator ??
           (v) {
             if (v?.isEmpty ?? false) {
@@ -123,24 +138,6 @@ class _DateInputFieldState extends State<DateInputField> {
             return null;
           },
       onChanged: (v) async {
-        final dateSelected = await showDatePicker(
-          context: context,
-          firstDate: DateTime(1990),
-          lastDate: DateTime(2070),
-          builder: (BuildContext context, Widget? child) {
-            return Theme(
-              data: ThemeData.light().copyWith(
-                primaryColor: Colors.green, // Header background color
-                colorScheme: ColorScheme.light(primary: Colors.green),
-                dialogBackgroundColor:
-                    Colors.white, // Background color of the dialog
-              ),
-              child: child!,
-            );
-          },
-        );
-        final formattedDate = DateFormat('dd-MM-yyyy').format(dateSelected!);
-        dateInput.text = formattedDate;
         widget.onChanged!(dateInput.text);
       },
     );
