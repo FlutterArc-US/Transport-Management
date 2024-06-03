@@ -1045,4 +1045,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get pounds => 'Pounds';
+
+  @override
+  String get selectDialCode => 'Select Dial Code';
 }

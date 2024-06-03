@@ -83,7 +83,7 @@ class _ProviderAppState extends State<ProviderApp> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          fontFamily: 'Poppins',
+          fontFamily: 'Urbanist',
           useMaterial3: false,
         ),
         localizationsDelegates: AppLocalizations.localizationsDelegates,

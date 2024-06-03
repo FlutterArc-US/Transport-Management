@@ -9,7 +9,9 @@ import 'package:transport_management/common/widgets/app_filled_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login/login_form_provider.dart';
+import 'package:transport_management/features/auth/presentation/providers/login/login_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/login_option_provider/login_option_provider.dart';
+import 'package:transport_management/features/auth/presentation/providers/show_error_message_provider/show_error_message_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/login/widgets/via_driving_license_form_widget.dart';
 import 'package:transport_management/features/auth/presentation/views/login/widgets/via_phone_number_form_widget.dart';
 import 'package:transport_management/features/auth/presentation/views/widgets/login_option_tab.dart';
@@ -35,6 +37,10 @@ class _LoginViewState extends ConsumerState<LoginView> {
     final loginOption = ref.read(loginOptionProvider);
     final loginForm = ref.read(loginFormProvider);
 
+    if (loginForm.phone == null || loginForm.phone!.isEmpty) {
+      ref.read(showErrorMessageProvider.notifier).state = true;
+    }
+
     if (_formKey.currentState!.validate()) {
       if (loginOption.isViaDriverLicense && loginForm.licenseImage == null) {
         showToast(msg: 'Please upload your driver license image');
@@ -42,7 +48,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
       }
       try {
         loading(context);
-        // await ref.read(loginProvider.future);
+        await ref.read(loginProvider.future);
         if (!mounted) return;
 
         GoRouter.of(context).push(RoutePaths.enterPin);
@@ -130,7 +136,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                 bottom: 0.h,
                 child: Container(
                   width: 1.sw,
-                  height: 502.h,
+                  height: 516.h,
                   decoration: BoxDecoration(
                     color: R.colors.white_FFFFFF,
                     borderRadius: BorderRadius.only(
@@ -151,14 +157,14 @@ class _LoginViewState extends ConsumerState<LoginView> {
                               width: 62.w,
                               height: 5.h,
                               decoration: BoxDecoration(
-                                color: R.colors.green_85C933,
+                                color: R.colors.green_337A34,
                                 borderRadius: BorderRadius.circular(12.r),
                               ),
                             ),
-                            50.hb,
+                            48.hb,
                             AppText(
                               text: context.appLocale.login,
-                              fontSize: 24,
+                              fontSize: 25,
                               fontWeight: FontWeight.w600,
                               color: R.colors.black_FF000000,
                             ),

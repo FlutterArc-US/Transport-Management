@@ -11,7 +11,6 @@ import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/popups/upload_image_popup.dart';
 import 'package:transport_management/common/widgets/app_bottom_sheet_popup.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
-import 'package:transport_management/common/widgets/app_outlined_text_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/common/widgets/email_input_field.dart';
@@ -23,7 +22,6 @@ import 'package:transport_management/features/auth/domain/models/driver/driver_m
 import 'package:transport_management/features/auth/presentation/providers/driver_provider/driver_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/initiate_verification_provider/initiate_verification_provider.dart';
 import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_form_provider.dart';
-import 'package:transport_management/features/auth/presentation/providers/update_profile_provider/update_profile_provider.dart';
 import 'package:transport_management/features/auth/presentation/views/profile_update/popups/delete_account_popup.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/exceptions/message_exception.dart';
@@ -436,8 +434,9 @@ class _ProfileUpdateViewState extends ConsumerState<ProfileUpdateView> {
                           27.hb,
 
                           /// [Delete Account button]
-                          AppOutlinedTextButton(
+                          AppFilledButton(
                             text: context.appLocale.deleteAccount,
+                            color: R.colors.green_074834,
                             onTap: () {
                               showModalBottomSheet<void>(
                                 context: context,

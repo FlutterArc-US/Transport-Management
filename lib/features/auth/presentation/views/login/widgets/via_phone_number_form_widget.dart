@@ -83,7 +83,7 @@ class _ViaPhoneNumberFormWidgetState
           labelText: context.appLocale.password,
           hintText: context.appLocale.password,
         ),
-        16.hb,
+        10.hb,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

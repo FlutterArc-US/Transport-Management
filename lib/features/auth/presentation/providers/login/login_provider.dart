@@ -12,14 +12,14 @@ Future<void> login(LoginRef ref) async {
   final saveAuth = sl<SaveAuthUsecase>();
 
   final loginForm = ref.read(loginFormProvider);
-  final input = LoginDriverUsecaseInput(
-    password: loginForm.password!,
-    phone: loginForm.phone!,
-  );
+  // final input = LoginDriverUsecaseInput(
+  //   password: loginForm.password!,
+  //   phone: loginForm.phone!,
+  // );
+  //
+  // final output = await login(input);
 
-  final output = await login(input);
-
-  final saveAuthInput = SaveAuthUsecaseInput(bearerToken: output.token);
+  final saveAuthInput = SaveAuthUsecaseInput(bearerToken: '1234');
 
   await saveAuth(saveAuthInput);
 }

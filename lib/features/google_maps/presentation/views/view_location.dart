@@ -6,26 +6,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:transport_management/common/widgets/back_button_widget.dart';
 import 'package:transport_management/features/google_maps/domain/models/lat_lng/lat_lng_model.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/consts/google_map_api_key.dart';
 import 'package:transport_management/util/resources/r.dart';
 
-class RouteMapWidget extends StatefulWidget {
+class ViewLocation extends ConsumerStatefulWidget {
   final List<LatLngModel> points;
 
-  const RouteMapWidget({
+  const ViewLocation({
     required this.points,
     Key? key,
   }) : super(key: key);
 
   @override
-  State createState() => _RouteMapWidgetState();
+  ConsumerState<ViewLocation> createState() => _ViewLocationState();
 }
 
-class _RouteMapWidgetState extends State<RouteMapWidget> {
+class _ViewLocationState extends ConsumerState<ViewLocation> {
   List<Marker> markers = [];
   PolylinePoints polylinePoints = PolylinePoints();
   Map<PolylineId, Polyline> polylines = {};
@@ -213,37 +215,43 @@ class _RouteMapWidgetState extends State<RouteMapWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        GoogleMap(
-          mapToolbarEnabled: false,
-          onMapCreated: onMapCreated,
-          polylines: Set<Polyline>.of(polylines.values),
-          initialCameraPosition: CameraPosition(
-            target: LatLng(widget.points.first.lat, widget.points.first.lng),
-            zoom: 2,
+    return Scaffold(
+      body: Stack(
+        children: [
+          GoogleMap(
+            mapToolbarEnabled: false,
+            onMapCreated: onMapCreated,
+            initialCameraPosition: CameraPosition(
+              target: LatLng(widget.points.first.lat, widget.points.first.lng),
+              zoom: 15,
+            ),
+            markers: markers.toSet(),
+            polylines: Set<Polyline>.of(polylines.values),
           ),
-          markers: markers.toSet(),
-        ),
-        Positioned(
-          top: 10.h,
-          right: 10.w,
-          child: Column(
-            children: [
-              SizedBox(
-                height: 42.r,
-                width: 42.r,
-                child: FloatingActionButton(
-                  onPressed: fitMarkersIntoView,
-                  materialTapTargetSize: MaterialTapTargetSize.padded,
-                  backgroundColor: R.colors.green_337A34,
-                  child: Icon(Icons.refresh, size: 24.r),
+          Positioned(
+            top: 42.h,
+            right: 10.w,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 42.r,
+                  width: 42.r,
+                  child: FloatingActionButton(
+                    onPressed: fitMarkersIntoView,
+                    materialTapTargetSize: MaterialTapTargetSize.padded,
+                    backgroundColor: R.colors.green_337A34,
+                    child: Icon(Icons.refresh, size: 24.r),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+          Positioned(
+            top: 42.h,
+            child: const BackButtonWidget(),
+          ),
+        ],
+      ),
     );
   }
 }

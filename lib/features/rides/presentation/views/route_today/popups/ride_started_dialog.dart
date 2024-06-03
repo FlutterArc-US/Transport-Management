@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:transport_management/common/extensions/app_localization.dart';
 import 'package:transport_management/common/extensions/num.dart';
 import 'package:transport_management/common/widgets/app_filled_button.dart';
-import 'package:transport_management/common/widgets/app_outlined_text_button.dart';
 import 'package:transport_management/common/widgets/app_text.dart';
 import 'package:transport_management/gen/assets.gen.dart';
 import 'package:transport_management/util/resources/r.dart';
@@ -56,21 +55,9 @@ class RideStartedDialog extends ConsumerWidget {
             ),
           ),
           const Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              AppOutlinedTextButton(
-                width: 149,
-                color: R.colors.blue_20B4E3,
-                text: context.appLocale.no,
-                onTap: () {},
-              ),
-              AppFilledButton(
-                width: 149,
-                text: context.appLocale.viewReloads,
-                onTap: () {},
-              ),
-            ],
+          AppFilledButton(
+            text: context.appLocale.thanks,
+            onTap: () => GoRouter.of(context).pop(),
           ),
           29.hb,
         ],

@@ -63,7 +63,7 @@ class _LoginOptionTabState extends ConsumerState<LoginOptionTab> {
                             ? FontWeight.w600
                             : FontWeight.w400,
                         color: loginOption == option
-                            ? R.colors.navyBlue_263C51
+                            ? R.colors.green_074834
                             : R.colors.grey_767680,
                       ),
                     ),

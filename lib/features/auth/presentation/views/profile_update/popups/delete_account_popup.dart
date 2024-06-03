@@ -60,23 +60,24 @@ class _DeleteAccountPopupState extends ConsumerState<DeleteAccountPopup> {
             ),
           ),
           8.hb,
-          Assets.svgs.deleteAccount.svg(
-            width: 156.w,
-            height: 156.h,
+          Icon(
+            Icons.delete_forever_rounded,
+            size: 140.w,
+            color: R.colors.green_85C933,
           ),
           40.hb,
           AppText(
             text: context.appLocale.deleteAccountQuestion,
             fontWeight: FontWeight.w700,
             fontSize: 24,
-            color: R.colors.navyBlue_263C51,
+            color: R.colors.black_FF000000,
           ),
           13.hb,
           AppText(
             text: context.appLocale
                 .thisActionCantUndoneYourAccountWillBePermanentlyDeleted,
             fontSize: 14,
-            color: R.colors.navyBlue_263C51,
+            color: R.colors.green_074834,
             textAlign: TextAlign.center,
           ),
           const Spacer(),

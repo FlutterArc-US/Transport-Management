@@ -11,7 +11,6 @@ import 'package:transport_management/features/rides/presentation/providers/selec
 import 'package:transport_management/features/rides/presentation/views/rides/widgets/ride_card_widget.dart';
 import 'package:transport_management/features/rides/presentation/views/route_today/popups/ride_confirmation_dialog.dart';
 import 'package:transport_management/features/rides/presentation/views/route_today/widgets/tab_bar_widget.dart';
-import 'package:transport_management/util/resources/r.dart';
 
 class RouteTodayView extends ConsumerWidget {
   const RouteTodayView({super.key});

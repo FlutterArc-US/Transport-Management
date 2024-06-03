@@ -134,7 +134,7 @@ class _ReportFaultExpenseViewState
                                   onTap: () {
                                     showModalBottomSheet<void>(
                                       context: context,
-                                      scrollControlDisabledMaxHeightRatio: 0.65,
+                                      isScrollControlled: true,
                                       showDragHandle: true,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
@@ -165,7 +165,9 @@ class _ReportFaultExpenseViewState
                                         AppText(
                                           text: reportMatterForm.type ??
                                               context.appLocale.selectType,
-                                          color: R.colors.grey_AEAEAE,
+                                          color: reportMatterForm.type != null
+                                              ? R.colors.black_FF000000
+                                              : R.colors.grey_AEAEAE,
                                           fontSize: 14.sp,
                                         ),
                                         Icon(

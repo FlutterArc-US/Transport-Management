@@ -395,7 +395,8 @@
   "kilometers": "Kilometers",
   "miles": "Miles",
   "kilograms": "Kilograms",
-  "pounds": "Pounds"
+  "pounds": "Pounds",
+  "selectDialCode": "Select Dial Code"
 
 
 }
