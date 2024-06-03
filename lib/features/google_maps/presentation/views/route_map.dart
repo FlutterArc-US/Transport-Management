@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -40,22 +43,29 @@ class _RouteMapWidgetState extends State<RouteMapWidget> {
   }
 
   Future<void> loadCustomMarkers() async {
-    midMarker = await BitmapDescriptor.fromAssetImage(
-      const ImageConfiguration(),
-      Assets.pngs.midPointIcon.path,
+    midMarker = BitmapDescriptor.fromBytes(
+      await getMarker(52, Assets.pngs.midPointIcon.path),
     );
 
-    firstPointMarker = await BitmapDescriptor.fromAssetImage(
-      const ImageConfiguration(),
-      Assets.pngs.pickupIcon.path,
+    firstPointMarker = BitmapDescriptor.fromBytes(
+      await getMarker(52, Assets.pngs.pickupIcon.path),
     );
 
-    lastPointMarker = await BitmapDescriptor.fromAssetImage(
-      const ImageConfiguration(),
-      Assets.pngs.deliveryIcon.path,
+    lastPointMarker = BitmapDescriptor.fromBytes(
+      await getMarker(52, Assets.pngs.deliveryIcon.path),
     );
 
     initMarkersAndRoute();
+  }
+
+  Future<Uint8List> getMarker(int width, String imagePath) async {
+    ByteData data = await rootBundle.load(imagePath);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetWidth: width);
+    ui.FrameInfo fi = await codec.getNextFrame();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+        .buffer
+        .asUint8List();
   }
 
   void addStraightLine(List<Marker> markers) {
@@ -211,7 +221,7 @@ class _RouteMapWidgetState extends State<RouteMapWidget> {
           polylines: Set<Polyline>.of(polylines.values),
           initialCameraPosition: CameraPosition(
             target: LatLng(widget.points.first.lat, widget.points.first.lng),
-            zoom: 10,
+            zoom: 2,
           ),
           markers: markers.toSet(),
         ),
