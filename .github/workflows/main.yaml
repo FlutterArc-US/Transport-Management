@@ -3,7 +3,7 @@ name: Flutter_Tests
 on:
   push:
     branches:
-      - fix/3-6
+      - main
 
 jobs:
   tests:
